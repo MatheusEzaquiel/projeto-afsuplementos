@@ -33,15 +33,6 @@ CREATE TABLE `tb_admin` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_admin`
---
-
-LOCK TABLES `tb_admin` WRITE;
-/*!40000 ALTER TABLE `tb_admin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_admin` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tb_carrinho`
 --
 
@@ -62,15 +53,6 @@ CREATE TABLE `tb_carrinho` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_carrinho`
---
-
-LOCK TABLES `tb_carrinho` WRITE;
-/*!40000 ALTER TABLE `tb_carrinho` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_carrinho` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tb_cliente`
 --
 
@@ -83,19 +65,12 @@ CREATE TABLE `tb_cliente` (
   `email_cliente` varchar(150) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `senha_cliente` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `foto_cliente` varchar(150) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `cidade_cliente` varchar(60) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `endereco_cliente` varchar(100) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `telefone_cliente` varchar(16) COLLATE utf8mb3_unicode_ci NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tb_cliente`
---
-
-LOCK TABLES `tb_cliente` WRITE;
-/*!40000 ALTER TABLE `tb_cliente` DISABLE KEYS */;
-INSERT INTO `tb_cliente` VALUES (1,'Lulian Costa','luliancs@gmail.com','123','foto-lulian.jpg'),(2,'Renata Cristina','rntcris@gmail.com','000','foto-renata-cristina.jpg'),(3,'Thainá Moreira','thainá_moreira@outlook.com','0123456789','foto-thiana-moreira.jpg');
-/*!40000 ALTER TABLE `tb_cliente` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tb_produto`
@@ -117,18 +92,8 @@ CREATE TABLE `tb_produto` (
   `foto_produto` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `promocao_produto` int DEFAULT NULL,
   PRIMARY KEY (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tb_produto`
---
-
-LOCK TABLES `tb_produto` WRITE;
-/*!40000 ALTER TABLE `tb_produto` DISABLE KEYS */;
-INSERT INTO `tb_produto` VALUES (1,'pó','Waxy Whey','Whey Protein 100%','2kg','sabor chocolate',80.00,105.00,15,'foto-whey.jpg',0),(2,'pó','Max Titanium','Creatina','350g','Creatina sabor baunilha',75.00,125.00,20,'foto-creatina-baunilha-350g',0);
-/*!40000 ALTER TABLE `tb_produto` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tb_promocao`
@@ -147,15 +112,6 @@ CREATE TABLE `tb_promocao` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_promocao`
---
-
-LOCK TABLES `tb_promocao` WRITE;
-/*!40000 ALTER TABLE `tb_promocao` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_promocao` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Dumping events for database 'af_suplementos'
 --
 
@@ -172,4 +128,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-30 13:42:20
+-- Dump completed on 2022-09-03  9:44:44
