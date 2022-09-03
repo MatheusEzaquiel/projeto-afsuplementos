@@ -25,7 +25,7 @@
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Adicione um novo produto</span></h5>
                     
                     <div class="bg-light p-30 mb-5">
-                    <form action="" method="post">
+                    <form action="" method="post" enctype="multipart/form-data">
                         <div class="row">
                     
                             <div class="col-md-6 form-group">
@@ -100,40 +100,62 @@
                             $precoCompraProdt = $_POST["preco-compra-produto"];
                             $precoVendaProdt = $_POST["preco-venda-produto"];
                             $qtdProdt = $_POST["qtd-produto"];
-                            $fotoProdt = "foto-teste";//$_POST["foto-produto"];
 
-                            $cadastroProdt = "INSERT INTO tb_produto(tipo_produto,marca_produto,nome_produto,tamanho_produto,descricao_produto,preco_compra_produto,preco_venda_produto,quantidade_produto,foto_produto) VALUES(:tipoProdt,:marcaProdt,:nomeProdt,:tamanhoProdt,:descricaoProdt,:precoCompProdt,:precoVenProdt,:qtdProdt,:fotoProdt)";
+                            //Cadastro da imagem do Produto
+                            $extensaoImg = pathinfo($_FILES['foto-produto']['name'], PATHINFO_EXTENSION); //Remove a extensão da img
+                            $tipoExtensao = array("jpg","jpeg","JPEG","png","gif");
                             
-                            try{
-                                $resultCadProdt = $conect->prepare($cadastroProdt);
-                                $resultCadProdt->bindParam(":tipoProdt",$tipoProdt,PDO::PARAM_STR);
-                                $resultCadProdt->bindParam(":marcaProdt",$marcaProdt,PDO::PARAM_STR);
-                                $resultCadProdt->bindParam(":nomeProdt",$nomeProdt,PDO::PARAM_STR);
-                                $resultCadProdt->bindParam(":tamanhoProdt",$tamanhoProdt,PDO::PARAM_STR);
-                                $resultCadProdt->bindParam(":descricaoProdt",$descricaoProdt,PDO::PARAM_STR);
-                                $resultCadProdt->bindParam(":precoCompProdt",$precoCompraProdt,PDO::PARAM_STR);
-                                $resultCadProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
-                                $resultCadProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
-                                $resultCadProdt->bindParam(":fotoProdt",$fotoProdt,PDO::PARAM_STR);
 
-                                $resultCadProdt->execute();
-                                $contCadProdt = $resultCadProdt->rowCount();
-                                if($contCadProdt > 0){
-                                    echo "<div class='alert alert-success' role='alert'>
-                                            Produto Cadastrado com sucesso!
-                                        </div>";
-                                    
-                                    echo "<script>
-                                            setTimeout(function() {
-                                                window.location.replace('http://localhost/af-suplementos/estoque/pages/cadastro-produtos.php');
-                                            }, 2000)
-                                        </script>";
-                                    
-                                        
+                            if(in_array($extensaoImg, $tipoExtensao)){
+                                $pasta = "../../imgs/produtos/";
+                                $temporarioImg = $_FILES['foto-produto']['tmp_name'];
+                                $novoNomeImg =  uniqid().".$extensaoImg";
+
+                                if(move_uploaded_file($temporarioImg, $pasta.$novoNomeImg)){
+
+                                    $cadastroProdt = "INSERT INTO tb_produto(tipo_produto,marca_produto,nome_produto,tamanho_produto,descricao_produto,preco_compra_produto,preco_venda_produto,quantidade_produto,foto_produto) VALUES(:tipoProdt,:marcaProdt,:nomeProdt,:tamanhoProdt,:descricaoProdt,:precoCompProdt,:precoVenProdt,:qtdProdt,:fotoProdt)";
+                            
+                                    try{
+                                        $resultCadProdt = $conect->prepare($cadastroProdt);
+                                        $resultCadProdt->bindParam(":tipoProdt",$tipoProdt,PDO::PARAM_STR);
+                                        $resultCadProdt->bindParam(":marcaProdt",$marcaProdt,PDO::PARAM_STR);
+                                        $resultCadProdt->bindParam(":nomeProdt",$nomeProdt,PDO::PARAM_STR);
+                                        $resultCadProdt->bindParam(":tamanhoProdt",$tamanhoProdt,PDO::PARAM_STR);
+                                        $resultCadProdt->bindParam(":descricaoProdt",$descricaoProdt,PDO::PARAM_STR);
+                                        $resultCadProdt->bindParam(":precoCompProdt",$precoCompraProdt,PDO::PARAM_STR);
+                                        $resultCadProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
+                                        $resultCadProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
+                                        $resultCadProdt->bindParam(":fotoProdt",$novoNomeImg,PDO::PARAM_STR);
+                                        $resultCadProdt->execute();
+
+                                        $contCadProdt = $resultCadProdt->rowCount();
+                                        if($contCadProdt > 0){
+                                            echo "<div class='alert alert-success' role='alert'>
+                                                    Produto Cadastrado com sucesso!
+                                                </div>";
+                                            
+                                            echo "<script>
+                                                    setTimeout(function() {
+                                                        window.location.replace('http://localhost/af-suplementos/estoque/pages/cadastro-produtos.php');
+                                                    }, 2000)
+                                                </script>";         
+                                        }
+
+                                    }catch(PDOException $erro){
+                                        echo "ERRO DE PDO (CADASTRO)".$erro->getMessage();
+                                    }
+
+                                }else{
+                                    echo "Erro! Não foi possível fazer o upload da imagem";
                                 }
-                            }catch(PDOException $erro){
-                                echo "ERRO DE PDO (CADASTRO)".$erro->getMessage();
+
+                            }else{
+                                echo "Formato de imagem não inválido! tente outra imagem";
                             }
+
+
+
+                            
                                 
                         }
                         
