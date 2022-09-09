@@ -4,7 +4,7 @@ try {
     DEFINE('HOST','localhost');
     DEFINE('DB','af_suplementos'); 
     DEFINE('USER','root');
-    DEFINE('PASSWORD','mmmm');
+    DEFINE('PASSWORD','thaina');
   
     $conect = new PDO ('mysql:host='.HOST.';dbname='.DB,USER,PASSWORD);
     $conect -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

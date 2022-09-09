@@ -1,3 +1,17 @@
+<?php
+
+
+
+    // A sessão precisa ser iniciada em cada página diferente
+    if (!isset($_SESSION)) session_start();
+    // Verifica se não há a variável da sessão que identifica o usuário
+    if (!isset($_SESSION['UsuarioID'])) {
+      // Destrói a sessão por segurança
+      session_destroy();
+      // Redireciona o visitante de volta pro login
+      header("Location: login-cliente.php"); exit;
+  }
+  ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,6 +44,7 @@
 </head>
 
 <body>
+<p>Olá, <?php echo $_SESSION['UsuarioNome']; ?>!</p>
     <!-- Topbar Start -->
     <div class="container-fluid">
         <div class="row bg-secondary py-1 px-xl-5">
@@ -148,19 +163,19 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link active" style="color: #F9F6F6;">Home</a>
-                            <a href="shop.html" class="nav-item nav-link" style="color: #F9F6F6;">Catálogo</a>
+                            <a href="index.php" class="nav-item nav-link active" style="color: #F9F6F6;">Home</a>
+                            <a href="shop.php" class="nav-item nav-link" style="color: #F9F6F6;">Catálogo</a>
                             
-                            <a href="promocao.html" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
-                            <a href="detail.html" class="nav-item nav-link" style="color: #F9F6F6;">Shop Detail</a>
+                            <a href="promocao.php" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
+                            <a href="detail.php" class="nav-item nav-link" style="color: #F9F6F6;">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #F9F6F6;">Pages </a>
                                 <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
-                                    <a href="cart.html" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item" style="color: #F9F6F6;">Checkout</a>
+                                    <a href="cart.php" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
+                                    <a href="checkout.php" class="dropdown-item" style="color: #F9F6F6;">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link" style="color: #F9F6F6;">Contact</a>
+                            <a href="contact.php" class="nav-item nav-link" style="color: #F9F6F6;">Contact</a>
                             <a href="cliente.php" class="nav-item nav-link" style="color: #F9F6F6;">Cliente</a>
                             
                         </div>

@@ -180,8 +180,8 @@
                                 </div>';
                                 echo "<script>
                                             setTimeout(function() {
-                                                window.location.replace('http://localhost/af-suplementos/login-cliente.php');
-                                            }, 2000)
+                                                window.location.replace('http://localhost/af-suplementos/index.php');
+                                            }, 1000)
                                         </script>";
                         }else{
                           echo '<div class="container">
@@ -193,8 +193,8 @@
                                 </div>';
                                 echo "<script>
                                             setTimeout(function() {
-                                                window.location.replace('http://localhost/af-suplementos/login-cliente.php');
-                                            }, 2000)
+                                                window.location.replace('http://localhost/af-suplementos/cadastro-cliente.php');
+                                            }, 1000)
                                         </script>";
                         }
                       }catch(PDOException $erro){
@@ -208,7 +208,11 @@
                                 Confira novamente seu cadastro
                             </div>
                         </div>';
-                            header("Location:/cadastro-cliente.php");
+                        echo "<script>
+                        setTimeout(function() {
+                            window.location.replace('http://localhost/af-suplementos/cadastro-cliente.php');
+                        }, 1000)
+                    </script>";
                           }
 
                       }else{
@@ -219,7 +223,11 @@
                                     Formato inválido
                                 </div>
                             </div>';
-                            header("Location:/cadastro-cliente.php");
+                            echo "<script>
+                                            setTimeout(function() {
+                                                window.location.replace('http://localhost/af-suplementos/cadastro-cliente.php');
+                                            }, 1000)
+                                        </script>";
                       } 
                   }
               ?>

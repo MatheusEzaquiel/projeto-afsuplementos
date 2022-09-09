@@ -145,19 +145,19 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link" style="color: #F9F6F6;">Home</a>
-                            <a href="shop.html" class="nav-item nav-link active" id="ativo" style="color: #F9F6F6;">Catálogo</a>
-                            <a href="promocao.html" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
-                            <a href="detail.html" class="nav-item nav-link" style="color: #F9F6F6;" >Shop Detail</a>
+                            <a href="index.php" class="nav-item nav-link" style="color: #F9F6F6;">Home</a>
+                            <a href="shop.php" class="nav-item nav-link active" id="ativo" style="color: #F9F6F6;">Catálogo</a>
+                            <a href="promocao.php" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
+                            <a href="detail.php" class="nav-item nav-link" style="color: #F9F6F6;" >Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.html" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item" style="color: #F9F6F6;">Checkout</a>
+                                    <a href="cart.php" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
+                                    <a href="checkout.php" class="dropdown-item" style="color: #F9F6F6;">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contato</a>
-                            <a href="cliente.html" class="nav-item nav-link" style="color: #F9F6F6;">Cliente</a>
+                            <a href="contact.php" class="nav-item nav-link">Contato</a>
+                            <a href="cliente.php" class="nav-item nav-link" style="color: #F9F6F6;">Cliente</a>
                             
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">

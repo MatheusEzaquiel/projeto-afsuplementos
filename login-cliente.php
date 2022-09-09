@@ -1,3 +1,14 @@
+<?php
+ob_start();
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['senha'])){
+    header("Location:/af-suplementos/index.php");
+    exit;
+}else{
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt_br">
 
@@ -54,10 +65,10 @@
         <div class="row px-xl-5">
            
             <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+                <nav class="navbar navbar-expand-lg navbar-dark py-3 py-lg-0 px-0" style="background-color:#000000;">
                     <a href="" class="text-decoration-none d-block d-lg-none">
-                        <span class="h1 text-uppercase text-dark bg-light px-2">AF</span>
-                        <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Suplementos</span>
+                        <span class="h1 text-uppercase px-2" style="background-color:#000000;color:3DF0805;">AF</span>
+                        <span class="h1 text-uppercase px-2 ml-n1" style="background-color:#DF0805;color:#000000;">Suplementos</span>
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
@@ -87,27 +98,65 @@
                 <div class="bg-light p-30 mb-5">
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <img src="../img/avatar-man-1.png" width="100px" style="margin-left: 40%;">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>E-mail</label>
-                            <input class="form-control" type="text" placeholder="exemplo@email.com">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Senha</label>
-                            <input class="form-control" type="password" placeholder="senha">
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="newaccount">
-                                <label class="custom-control-label" for="newaccount">Lembre-se de mim</label>
+                            <form action="" method="post">
+                                    <img src="/img/cat-1.jpg" width="100px" style="margin-left: 50%;">
+                                <div class="col-md-6 form-group input-group">
+                                    <label>E-mail</label> 
+                                    <input name="email" class="form-control" type="email" placeholder="exemplo@email.com">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-envelope"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group input-group">
+                                    <label>Senha</label>
+                                <input name="senha" class="form-control" type="password" placeholder="Inserir senha">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="newaccount">
+                                    <label class="custom-control-label" for="newaccount">Lembre-se de mim</label> 
+                                </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <button name="btnLogin" type="submit" class="btn btn-block font-weight-bold py-3" style="margin-left: 9rem;background-color:#DF0805;color:#f9f6f6;">Entrar</button>
+                                </div>
+                            </form>
+                            <?php
+                            include_once('config/conexao.php');
+                            if(isset($_POST['btnLogin'])){
+                                // Verifica se houve POST e se o usuário ou a senha é(são) vazio(s)
+                                if (!empty($_POST) AND (empty($_POST['email']) OR empty($_POST['senha']))) {
+                                    echo "<script>
+                                    setTimeout(function() {
+                                        window.location.replace('http://localhost/af-suplementos/login-cliente.php');
+                                    }, 1000)
+                                </script>"; exit;   
+                                }
+
+                                $email = $_POST['email'];
+                                $senha = $_POST['senha'];
                                 
-                            </div>
+                                // Validação do usuário/senha digitados
+                                $sql = "SELECT `id_cliente`, `nome_cliente`, `nivel_cliente` FROM `tb_cliente` WHERE (`email_cliente` = '".$email ."') AND (`senha_cliente` = '". base64_encode($senha) ."') AND (`ativo_cliente` = 1) LIMIT 1";
+                                $query = mysql_query($sql);
+                                if (mysql_num_rows($query) != 1) {
+                                    // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
+                                    echo "Login inválido!"; exit;
+                                } else {
+                                    // Salva os dados encontados na variável $resultado
+                                    $resultado = mysql_fetch_assoc($query);
+                                }
+                                }
+                            ?> 
+
                         </div>
-                        <div class="col-md-6 form-group">
-                            <button class="btn btn-block btn-primary font-weight-bold py-3" style="margin-left: 9rem;">Entrar</button>
-                            </div>
-                        
                     </div>
                 </div>
             </div>
