@@ -15,14 +15,10 @@
     <div class="container-fluid">
         <div class="row px-xl-5">
             <!--Formulário de Login-->
-            <div class="col-lg-3">
-                <!--Coluna direita-->
-            </div>
-            
 
-            
-            <div class="col-lg-6">
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Adicione um novo produto</span></h5>
+            <!--Coluna esquerda-->
+            <div class="col-lg-8">
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Edição</span></h5>
                     
                     <div class="bg-light p-30 mb-5">
                     <form action="" method="post" enctype="multipart/form-data">
@@ -39,7 +35,7 @@
                             <div class="col-md-6 form-group">
                                 <label>Tipo</label>
                                 <select class="custom-select" name="tipo-produto">
-                                    <option value="po" selected>em pó</option>
+                                <option value="po" selected>em pó</option>
                                     <option value="bebida">bebida</option>
                                     <option value="grao">grão</option>
                                     <option value="pilula">pílula</option>
@@ -165,8 +161,75 @@
                 </div>
             </div>
             <!-- FIM - Formulário de Login-->
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <!--Coluna direita-->
+                <?php   
+
+                        include_once("../../config/conexao.php");
+
+                        $idProduto = $_GET["idProduto"];
+                        
+                        $selectProduto = "SELECT * FROM tb_produto WHERE id_produto = :idProdt";
+                        
+                        try {
+                            $resultSelProduto = $conect->prepare($selectProduto);
+                            $resultSelProduto->bindParam(":idProdt",$idProduto,PDO::PARAM_INT);
+                            $resultSelProduto->execute();
+                            $contSelProduto = $resultSelProduto->rowCount();
+
+                            if($contSelProduto > 0){
+                                while($showProduto = $resultSelProduto->FETCH(PDO::FETCH_OBJ)){
+                                    $showProduto->id_produto;
+                                    $showProduto->tipo_produto;
+                                    $showProduto->marca_produto;
+                                    $showProduto->nome_produto;
+                                    $showProduto->tamanho_produto;
+                                    $showProduto->descricao_produto;
+                                    $showProduto->preco_compra_produto;
+                                    $showProduto->preco_venda_produto;
+                                    $showProduto->quantidade_produto;
+                                    $showProduto->foto_produto;
+                                    $showProduto->promocao_produto;
+                                   
+                                }//Fim while
+                            }else{
+                                echo "ERRO!!";
+                            }
+                        } catch (PDOException $erro) {
+                            echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
+                        }
+                        
+                ?>
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Produto</span></h5>
+                    
+                    <div class="bg-light p-30 mb-5">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <img src="../../imgs/produtos/6313609148fcb.jpg" alt="imagem do produto" width="80%">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <labe><p style="text-align:center;">Whey Protein Nux 2kg</p></label>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <labe><p style="text-align:center;">Evolution</p></label>
+                            </div>
+                            
+                            <div class= "col-md-6 form-group">
+                                <label>R$ 60,00</label> 
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>R$ 90,00</label> 
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>nome:<?php echo $showProduto->nome_produto;?></label> 
+                            </div>
+
+                            
+                        </div>
+                    </form>
+                
+                </div>
             </div>
         </div>
     </div>
