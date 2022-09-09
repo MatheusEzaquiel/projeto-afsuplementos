@@ -1,15 +1,4 @@
-<?php
-/*
-ob_start();
-session_start();
-if(isset($_SESSION['email']) && isset($_SESSION['senha'])){
-    header("Location:/af-suplementos/index.php");
-    exit;
-}else{
 
-}
-*/
-?>
 <!DOCTYPE html>
 <html lang="pt_br">
 
@@ -99,7 +88,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['senha'])){
                 <div class="bg-light p-30 mb-5">
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <form action="" method="post">
+                            <form action="mail/login.php" method="post">
                                     <img src="/img/cat-1.jpg" width="100px" style="margin-left: 50%;">
                                 <div class="col-md-6 form-group input-group">
                                     <label>E-mail</label> 
@@ -129,34 +118,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['senha'])){
                                     <button name="btnLogin" type="submit" class="btn btn-block font-weight-bold py-3" style="margin-left: 9rem;background-color:#DF0805;color:#f9f6f6;">Entrar</button>
                                 </div>
                             </form>
-                            <?php
-                            include_once('config/conexao.php');
-                            if(isset($_POST['btnLogin'])){
-                                // Verifica se houve POST e se o usuário ou a senha é(são) vazio(s)
-                                if (!empty($_POST) AND (empty($_POST['email']) OR empty($_POST['senha']))) {
-                                    echo "<script>
-                                    setTimeout(function() {
-                                        window.location.replace('http://localhost/af-suplementos/login-cliente.php');
-                                    }, 1000)
-                                </script>"; exit;   
-                                }
-
-                                $email = $_POST['email'];
-                                $senha = $_POST['senha'];
-                                
-                                // Validação do usuário/senha digitados
-                                $sql = "SELECT `id_cliente`, `nome_cliente`, `nivel_cliente` FROM `tb_cliente` WHERE (`email_cliente` = '".$email ."') AND (`senha_cliente` = '". base64_encode($senha) ."') AND (`ativo_cliente` = 1) LIMIT 1";
-                                $query = mysql_query($sql);
-                                if (mysql_num_rows($query) != 1) {
-                                    // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
-                                    echo "Login inválido!"; exit;
-                                } else {
-                                    // Salva os dados encontados na variável $resultado
-                                    $resultado = mysql_fetch_assoc($query);
-                                }
-                                }
-                            ?> 
-
+                            
                         </div>
                     </div>
                 </div>
