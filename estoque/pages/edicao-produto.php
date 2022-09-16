@@ -10,160 +10,7 @@
     
     <!-- Breadcrumb End -->
 
-
-    <!-- Checkout Start -->
-    <div class="container-fluid">
-        <div class="row px-xl-5">
-            <!--Formulário de Login-->
-
-            <!--Coluna esquerda-->
-            <div class="col-lg-8">
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Edição</span></h5>
-                    
-                    <div class="bg-light p-30 mb-5">
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <div class="row">
-                    
-                            <div class="col-md-6 form-group">
-                                <label>Nome</label>
-                                <input class="form-control" type="text" placeholder="Nome do produto" name="nome-produto">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Marca</label>
-                                <input class="form-control" type="text" placeholder="Marca do produto" name="marca-produto">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Tipo</label>
-                                <select class="custom-select" name="tipo-produto">
-                                <option value="po" selected>em pó</option>
-                                    <option value="bebida">bebida</option>
-                                    <option value="grao">grão</option>
-                                    <option value="pilula">pílula</option>
-                                    <option value="pilula">barra</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Tamanho</label>
-                                <input class="form-control" type="text" placeholder="1000 Kg/L" name="tamanho-produto">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <label>Descricão</label>
-                                <textarea class="form-control" type="text" placeholder="Características do produto" name="descricao-produto"> </textarea>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Preço de compra</label>
-                                <input class="form-control" type="number" placeholder="R$ 0,00" name="preco-compra-produto">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Preço de venda</label>
-                                <input class="form-control" type="number" placeholder="R$ 0,00" name="preco-venda-produto">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Quantidade</label>
-                                    <div class="input-group quantity mx-auto" style="width: 100px;">
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-sm btn-primary btn-minus" >
-                                            <i class="fa fa-minus"></i>
-                                            </button>
-                                        </div>
-                                        <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="0" name="qtd-produto">
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-sm btn-primary btn-plus">
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Imagem do Produto</label>
-                                <input class="form-control" type="file" name="foto-produto">
-                            </div>
-                            
-                            <div class="col-md-12 form-group">
-                                <button type="submit" name="btn-cadastro" class="btn btn-block btn-primary font-weight-bold py-3 ">Cadastrar no estoque</button>
-                            </div>
-                            
-                        </div>
-                    </form>
-                    <?php
-                        include_once("../../config/conexao.php");
-                        if(isset($_POST["btn-cadastro"])){
-                            $nomeProdt = $_POST["nome-produto"];
-                            $marcaProdt = $_POST["marca-produto"];
-                            $tipoProdt = $_POST["tipo-produto"];
-                            $tamanhoProdt = $_POST["tamanho-produto"];
-                            $descricaoProdt = $_POST["descricao-produto"];
-                            $precoCompraProdt = $_POST["preco-compra-produto"];
-                            $precoVendaProdt = $_POST["preco-venda-produto"];
-                            $qtdProdt = $_POST["qtd-produto"];
-
-                            //Cadastro da imagem do Produto
-                            $extensaoImg = pathinfo($_FILES['foto-produto']['name'], PATHINFO_EXTENSION); //Remove a extensão da img
-                            $tipoExtensao = array("jpg","jpeg","JPEG","png","gif");
-                            
-
-                            if(in_array($extensaoImg, $tipoExtensao)){
-                                $pasta = "../../imgs/produtos/";
-                                $temporarioImg = $_FILES['foto-produto']['tmp_name'];
-                                $novoNomeImg =  uniqid().".$extensaoImg";
-
-                                if(move_uploaded_file($temporarioImg, $pasta.$novoNomeImg)){
-
-                                    $cadastroProdt = "INSERT INTO tb_produto(tipo_produto,marca_produto,nome_produto,tamanho_produto,descricao_produto,preco_compra_produto,preco_venda_produto,quantidade_produto,foto_produto) VALUES(:tipoProdt,:marcaProdt,:nomeProdt,:tamanhoProdt,:descricaoProdt,:precoCompProdt,:precoVenProdt,:qtdProdt,:fotoProdt)";
-                            
-                                    try{
-                                        $resultCadProdt = $conect->prepare($cadastroProdt);
-                                        $resultCadProdt->bindParam(":tipoProdt",$tipoProdt,PDO::PARAM_STR);
-                                        $resultCadProdt->bindParam(":marcaProdt",$marcaProdt,PDO::PARAM_STR);
-                                        $resultCadProdt->bindParam(":nomeProdt",$nomeProdt,PDO::PARAM_STR);
-                                        $resultCadProdt->bindParam(":tamanhoProdt",$tamanhoProdt,PDO::PARAM_STR);
-                                        $resultCadProdt->bindParam(":descricaoProdt",$descricaoProdt,PDO::PARAM_STR);
-                                        $resultCadProdt->bindParam(":precoCompProdt",$precoCompraProdt,PDO::PARAM_STR);
-                                        $resultCadProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
-                                        $resultCadProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
-                                        $resultCadProdt->bindParam(":fotoProdt",$novoNomeImg,PDO::PARAM_STR);
-                                        $resultCadProdt->execute();
-
-                                        $contCadProdt = $resultCadProdt->rowCount();
-                                        if($contCadProdt > 0){
-                                            echo "<div class='alert alert-success' role='alert'>
-                                                    Produto Cadastrado com sucesso!
-                                                </div>";
-                                            
-                                            echo "<script>
-                                                    setTimeout(function() {
-                                                        window.location.replace('http://localhost/af-suplementos/estoque/pages/cadastro-produtos.php');
-                                                    }, 2000)
-                                                </script>";         
-                                        }
-
-                                    }catch(PDOException $erro){
-                                        echo "ERRO DE PDO (CADASTRO)".$erro->getMessage();
-                                    }
-
-                                }else{
-                                    echo "Erro! Não foi possível fazer o upload da imagem";
-                                }
-
-                            }else{
-                                echo "Formato de imagem não inválido! tente outra imagem";
-                            }
-
-
-
-                            
-                                
-                        }
-                        
-
-                        
-                    ?>
-                </div>
-            </div>
-            <!-- FIM - Formulário de Login-->
-            <div class="col-lg-4">
-                <!--Coluna direita-->
-                <?php   
+    <?php   
 
                         include_once("../../config/conexao.php");
 
@@ -180,16 +27,16 @@
                             if($contSelProduto > 0){
                                 while($showProduto = $resultSelProduto->FETCH(PDO::FETCH_OBJ)){
                                     $showProduto->id_produto;
-                                    $showProduto->tipo_produto;
-                                    $showProduto->marca_produto;
-                                    $showProduto->nome_produto;
-                                    $showProduto->tamanho_produto;
-                                    $showProduto->descricao_produto;
-                                    $showProduto->preco_compra_produto;
-                                    $showProduto->preco_venda_produto;
-                                    $showProduto->quantidade_produto;
-                                    $showProduto->foto_produto;
-                                    $showProduto->promocao_produto;
+                                    $tipoP = $showProduto->tipo_produto;
+                                    $marcaP = $showProduto->marca_produto;
+                                    $nomeP = $showProduto->nome_produto;
+                                    $tamanhoP = $showProduto->tamanho_produto;
+                                    $descricaoP = $showProduto->descricao_produto;
+                                    $precoCompraP = $showProduto->preco_compra_produto;
+                                    $precoVendaP = $showProduto->preco_venda_produto;
+                                    $qtdP = $showProduto->quantidade_produto;
+                                    $fotoP = $showProduto->foto_produto;
+                                    $promocaoP = $showProduto->promocao_produto;
                                    
                                 }//Fim while
                             }else{
@@ -200,30 +47,188 @@
                         }
                         
                 ?>
+    <!-- Checkout Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <!--Formulário de Login-->
+
+            <!--Coluna esquerda-->
+            <div class="col-lg-8">
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Edição</span></h5>
+                    
+                    <div class="bg-light p-30 mb-5">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                    
+                            <div class="col-md-6 form-group">
+                                <label>Nome</label>
+                                <input class="form-control" type="text" value="<?php echo $nomeP;?>" name="nome-produto">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Marca</label>
+                                <input class="form-control" type="text" value="<?php echo $marcaP;?>" name="marca-produto">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Tipo</label>
+                                <select class="custom-select" name="tipo-produto">
+                                    <option value="<?php echo $tipoP;?>" selected><?php echo $tipoP;?></option>
+                                    <option value="po">em pó</option>
+                                    <option value="bebida">bebida</option>
+                                    <option value="grao">grão</option>
+                                    <option value="pilula">pílula</option>
+                                    <option value="pilula">barra</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Tamanho</label>
+                                <input class="form-control" type="text" value="<?php echo $tamanhoP;?>" name="tamanho-produto">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label>Descricão</label>
+                                <textarea class="form-control" type="text" name="descricao-produto"><?php echo $descricaoP;?></textarea>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Preço de compra</label>
+                                <input class="form-control" type="number" value="<?php echo $precoCompraP;?>" name="preco-compra-produto">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Preço de venda</label>
+                                <input class="form-control" type="number" value="<?php echo $precoVendaP;?>" name="preco-venda-produto">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Quantidade</label>
+                                    <div class="input-group quantity mx-auto" style="width: 100px;">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-sm btn-primary btn-minus" >
+                                            <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php echo $qtdP;?>" name="qtd-produto">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-sm btn-primary btn-plus">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label>Imagem do Produto</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile04" name="foto-produto">
+                                        <label class="custom-file-label" for="inputGroupFile04">Imagem</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12 form-group">
+                                <button type="submit" name="btn-update-prodt" class="btn btn-block btn-primary font-weight-bold py-3 ">Atualizar</button>
+                            </div>
+                            
+                        </div>
+                    </form>
+                    <?php
+                        //Alterar cadastro p/ update
+                        include_once("../../config/conexao.php");
+                        if(isset($_POST["btn-update-prodt"])){
+                            $nomeProdt = $_POST["nome-produto"];
+                            $marcaProdt = $_POST["marca-produto"];
+                            $tipoProdt = $_POST["tipo-produto"];
+                            $tamanhoProdt = $_POST["tamanho-produto"];
+                            $descricaoProdt = $_POST["descricao-produto"];
+                            $precoCompraProdt = $_POST["preco-compra-produto"];
+                            $precoVendaProdt = $_POST["preco-venda-produto"];
+                            $qtdProdt = $_POST["qtd-produto"];
+                            $disponivel = 1;
+
+                                                        
+                            //Update de img
+                            $extensaoImg = pathinfo($_FILES['foto-produto']['name'], PATHINFO_EXTENSION); //Remove a extensão da img
+                            $tipoExtensao = array("jpg","jpeg","JPEG","png","gif");
+
+                            if(in_array($extensaoImg, $tipoExtensao)){
+                                $pasta = "../../imgs/produtos/";
+                                $temporarioImg = $_FILES['foto-produto']['tmp_name'];
+                                $novoNomeImg =  uniqid().".$extensaoImg";
+
+                                if(move_uploaded_file($temporarioImg, $pasta.$novoNomeImg)){
+                                }else{
+                                    echo "Erro! Não foi possível fazer o upload da imagem";
+                                }
+
+                            }else{
+                                echo "Formato de imagem não inválido! tente outra imagem";
+                            }
+
+                            $updateProdt = "UPDATE tb_produto SET tipo_produto=:tipoProdt,marca_produto=:marcaProdt,nome_produto=:nomeProdt,tamanho_produto=:tamanhoProdt,descricao_produto=:descricaoProdt,preco_compra_produto=:precoCompProdt,preco_venda_produto=:precoVenProdt,quantidade_produto=:qtdProdt,foto_produto=:fotoProdt,disponibilidade_produto=:disponivel WHERE id_produto = :idProdt";
+                            try{
+                                $resultUpdateProdt = $conect->prepare($updateProdt);
+                                $resultUpdateProdt->bindParam(":idProdt",$idProduto,PDO::PARAM_STR);
+                                $resultUpdateProdt->bindParam(":tipoProdt",$tipoProdt,PDO::PARAM_STR);
+                                $resultUpdateProdt->bindParam(":marcaProdt",$marcaProdt,PDO::PARAM_STR);
+                                $resultUpdateProdt->bindParam(":nomeProdt",$nomeProdt,PDO::PARAM_STR);
+                                $resultUpdateProdt->bindParam(":tamanhoProdt",$tamanhoProdt,PDO::PARAM_STR);
+                                $resultUpdateProdt->bindParam(":descricaoProdt",$descricaoProdt,PDO::PARAM_STR);
+                                $resultUpdateProdt->bindParam(":precoCompProdt",$precoCompraProdt,PDO::PARAM_STR);
+                                $resultUpdateProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
+                                $resultUpdateProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
+                                $resultUpdateProdt->bindParam(":fotoProdt",$novoNomeImg,PDO::PARAM_STR);
+                                $resultUpdateProdt->bindParam(":disponivel",$disponivel,PDO::PARAM_STR);
+                                $resultUpdateProdt->execute();
+
+                                $contresUpdateP = $resultUpdateProdt->rowCount();
+                                if($contresUpdateP > 0){
+                                    echo "<div class='alert alert-success' role='alert'>
+                                            Informações atualizadas com sucesso!
+                                        </div>";
+                                    
+                                    echo "<script>
+                                            setTimeout(function() {
+                                                window.location.replace('http://localhost/af-suplementos/estoque/pages/lista-produtos.php');
+                                            }, 2000)
+                                        </script>";         
+                                }
+
+                            }catch(PDOException $erro){
+                                echo "ERRO DE PDO (CADASTRO)".$erro->getMessage();
+                            }
+
+                            
+                                
+                        }
+                        
+
+                        
+                    ?>
+                </div>
+            </div>
+            <!-- FIM - Formulário de Login-->
+            <div class="col-lg-4">
+                <!--Coluna direita-->
+                
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Produto</span></h5>
                     
                     <div class="bg-light p-30 mb-5">
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <img src="../../imgs/produtos/6313609148fcb.jpg" alt="imagem do produto" width="80%">
+                                <img src="../../imgs/produtos/<?php echo $fotoP;?>" alt="imagem do produto" width="80%">
                             </div>
                             <div class="col-md-12 form-group">
-                                <labe><p style="text-align:center;">Whey Protein Nux 2kg</p></label>
+                                <labe><h1 style="text-align:center;"><?php echo $nomeP;?></h1></label>
                             </div>
                             <div class="col-md-12 form-group">
-                                <labe><p style="text-align:center;">Evolution</p></label>
+                                <h2 style="text-align:center;"><?php echo $marcaP;?></h2>
                             </div>
                             
                             <div class= "col-md-6 form-group">
-                                <label>R$ 60,00</label> 
+                                <h3>R$<?php echo $precoCompraP;?></h3>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>R$ 90,00</label> 
+                                <h3>R$ <?php echo $precoVendaP;?></h3>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label>nome:<?php echo $showProduto->nome_produto;?></label> 
-                            </div>
+                    
 
                             
                         </div>

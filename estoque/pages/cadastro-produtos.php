@@ -80,7 +80,12 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Imagem do Produto</label>
-                                <input class="form-control" type="file" name="foto-produto">
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile04" name="foto-produto">
+                                        <label class="custom-file-label" for="inputGroupFile04">Imagem</label>
+                                    </div>
+                                </div>
                             </div>
                             
                             <div class="col-md-12 form-group">
@@ -100,6 +105,7 @@
                             $precoCompraProdt = $_POST["preco-compra-produto"];
                             $precoVendaProdt = $_POST["preco-venda-produto"];
                             $qtdProdt = $_POST["qtd-produto"];
+                            $disponivel = 1;
 
                             //Cadastro da imagem do Produto
                             $extensaoImg = pathinfo($_FILES['foto-produto']['name'], PATHINFO_EXTENSION); //Remove a extensão da img
@@ -113,7 +119,7 @@
 
                                 if(move_uploaded_file($temporarioImg, $pasta.$novoNomeImg)){
 
-                                    $cadastroProdt = "INSERT INTO tb_produto(tipo_produto,marca_produto,nome_produto,tamanho_produto,descricao_produto,preco_compra_produto,preco_venda_produto,quantidade_produto,foto_produto) VALUES(:tipoProdt,:marcaProdt,:nomeProdt,:tamanhoProdt,:descricaoProdt,:precoCompProdt,:precoVenProdt,:qtdProdt,:fotoProdt)";
+                                    $updateProdt = "INSERT INTO tb_produto(tipo_produto,marca_produto,nome_produto,tamanho_produto,descricao_produto,preco_compra_produto,preco_venda_produto,quantidade_produto,foto_produto,disponibilidade_produto) VALUES(:tipoProdt,:marcaProdt,:nomeProdt,:tamanhoProdt,:descricaoProdt,:precoCompProdt,:precoVenProdt,:qtdProdt,:fotoProdt,:disponivel)";
                             
                                     try{
                                         $resultCadProdt = $conect->prepare($cadastroProdt);
@@ -126,6 +132,7 @@
                                         $resultCadProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
                                         $resultCadProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
                                         $resultCadProdt->bindParam(":fotoProdt",$novoNomeImg,PDO::PARAM_STR);
+                                        $resultCadProdt->bindParam(":disponivel",$disponivel,PDO::PARAM_STR);
                                         $resultCadProdt->execute();
 
                                         $contCadProdt = $resultCadProdt->rowCount();

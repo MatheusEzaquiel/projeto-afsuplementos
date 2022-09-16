@@ -66,6 +66,7 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="../pages/lista-produtos.php" class="nav-item nav-link">Lista de Produtos</a>
+                            <a href="../pages/produtos-inativados.php" class="nav-item nav-link">Produtos Desativados</a>
                             <a href="../pages/cadastro-produtos.php" class="nav-item nav-link">Cadastro de Produtos</a>
                             <a href="detail.html" class="nav-item nav-link">Pedidos</a>
                             <a href="detail.html" class="nav-item nav-link">Promoções</a>
