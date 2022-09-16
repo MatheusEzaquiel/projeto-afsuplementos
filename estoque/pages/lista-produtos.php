@@ -43,7 +43,7 @@
                             <th>Tamanho</th>
                             <th>Preço de Compra</th>
                             <th>Preço de Venda</th>
-                            <th>Quantidade <a href="https://api.whatsapp.com/send?phone=5585992589768&text=Hello%20World">a</a></th>
+                            <th>Quantidade</th>
                             <th>Adicionar Promoção</th>
                             <th>Remover/Editar</th>
                         </tr>
