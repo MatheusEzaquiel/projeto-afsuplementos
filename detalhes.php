@@ -145,15 +145,15 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Catálogo</a>
-                            <a href="promocao.html" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
-                            <a href="detail.html" class="nav-item nav-link active">Shop Detail</a>
+                            <a href="index.php" class="nav-item nav-link">Home</a>
+                            <a href="shop.php" class="nav-item nav-link">Catálogo</a>
+                            <a href="promocao.php" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
+                            <a href="detalhes.php" class="nav-item nav-link active">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                    <a href="carrinho.php" class="dropdown-item">Shopping Cart</a>
+                                    <a href="compra.php" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contato</a>
@@ -220,10 +220,43 @@
                     </a>
                 </div>
             </div>
+            <?php
+                include_once('config/conexao.php');
+                $id=$_GET['idDetail'];
+                $select = "SELECT * FROM tb_produto WHERE id_produto=:id";
+                try{
+                    $resultSel = $conect->prepare($select);
+                    $resultSel->bindParam(':id',$id,PDO::PARAM_INT);
+                    $resultSel->execute();
 
+                    $contar=$resultSel->rowCount();
+                    if($contar>0){
+                        while($show = $resultSel->FETCH(PDO::FETCH_OBJ)){
+                            $idCont = $show->id_produto;
+                            $nomeProd = $show->nome_produto;
+                            $precoProd = $show->preco_venda_produto;
+                            $descProd = $show->descricao_produto;
+                            $marcaProd = $show->marca_produto;
+                            $TamProd = $show->tamanho_produto;
+                            $FotoProd = $show->foto_produto;
+                            $PromoProd = $show->promocao_produto;
+                        }  
+                    }else{
+                        echo '<div class="alert alert-danger">
+                    Houve um erro no display no produto!</div>';
+                    }
+                }catch(PDOException $e){
+                  echo '<div class="alert alert-danger">
+                  <strong>ERRO DE SELECT NO PDO: </strong>
+                  </div>'.$e->getMessage();
+                }
+                
+
+              ?>
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
-                    <h3>Product Name Goes Here</h3>
+                    <h3><?php echo $nomeProd; ?></h3>
+                    <h5 class="font-weight-semi-bold mb-4"><?php echo $marcaProd; ?></h5>
                     <div class="d-flex mb-3">
                         <div class="text-primary mr-2">
                             <small class="fas fa-star"></small>
@@ -234,10 +267,8 @@
                         </div>
                         <small class="pt-1">(99 Reviews)</small>
                     </div>
-                    <h3 class="font-weight-semi-bold mb-4">$150.00</h3>
-                    <p class="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit
-                        clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea
-                        Nonumy</p>
+                    <h3 class="font-weight-semi-bold mb-4">$<?php echo $precoProd; ?></h3>
+                    <p class="mb-4"><?php echo $descProd; ?></p>
                    <!-- <div class="d-flex mb-3">
                         <strong class="text-dark mr-3">Sizes:</strong>
                         <form>
@@ -265,6 +296,7 @@
                         
                     </div>
                     -->
+                    <!--
                     <div class="d-flex mb-4">
                         <strong class="text-dark mr-3">Sabores:</strong>
                         <form>
@@ -283,6 +315,7 @@
 
                         </form>
                     </div>
+            -->
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 130px;">
                             <div class="input-group-btn">
@@ -330,9 +363,10 @@
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-pane-1">
-                            <h4 class="mb-3">Product Description</h4>
-                            <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-                            <p>Dolore magna est eirmod sanctus dolor, amet diam et eirmod et ipsum. Amet dolore tempor consetetur sed lorem dolor sit lorem tempor. Gubergren amet amet labore sadipscing clita clita diam clita. Sea amet et sed ipsum lorem elitr et, amet et labore voluptua sit rebum. Ea erat sed et diam takimata sed justo. Magna takimata justo et amet magna et.</p>
+                            <h4 class="mb-3">Descrição do Produto</h4>
+                            <p> <?php echo $descProd; ?>
+                            <p>
+                            </p>
                         </div>
                         <div class="tab-pane fade" id="tab-pane-2">
                             <h4 class="mb-3">Additional Information</h4>

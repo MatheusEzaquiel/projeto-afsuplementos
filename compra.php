@@ -145,15 +145,15 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Catálogo</a>
-                            <a href="promocao.html" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
-                            <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
+                            <a href="index.php" class="nav-item nav-link">Home</a>
+                            <a href="shop.php" class="nav-item nav-link">Catálogo</a>
+                            <a href="promocao.php" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
+                            <a href="detalhes.php" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item active">Checkout</a>
+                                    <a href="cart.php" class="dropdown-item">Shopping Cart</a>
+                                    <a href="checkout.php" class="dropdown-item active">Checkout</a>
                                 </div>
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contato</a>

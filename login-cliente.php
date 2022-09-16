@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt_br">
 
@@ -25,6 +24,10 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <!-- Login do google -->
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
@@ -37,11 +40,11 @@
                 
             </div>
         </div>
-        <div class="row align-items-center bg-dark py-3 px-xl-5 d-none d-lg-flex">
+        <div class="row align-items-center py-3 px-xl-5 d-none d-lg-flex" style="background-color: #000000;">
             <div class="col-lg-6">
                 <a href="" class="text-decoration-none">
-                    <span class="h1 text-uppercase text-primary bg-dark px-2">AF</span>
-                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Suplementos</span>
+                    <span class="h1 text-uppercase px-2" style="background-color: #000000;color:#DF0805;">AF</span>
+                    <span class="h1 text-uppercase px-2 ml-n1" style="background-color: #DF0805;color:#000000;">Suplementos</span>
                 </a>
             </div>
            
@@ -52,7 +55,7 @@
 
     <!-- Navbar Start -->
     <div class="container-fluid bg-dark mb-30">
-        <div class="row px-xl-5">
+        <div class="row px-xl-5" style="background-color: #000000;">
            
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-dark py-3 py-lg-0 px-0" style="background-color:#000000;">
@@ -63,7 +66,13 @@
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="index.php" class="nav-item nav-link">Login</a>
+                            <a href="cadastro-cliente.php" class="nav-item nav-link">Cadastro</a>
+                        </div>
+                        
+                    </div>
                 </nav>
             </div>
         </div>
@@ -88,8 +97,8 @@
                 <div class="bg-light p-30 mb-5">
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <form action="mail/login.php" method="post">
-                                    <img src="/img/cat-1.jpg" width="100px" style="margin-left: 50%;">
+                            <form action="" method="post">
+                                    <img src="img/cat-1.jpg" width="100px" style="margin-left: 50%;">
                                 <div class="col-md-6 form-group input-group">
                                     <label>E-mail</label> 
                                     <input name="email" class="form-control" type="email" placeholder="exemplo@email.com">
@@ -115,10 +124,26 @@
                                 </div>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <button name="btnLogin" type="submit" class="btn btn-block font-weight-bold py-3" style="margin-left: 9rem;background-color:#DF0805;color:#f9f6f6;">Entrar</button>
+                                    <button name="btnLogin" value="Entrar" type="submit" class="btn btn-block font-weight-bold py-3" style="margin-left: 9rem;background-color:#DF0805;color:#f9f6f6;">Entrar</button>
                                 </div>
                             </form>
-                            
+                            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                            <script>
+                                function onSignIn(googleUser) {
+                                // Useful data for your client-side scripts:
+                                var profile = googleUser.getBasicProfile();
+                                console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                                console.log('Full Name: ' + profile.getName());
+                                console.log('Given Name: ' + profile.getGivenName());
+                                console.log('Family Name: ' + profile.getFamilyName());
+                                console.log("Image URL: " + profile.getImageUrl());
+                                console.log("Email: " + profile.getEmail());
+
+                                // The ID token you need to pass to your backend:
+                                var id_token = googleUser.getAuthResponse().id_token;
+                                console.log("ID Token: " + id_token);
+                            }
+    </script>
                         </div>
                     </div>
                 </div>

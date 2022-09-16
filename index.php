@@ -1,11 +1,4 @@
-<?php
 
-session_start();
-
-require_once('mail/verification.php');
-verification('login-cliente.php')
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -38,7 +31,6 @@ verification('login-cliente.php')
 </head>
 
 <body>
-<p>Olá, <?php echo $_SESSION['UsuarioNome']; ?>!</p>
     <!-- Topbar Start -->
     <div class="container-fluid">
         <div class="row bg-secondary py-1 px-xl-5">
@@ -161,7 +153,7 @@ verification('login-cliente.php')
                             <a href="shop.php" class="nav-item nav-link" style="color: #F9F6F6;">Catálogo</a>
                             
                             <a href="promocao.php" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
-                            <a href="detail.php" class="nav-item nav-link" style="color: #F9F6F6;">Shop Detail</a>
+                            <a href="detalhes.php" class="nav-item nav-link" style="color: #F9F6F6;">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #F9F6F6;">Pages </a>
                                 <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
@@ -175,11 +167,11 @@ verification('login-cliente.php')
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                             <a href="" class="btn px-0">
-                                <i class="fas fa-heart text-primary"></i>
+                                <i class="fas fa-heart" style="color:#DF0805;"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
                             <a href="" class="btn px-0 ml-3">
-                                <i class="fas fa-shopping-cart text-primary"></i>
+                                <i class="fas fa-shopping-cart" style="color:#DF0805;"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
                         </div>
@@ -264,7 +256,7 @@ verification('login-cliente.php')
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-check  m-0 mr-3" style="color:#DF0805;"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+                    <h5 class="font-weight-semi-bold m-0">Produto de Qualidade</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
@@ -804,7 +796,7 @@ verification('login-cliente.php')
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Produto Específico</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <a href="" class="btn btn-primary" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -814,7 +806,7 @@ verification('login-cliente.php')
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Produto Específico</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <a href="" class="btn btn-primary" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -868,7 +860,7 @@ verification('login-cliente.php')
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Produto Específico</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <a href="" class="btn btn-primary" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -881,7 +873,7 @@ verification('login-cliente.php')
     <div class="container-fluid text-secondary mt-5 pt-5" style="background-color: #000000;">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-                <h5 class=" text-uppercase mb-4" style="color: #F9F6F6;">Get In Touch</h5>
+                <h5 class=" text-uppercase mb-4" style="color: #F9F6F6;">Sobre nós</h5>
                 <p class="mb-4" style="color: #F9F6F6;">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor. Rebum tempor no vero est magna amet no</p>
                 <p class="mb-2" style="color: #F9F6F6;"><i class="fa fa-map-marker-alt  mr-3" style="color: #DF0805;"></i>123 Street, New York, USA</p>
                 <p class="mb-2" style="color: #F9F6F6;"><i class="fa fa-envelope  mr-3" style="color: #DF0805;"></i>info@example.com</p>
@@ -890,25 +882,20 @@ verification('login-cliente.php')
             <div class="col-lg-8 col-md-12">
                 <div class="row">
                     <div class="col-md-4 mb-5">
-                        <h5 class=" text-uppercase mb-4" style="color: #F9F6F6;">Quick Shop</h5>
+                        <h5 class=" text-uppercase mb-4" style="color: #F9F6F6;">Compra rápida</h5>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                            <a class="text-secondary" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Catálogo</a>
+                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Promoção</a>
+                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Contato</a>
+
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">My Account</h5>
+                        <h5 class="text-secondary text-uppercase mb-4">Minha conta</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                            <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Login</a>
+                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Cadastro</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
