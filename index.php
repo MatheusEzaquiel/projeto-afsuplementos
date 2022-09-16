@@ -1,17 +1,11 @@
 <?php
 
+session_start();
 
+require_once('mail/verification.php');
+verification('login-cliente.php')
 
-    // A sessão precisa ser iniciada em cada página diferente
-    if (!isset($_SESSION)) session_start();
-    // Verifica se não há a variável da sessão que identifica o usuário
-    if (!isset($_SESSION['UsuarioID'])) {
-      // Destrói a sessão por segurança
-      session_destroy();
-      // Redireciona o visitante de volta pro login
-      header("Location: login-cliente.php"); exit;
-  }
-  ?>
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
