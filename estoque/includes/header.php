@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -65,12 +65,12 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="../pages/lista-produtos.php" class="nav-item nav-link">Lista de Produtos</a>
-                            <a href="../pages/produtos-inativados.php" class="nav-item nav-link">Produtos Desativados</a>
-                            <a href="../pages/cadastro-produtos.php" class="nav-item nav-link">Cadastro de Produtos</a>
-                            <a href="detail.html" class="nav-item nav-link">Pedidos</a>
-                            <a href="detail.html" class="nav-item nav-link">Promoções</a>
-                            <a href="../pages/info-clientes.php" class="nav-item nav-link">Clientes</a>
+                            <a href="home.php?pagina=produtos" class="nav-item nav-link">Lista de Produtos</a>
+                            <a href="home.php?pagina=produtos-desativados" class="nav-item nav-link">Produtos Desativados</a>
+                            <a href="home.php?pagina=cadastro-produtos" class="nav-item nav-link">Cadastro de Produtos</a>
+                            <a href="home.php?pagina=pedidos" class="nav-item nav-link">Pedidos</a>
+                            <a href="home.php?pagina=promocoes" class="nav-item nav-link">Promoções</a>
+                            <a href="home.php?pagina=clientes" class="nav-item nav-link">Clientes</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                           
