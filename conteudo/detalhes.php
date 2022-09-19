@@ -148,7 +148,6 @@
                             <a href="index.php" class="nav-item nav-link">Home</a>
                             <a href="shop.php" class="nav-item nav-link">Catálogo</a>
                             <a href="promocao.php" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
-                            <a href="detalhes.php" class="nav-item nav-link active">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
@@ -156,7 +155,6 @@
                                     <a href="compra.php" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contato</a>
                             <a href="cliente.html" class="nav-item nav-link" style="color: #F9F6F6;">Cliente</a>
                         
                         </div>
@@ -194,33 +192,7 @@
 
 
     <!-- Shop Detail Start -->
-    <div class="container-fluid pb-5">
-        <div class="row px-xl-5">
-            <div class="col-lg-5 mb-30">
-                <div id="product-carousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner bg-light">
-                        <div class="carousel-item active">
-                            <img class="w-100 h-100" src="img/product-1.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="img/product-2.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="img/product-3.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="img/product-4.jpg" alt="Image">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
-                        <i class="fa fa-2x fa-angle-left text-dark"></i>
-                    </a>
-                    <a class="carousel-control-next" href="#product-carousel" data-slide="next">
-                        <i class="fa fa-2x fa-angle-right text-dark"></i>
-                    </a>
-                </div>
-            </div>
-            <?php
+    <?php
                 include_once('config/conexao.php');
                 $id=$_GET['idDetail'];
                 $select = "SELECT * FROM tb_produto WHERE id_produto=:id";
@@ -253,6 +225,32 @@
                 
 
               ?>
+    <div class="container-fluid pb-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-5 mb-30">
+                <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner bg-light">
+                        <div class="carousel-item active">
+                            <img class="w-100 h-100" src="imgs/produtos/<?php echo $FotoProd;?>" alt="Image">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="w-100 h-100" src="img/product-2.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="w-100 h-100" src="img/product-3.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="w-100 h-100" src="img/product-4.jpg" alt="Image">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
+                        <i class="fa fa-2x fa-angle-left text-dark"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#product-carousel" data-slide="next">
+                        <i class="fa fa-2x fa-angle-right text-dark"></i>
+                    </a>
+                </div>
+            </div>
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
                     <h3><?php echo $nomeProd; ?></h3>

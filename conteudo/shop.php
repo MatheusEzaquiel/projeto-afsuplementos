@@ -155,7 +155,6 @@
                                     <a href="checkout.php" class="dropdown-item" style="color: #F9F6F6;">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.php" class="nav-item nav-link">Contato</a>
                             <a href="cliente.php" class="nav-item nav-link" style="color: #F9F6F6;">Cliente</a>
                             
                         </div>
@@ -316,6 +315,7 @@
                             $resultSelProdutos = $conect->prepare($selectProdutos);
                             $resultSelProdutos->execute();
                             $contSelProdutos = $resultSelProdutos->rowCount();
+                            
 
                             if($contSelProdutos > 0){
                                 while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
@@ -334,7 +334,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
                         <div class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                                <img class="img-fluid w-100" src="imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
                                 <div class="product-action">
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>

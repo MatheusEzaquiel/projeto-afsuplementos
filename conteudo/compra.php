@@ -148,7 +148,6 @@
                             <a href="index.php" class="nav-item nav-link">Home</a>
                             <a href="shop.php" class="nav-item nav-link">Catálogo</a>
                             <a href="promocao.php" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
-                            <a href="detalhes.php" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
@@ -156,7 +155,6 @@
                                     <a href="checkout.php" class="dropdown-item active">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contato</a>
                             <a href="cliente.html" class="nav-item nav-link" style="color: #F9F6F6;">Cliente</a>
                             
                         </div>

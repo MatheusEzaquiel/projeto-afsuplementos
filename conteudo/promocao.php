@@ -155,7 +155,6 @@
                                     <a href="checkout.php" class="dropdown-item" style="color: #F9F6F6;">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.php" class="nav-item nav-link">Contato</a>
                             <a href="cliente.php" class="nav-item nav-link" style="color: #F9F6F6;">Cliente</a>
                             
                         </div>
