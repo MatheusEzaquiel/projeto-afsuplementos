@@ -56,6 +56,7 @@
                             <span class="badge border font-weight-normal">168</span>
                         </div>
                     </form>
+                    
                 </div>
                 <!-- Price End -->
                 

@@ -161,7 +161,11 @@
                                 <div class="product-action">
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+<<<<<<< HEAD
                                     <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
+=======
+                                    <a class="btn btn-outline-dark btn-square" href="home.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
+>>>>>>> 4fcdd8dc976e755674aa10f07c1a21364b8edb2a
                                 </div>
                             </div>
 

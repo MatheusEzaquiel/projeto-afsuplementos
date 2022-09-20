@@ -87,7 +87,7 @@
                 <div class="bg-light p-30 mb-5">
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <img src="../img/avatar-man-1.png" width="100px" style="margin-left: 40%;">
+                            <img src="../img/avatar/avatar-man-1.png" width="100px" style="margin-left: 40%;">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>E-mail</label>
