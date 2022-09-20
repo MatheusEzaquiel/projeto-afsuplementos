@@ -164,7 +164,7 @@
                                 <i class="fas fa-heart" style="color:#DF0805;"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
-                            <a href="" class="btn px-0 ml-3">
+                            <a href="home.php?pagina=carrinho" class="btn px-0 ml-3">
                                 <i class="fas fa-shopping-cart" style="color:#DF0805;"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
