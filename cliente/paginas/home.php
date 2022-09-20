@@ -13,11 +13,14 @@
             case $pagina == 'promocao':
                     include_once("conteudo/promocao.php");
                 break;
-            case $pagina == 'conteudo/carrinho.php':
+            case $pagina == 'carrinho':
                     include_once("conteudo/carrinho.php");
                 break;
-            case $pagina == 'conteudo/compra.php':
+            case $pagina == 'compra':
                     include_once("conteudo/compra.php");
+                    break;
+            case $pagina == 'detalhes':
+                    include_once("conteudo/detalhes.php");
             default:
                 include_once("conteudo/index.php");
                 break;
