@@ -142,10 +142,9 @@
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #F9F6F6;">Pages </a>
                                 <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
                                     <a href="home.php?pagina=carrinho" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
-                                    <a href="home.php?pagina=compra" class="dropdown-item" style="color: #F9F6F6;">Checkout</a>
+                                    <!--<a href="home.php?pagina=compra" class="dropdown-item" style="color: #F9F6F6;">Checkout</a>-->
                                 </div>
                             </div>
-                            <a href="home.php?pagina=cliente" class="nav-item nav-link" style="color: #F9F6F6;">Cliente</a>
                             <div class="col-lg-6 col-6 text-left" style="margin-left:4em;">
                                 <form action="">
                                     <div class="input-group">
