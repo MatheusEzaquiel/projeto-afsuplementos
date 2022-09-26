@@ -161,8 +161,12 @@
                                 <div class="product-action">
                                     <a class="btn btn-outline-dark btn-square" href=""><button type="submit" name="btn-carrinho"><i class="fa fa-shopping-cart"></i></button></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+<<<<<<< HEAD
 
                                     <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes?idDetail=<?php echo $idProduto;?>"><i class="fa fa-search"></i></a>
+=======
+                                    <a class="btn btn-outline-dark btn-square" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
+>>>>>>> f0f8f494f6ad716f0814615b956c3348ede64335
                                 </div>
                             </div>
 
@@ -174,12 +178,8 @@
                                     <h5>$<?php echo $showProdutos->preco_venda_produto;?></h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
+                                    <small>(99) </small>
+                                    <small class="fa mr-1"> Reviews</small>
                                 </div>
                             </div>
                             

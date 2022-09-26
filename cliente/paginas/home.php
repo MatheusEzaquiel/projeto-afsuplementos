@@ -16,13 +16,23 @@
             case $pagina == 'carrinho':
                     include_once("conteudo/carrinho.php");
                 break;
+<<<<<<< HEAD
             case $pagina == 'compra':
                 break;
+=======
+
+                
+            case $pagina == 'compra':
+
+>>>>>>> f0f8f494f6ad716f0814615b956c3348ede64335
             case $pagina == 'cliente';
                     include_once("conteudo/cliente.php");
                 break;
             case $pagina == 'compra.php':
+<<<<<<< HEAD
                 break;
+=======
+>>>>>>> f0f8f494f6ad716f0814615b956c3348ede64335
                     include_once("conteudo/compra.php");
                     break;
             case $pagina == 'detalhes':
