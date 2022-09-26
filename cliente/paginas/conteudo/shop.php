@@ -13,7 +13,7 @@
     </div>
     <!-- Breadcrumb End -->
 
-
+    <form action="" method="post">
     <!-- Shop Start -->
     <div class="container-fluid">
         <div class="row px-xl-5">
@@ -72,18 +72,13 @@
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-3">
-                            <label class="custom-control-label" for="color-3">Barinhas</label>
+                            <label class="custom-control-label" for="color-3">Barrinhas</label>
                             <span class="badge border font-weight-normal">246</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-4">
                             <label class="custom-control-label" for="color-4">Ômega</label>
                             <span class="badge border font-weight-normal">145</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                            <input type="checkbox" class="custom-control-input" id="color-5">
-                            <label class="custom-control-label" for="color-5">Bomba</label>
-                            <span class="badge border font-weight-normal">168</span>
                         </div>
                         <br>
                         <div class="mb-3">
@@ -101,10 +96,13 @@
             <!-- Shop Sidebar End -->
 
 
-            <!-- Shop Product Start -->
+            <!-- Produtos -->
+            
             <div class="col-lg-9 col-md-8">
                 <div class="row pb-3">
+                
                     <div class="col-12 pb-1">
+                         
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div>
                                 <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
@@ -130,9 +128,10 @@
                             </div>
                         </div>
                     </div>
+                    <!-- PHP 1/2 -->
                     <?php
                         include_once("../../config/conexao.php");
-                        $selectProdutos = "SELECT * FROM tb_produto";
+                        $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1";
                         
                         try {
                             $resultSelProdutos = $conect->prepare($selectProdutos);
@@ -142,7 +141,7 @@
 
                             if($contSelProdutos > 0){
                                 while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
-                                    $showProdutos->id_produto;
+                                    $idProduto = $showProdutos->id_produto;
                                     $showProdutos->tipo_produto;
                                     $showProdutos->marca_produto;
                                     $showProdutos->nome_produto;
@@ -154,18 +153,16 @@
                                     $showProdutos->foto_produto;
                                     $showProdutos->promocao_produto;
                     ?>
+                    
                     <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
                         <div class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
                                 <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
                                 <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><button type="submit" name="btn-carrinho"><i class="fa fa-shopping-cart"></i></button></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-<<<<<<< HEAD
-                                    <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
-=======
-                                    <a class="btn btn-outline-dark btn-square" href="home.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
->>>>>>> 4fcdd8dc976e755674aa10f07c1a21364b8edb2a
+
+                                    <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes?idDetail=<?php echo $idProduto;?>"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
 
@@ -186,9 +183,11 @@
                                 </div>
                             </div>
                             
-                            </div>
-                            </div>
-                            <?php
+                        </div>
+                    </div>
+                    
+                    <!-- PHP 2/2 -->
+                    <?php
                                 }//Fim while
                             }else{
                                 echo "ERRO!!";
@@ -196,7 +195,9 @@
                         } catch (PDOException $erro) {
                             echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
                         }
-                    ?> 
+                    ?>
+                    </form>
+
                     <div class="col-12">
                         <nav>
                           <ul class="pagination justify-content-center">
@@ -210,7 +211,43 @@
                     </div>
                 </div>
             </div>
-            <!-- Shop Product End -->
+    </form>
+            
+            <!-- Produtos -->
+            <?php
+
+            //Carrinho
+                        if(isset($_POST["btn-carrinho"])){
+            
+                            $cadCarrinho = "INSERT INTO tb_carrinho(cliente_pedido,produto_pedido,preco_pedido,estado_pedido) VALUES(:clientePed,:produtoPed,:precoPed,:estadoPed)";
+                            
+                            echo $idProduto;
+                            $idProduto = 30;
+                            $idCliente = 6;
+                            $precoPed = 115; //$precoProdt * $prodtQtd;
+                            $estadoP = 0;
+
+                            try{
+                                $resultCadCar = $conect->prepare($cadCarrinho);
+                                $resultCadCar->bindParam(':clientePed',$idCliente,PDO::PARAM_STR);
+                                $resultCadCar->bindParam(':produtoPed',$idProduto,PDO::PARAM_STR);
+                                $resultCadCar->bindParam(':precoPed',$precoPed,PDO::PARAM_STR);
+                                $resultCadCar->bindParam(':estadoPed',$estadoP,PDO::PARAM_STR);
+                                $resultCadCar->execute();
+
+                                $contPedido = $resultCadCar->rowCount();
+                                if($contPedido > 0){
+                                    echo "<script>alert('Produto enviado para o carrinho')</script>";
+                                }else{
+                                    echo "<script>alert('[Erro] Tente novamente!')</script>";
+                                }
+
+                            }catch(PDOException	$erro){
+                                echo "ERRO DE CADASTRO [PDO] Carrinho = ".$erro->getMessage();
+                            }
+                        }
+                        
+                    ?>
         </div>
     </div>
     <!-- Shop End -->

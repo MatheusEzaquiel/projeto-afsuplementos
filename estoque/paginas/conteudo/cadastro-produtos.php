@@ -117,7 +117,7 @@
 
                                 if(move_uploaded_file($temporarioImg, $pasta.$novoNomeImg)){
 
-                                    $updateProdt = "INSERT INTO tb_produto(tipo_produto,marca_produto,nome_produto,tamanho_produto,descricao_produto,preco_compra_produto,preco_venda_produto,quantidade_produto,foto_produto,disponibilidade_produto) VALUES(:tipoProdt,:marcaProdt,:nomeProdt,:tamanhoProdt,:descricaoProdt,:precoCompProdt,:precoVenProdt,:qtdProdt,:fotoProdt,:disponivel)";
+                                    $cadastroProdt = "INSERT INTO tb_produto(tipo_produto,marca_produto,nome_produto,tamanho_produto,descricao_produto,preco_compra_produto,preco_venda_produto,quantidade_produto,foto_produto,disponibilidade_produto) VALUES(:tipoProdt,:marcaProdt,:nomeProdt,:tamanhoProdt,:descricaoProdt,:precoCompProdt,:precoVenProdt,:qtdProdt,:fotoProdt,:disponivel)";
                             
                                     try{
                                         $resultCadProdt = $conect->prepare($cadastroProdt);

@@ -16,22 +16,23 @@
             case $pagina == 'carrinho':
                     include_once("conteudo/carrinho.php");
                 break;
-<<<<<<< HEAD
             case $pagina == 'compra':
-=======
+                break;
             case $pagina == 'cliente';
                     include_once("conteudo/cliente.php");
                 break;
             case $pagina == 'compra.php':
->>>>>>> 4fcdd8dc976e755674aa10f07c1a21364b8edb2a
+                break;
                     include_once("conteudo/compra.php");
                     break;
             case $pagina == 'detalhes':
                     include_once("conteudo/detalhes.php");
             default:
-                include_once("conteudo/index.php");
+                include_once("conteudo/compra.php");
                 break;
         }   
+    }else{
+        include_once("conteudo/index.php");
     }
 
     include_once("../includes/footer.php");
