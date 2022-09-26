@@ -32,6 +32,7 @@
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid">
+                    <!--
         <div class="row bg-secondary py-1 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center h-100">
@@ -80,14 +81,7 @@
                 </div>
             </div>
         </div>
-        <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex align justify-content-center">
-            <div class="col-lg-4">
-                <a href="" class="text-decoration-none">
-                    <span class="h1 text-uppercase px-2" style="background-color: #000000;color: #DF0805;">AF</span>
-                    <span class="h1 text-uppercase  px-2 ml-n1" style="background-color: #DF0805;color: #000000;"> Suplementos</span>
-                </a>
-            </div>
-
+-->
 
         </div>
     </div>
@@ -96,11 +90,11 @@
 
     <!-- Navbar Start -->
     <div class="container-fluid  mb-30" style="background-color: #000000;">
-        <div class="row px-xl-5">
+        <div class="row px-xl-5"  style="height: 6em;">
             <div class="col-lg-3 d-none d-lg-block">
                 <a class="btn d-flex align-items-center justify-content-between  w-100" style="background-color:#DF0805;height: 100%;" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
                     <h6 class=" m-0" style="color: #F9F6F6;"><i class="fa fa-bars mr-2"></i>Categorias</h6>
-                    <i class="fa fa-angle-down text-dark"></i>
+                    <i class="fa fa-angle-down" style="color:#F9F6F6;"></i>
                 </a>
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                     <div class="navbar-nav w-100">
@@ -134,16 +128,19 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto py-0">
+                        <div class="navbar-nav mr-auto py-3">
                             <a href="home.php?pagina=index" class="nav-item nav-link active" style="color: #F9F6F6;">Home</a>
                             <a href="home.php?pagina=shop" class="nav-item nav-link" style="color: #F9F6F6;">Catálogo</a>
                             <a href="home.php?pagina=promocao" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
+                            <a href="home.php?pagina=contato" class="nav-item nav-link active" style="color: #F9F6F6;">Contato</a>
+                            <a href="../../login-cliente.php" class="nav-item nav-link active" style="color: #F9F6F6;">Entrar</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #F9F6F6;">Pages </a>
+                                <!--<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #F9F6F6;">Pages </a>-->
                                 <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
                                     <a href="home.php?pagina=carrinho" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
                                     <!--<a href="home.php?pagina=compra" class="dropdown-item" style="color: #F9F6F6;">Checkout</a>-->
                                 </div>
+                                
                             </div>
                             <div class="col-lg-6 col-6 text-left" style="margin-left:4em;">
                                 <form action="">
