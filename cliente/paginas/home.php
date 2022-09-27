@@ -25,15 +25,23 @@
             case $pagina == 'detalhes':
                     include_once("conteudo/detalhes.php");
                 break;
-            case $pagina == 'shoppreco':
-                    include_once("conteudo/shoppreco.php");
+            case $pagina == 'shop': //antigo shoppreco
+                    include_once("conteudo/shop.php");
                 break;
             case $pagina == 'shopnovidade':
                     include_once("conteudo/shopnovidade.php");
                 break;
+            case $pagina == 'promocao':
+                include_once("conteudo/promocao.php");
+            break;
             case $pagina == 'contato':
                     include_once("conteudo/contato.php");
                 break;
+            /*
+            case $pagina == 'deletar':
+                include_once("conteudo/deletar.php");
+                break;
+            */
             default:
                 include_once("conteudo/index.php");
                 break;

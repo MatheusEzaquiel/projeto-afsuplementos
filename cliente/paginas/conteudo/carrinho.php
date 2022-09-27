@@ -17,82 +17,82 @@
     <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-lg-8 table-responsive mb-5">
-                <table class="table table-light table-borderless table-hover text-center mb-0">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Produto</th>
-                            <th>Preço</th>
-                            <th>Quantidade</th>
-                            <th>Preço</th>
-                            <th>Total</th>
-                            <th>Remover</th>
-                        </tr>
-                    </thead>
-                    <tbody class="align-middle">
-                    <?php
-                        //Select dos produtos
-                        include_once("../../config/conexao.php");
-                        $selCarrinho = "SELECT * FROM tb_carrinho
-                        INNER JOIN tb_cliente ON tb_cliente.id_cliente = tb_carrinho.cliente_pedido
-                        INNER JOIN tb_produto ON tb_produto.id_produto = tb_carrinho.produto_pedido";
-                        
-                        
-                        try {
-                            $resultSelCarrinho = $conect->prepare($selCarrinho);
-                            $resultSelCarrinho->execute();
-                            $contSelCarrinho = $resultSelCarrinho->rowCount();
+                <form action="?pagina=deletar" method="get">
+                    <table class="table table-light table-borderless table-hover text-center mb-0">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Produto</th>
+                                <th>Preço</th>
+                                <th>Quantidade</th>
+                                <th>Preço</th>
+                                <th>Total</th>
+                                <th>Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody class="align-middle">
+                        <?php
+                            //Select dos produtos
+                            include_once("../../config/conexao.php");
+                            $selCarrinho = "SELECT * FROM tb_carrinho
+                            INNER JOIN tb_cliente ON tb_cliente.id_cliente = tb_carrinho.cliente_pedido
+                            INNER JOIN tb_produto ON tb_produto.id_produto = tb_carrinho.produto_pedido";
+                            
+                            
+                            try {
+                                $resultSelCarrinho = $conect->prepare($selCarrinho);
+                                $resultSelCarrinho->execute();
+                                $contSelCarrinho = $resultSelCarrinho->rowCount();
 
-                            if($contSelCarrinho > 0){
-                                while($carrinho = $resultSelCarrinho->FETCH(PDO::FETCH_OBJ)){
-                                    $idP = $carrinho->id_produto;
-                                    $imgP = $carrinho->foto_produto;
-                                    $nomeP = $carrinho->nome_produto;
-                                    $precoP = $carrinho->preco_venda_produto;
-                                    $nomeC = $carrinho->nome_cliente;
-                                    //$qtdP = $carrinho->quantidade_produto;
+                                if($contSelCarrinho > 0){
+                                    while($carrinho = $resultSelCarrinho->FETCH(PDO::FETCH_OBJ)){
+                                        $idP = $carrinho->id_produto;
+                                        $imgP = $carrinho->foto_produto;
+                                        $nomeP = $carrinho->nome_produto;
+                                        $precoP = $carrinho->preco_venda_produto;
+                                        $nomeC = $carrinho->nome_cliente;              
                                     
-
-                                   
-                    ?>
-                        <tr>
-                            <td class="align-middle"><img src="../../imgs/produtos/<?php echo $imgP;?>" alt="" style="width: 50px;"></td>
-                            <td class="align-middle"><?php echo $nomeP;?></td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
+                        ?>
+                            <tr>
+                                <td class="align-middle"><img src="../../imgs/produtos/<?php echo $imgP;?>" alt="" style="width: 50px;"></td>
+                                <td class="align-middle"><?php echo $nomeP;?></td>
+                                <td class="align-middle">
+                                    <div class="input-group quantity mx-auto" style="width: 100px;">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-sm btn-primary btn-minus" >
+                                            <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
+                                            <input type="text" name="qtdProduto" class="form-control form-control-sm bg-secondary border-0 text-center" value="10">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-sm btn-primary btn-plus">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                        <input type="text" name="qtdProduto" class="form-control form-control-sm bg-secondary border-0 text-center" value="10">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">R$  <?php echo $precoP;?></td>
-                            <td class="align-middle">R$  <?php  $qtdP = 10; echo $precoP * $qtdP;?></td>
-                            <!-- Botão Remover -->
-                            <td class="align-middle">
-                                <a href="home.php?pagina=deletar&?DelP=<?php echo $idP;?>">
-                                    <button class="btn btn-sm btn-danger"> <i class="fa fa-times"></i></button>
-                                </a>
-                            </td>
-                        </tr>
-                    <?php       
-                                
-                                }//Fim while
-                            }//Fim if contSelProdutos
-                        } catch (PDOException $erro) {
-                            echo "ERRO DE PDO (SELECT) -> ".$erro->getMessage();
-                        }   
+                                </td>
+                                <td class="align-middle">R$  <?php echo $precoP;?></td>
+                                <td class="align-middle">R$  <?php  $qtdP = 10; echo $precoP * $qtdP;?></td>
+                                <!-- Botão Remover -->
+                                <td class="align-middle">
+                                    <a href="conteudo/deletar.php?delP=<?php echo $idP;?>" class="btn btn-danger" onclick="return confirm('Deseja excluir este produto do carrinho?')">              
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </td>
 
-                       
-                    ?>     
-                    </tbody>
-                </table>
+                            </tr>
+                        <?php       
+                                    
+                                    }//Fim while
+                                }//Fim if contSelProdutos
+                            } catch (PDOException $erro) {
+                                echo "ERRO DE PDO (SELECT) -> ".$erro->getMessage();
+                            }   
+
+                        
+                        ?>     
+                        </tbody>
+                    </table>
+                </form>
             </div>
 
             <div class="col-lg-4">
