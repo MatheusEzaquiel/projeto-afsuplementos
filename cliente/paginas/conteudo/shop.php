@@ -1,12 +1,11 @@
-
     <!-- Breadcrumb Start -->
     <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Shop</a>
-                    <span class="breadcrumb-item active">Shop List</span>
+                    <a class="breadcrumb-item text-dark" href="home.php?pagina=index">Home</a>
+                    <a class="breadcrumb-item text-dark" href="home.php?pagina=shop">Catálogo</a>
+                    <span class="breadcrumb-item active">Lista de Produtos</span>
                 </nav>
             </div>
         </div>
@@ -23,13 +22,13 @@
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Por preço</span></h5>
                 <div class="bg-light p-4 mb-30">
                     <form method="POST" action="">
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input name="pesquisar" type="checkbox" class="custom-control-input" checked id="price-all">
-                            <label class="custom-control-label" for="price-all">Todos os preços</label>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" checked id="price-all">
+                            <label class="custom-control-label" for="price-all">Todos</label>
                             <span class="badge border font-weight-normal">1000</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input tname="pesquisar[]" ype="checkbox" class="custom-control-input" id="price-1">
+                            <input name="pesquisar[]" type="checkbox" class="custom-control-input" id="price-1">
                             <label class="custom-control-label" for="price-1">$5 - $50</label>
                             <span class="badge border font-weight-normal">150</span>
                         </div>
@@ -48,6 +47,7 @@
                         <input type="submit" value="Pesquisar" name="PesqProduto" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;" placeholder="Pesquisar">
                         </div>
                     </form>
+                    
                 </div>
                 <!-- Price End -->
                 
@@ -105,18 +105,19 @@
                          
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div>
-                                <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
-                                <button class="btn btn-sm btn-light ml-2"><i class="fa fa-bars"></i></button>
+                                <a href="home.php?pagina=shopgrade" class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></a>
+                                <a href="home.php?pagina=shoplista" class="btn btn-sm btn-light ml-2"><i class="fa fa-bars"></i></a>
                             </div>
                             <div class="ml-2">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
+                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Ordenar por</button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Latest</a>
-                                        <a class="dropdown-item" href="#">Popularity</a>
-                                        <a class="dropdown-item" href="#">Best Rating</a>
+                                        <a class="dropdown-item" href="#">Novidades</a>
+                                        <a class="dropdown-item" href="home.php?pagina=shopnovidade">Populares</a>
+                                        <a class="dropdown-item" href="home.php?pagina=shoppreco">Menor preço</a>
                                     </div>
                                 </div>
+                                <!--
                                 <div class="btn-group ml-2">
                                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Showing</button>
                                     <div class="dropdown-menu dropdown-menu-right">
@@ -125,6 +126,7 @@
                                         <a class="dropdown-item" href="#">30</a>
                                     </div>
                                 </div>
+                                -->
                             </div>
                         </div>
                     </div>
@@ -161,12 +163,9 @@
                                 <div class="product-action">
                                     <a class="btn btn-outline-dark btn-square" href=""><button type="submit" name="btn-carrinho"><i class="fa fa-shopping-cart"></i></button></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-<<<<<<< HEAD
 
                                     <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes?idDetail=<?php echo $idProduto;?>"><i class="fa fa-search"></i></a>
-=======
                                     <a class="btn btn-outline-dark btn-square" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
->>>>>>> f0f8f494f6ad716f0814615b956c3348ede64335
                                 </div>
                             </div>
 
@@ -251,4 +250,3 @@
         </div>
     </div>
     <!-- Shop End -->
-

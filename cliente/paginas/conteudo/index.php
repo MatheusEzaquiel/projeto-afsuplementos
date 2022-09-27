@@ -108,7 +108,6 @@
                 
             </div>
             <div class="container-fluid py-5">
-                
                 <div class="row px-xl-5">
                     <div class="col">
                         <div class="owl-carousel related-carousel">
@@ -368,32 +367,6 @@
     </div>
     <!-- Categories End -->
     <!-- Products Start -->
-    <?php
-    include_once("../../config/conexao.php");
-    $selectProdutos = "SELECT * FROM tb_produto";
-
-    try {
-        $resultSelProdutos = $conect->prepare($selectProdutos);
-        $resultSelProdutos->execute();
-        $contSelProdutos = $resultSelProdutos->rowCount();
-
-        
-        if($contSelProdutos > 0){
-            while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
-                $showProdutos->id_produto;
-                $showProdutos->tipo_produto;
-                $showProdutos->marca_produto;
-                $showProdutos->nome_produto;
-                $showProdutos->tamanho_produto;
-                $showProdutos->descricao_produto;
-                $showProdutos->preco_compra_produto;
-                $showProdutos->preco_venda_produto;
-                $showProdutos->quantidade_produto;
-                $showProdutos->foto_produto;
-                $showProdutos->promocao_produto;
-        
-
-    ?>
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3" style="color: #000000;">Produtos</span></h2>
         <div class="row px-xl-5 pb-3">
@@ -402,11 +375,33 @@
                 
             </div>
             <div class="container-fluid py-5">
-                
                 <div class="row px-xl-5">
+                <?php
+                    include_once("../../config/conexao.php");
+                    $selectProdutos = "SELECT * FROM tb_produto";
+
+                    try {
+                    $resultSelProdutos = $conect->prepare($selectProdutos);
+                    $resultSelProdutos->execute();
+                    $contSelProdutos = $resultSelProdutos->rowCount();
+
+                        
+                    if($contSelProdutos > 0){
+                    while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
+                    $showProdutos->id_produto;
+                    $showProdutos->tipo_produto;
+                    $showProdutos->marca_produto;
+                    $showProdutos->nome_produto;
+                    $showProdutos->tamanho_produto;
+                    $showProdutos->descricao_produto;
+                    $showProdutos->preco_compra_produto;
+                    $showProdutos->preco_venda_produto;
+                    $showProdutos->quantidade_produto;
+                    $showProdutos->foto_produto;
+                    $showProdutos->promocao_produto;
+                    ?>
                     <div class="col">
                         <div class="owl-carousel related-carousel">
-                            
                             <div class="product-item bg-light">
                                 <div class="product-img position-relative overflow-hidden">
                                     <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">

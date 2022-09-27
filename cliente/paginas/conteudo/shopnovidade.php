@@ -1,148 +1,107 @@
-
-
-
     <!-- Breadcrumb Start -->
     <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="home.php?pagina=index">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Promoção</a>
-                    <span class="breadcrumb-item active">Produtos em promoção</span>
+                    <a class="breadcrumb-item text-dark" href="#">Home</a>
+                    <a class="breadcrumb-item text-dark" href="#">Shop</a>
+                    <span class="breadcrumb-item active">Shop List</span>
                 </nav>
             </div>
         </div>
     </div>
     <!-- Breadcrumb End -->
 
-
+    <form action="" method="post">
     <!-- Shop Start -->
     <div class="container-fluid">
         <div class="row px-xl-5">
             <!-- Shop Sidebar Start -->
             <div class="col-lg-3 col-md-4">
                 <!-- Price Start -->
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by price</span></h5>
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Por preço</span></h5>
                 <div class="bg-light p-4 mb-30">
-                    <form>
+                    <form method="POST" action="">
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" checked id="price-all">
-                            <label class="custom-control-label" for="price-all">All Price</label>
+                            <input name="pesquisar" type="checkbox" class="custom-control-input" checked id="price-all">
+                            <label class="custom-control-label" for="price-all">Todos os preços</label>
                             <span class="badge border font-weight-normal">1000</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="price-1">
-                            <label class="custom-control-label" for="price-1">$0 - $100</label>
+                            <input tname="pesquisar[]" ype="checkbox" class="custom-control-input" id="price-1">
+                            <label class="custom-control-label" for="price-1">$5 - $50</label>
                             <span class="badge border font-weight-normal">150</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="price-2">
-                            <label class="custom-control-label" for="price-2">$100 - $200</label>
+                            <input name="pesquisar[]" type="checkbox" class="custom-control-input" id="price-2">
+                            <label class="custom-control-label" for="price-2">$50 - $100</label>
                             <span class="badge border font-weight-normal">295</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="price-3">
-                            <label class="custom-control-label" for="price-3">$200 - $300</label>
+                            <input name="pesquisar[]" type="checkbox" class="custom-control-input" id="price-3">
+                            <label class="custom-control-label" for="price-3">$100 - $200</label>
                             <span class="badge border font-weight-normal">246</span>
                         </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="price-4">
-                            <label class="custom-control-label" for="price-4">$300 - $400</label>
-                            <span class="badge border font-weight-normal">145</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                            <input type="checkbox" class="custom-control-input" id="price-5">
-                            <label class="custom-control-label" for="price-5">$400 - $500</label>
-                            <span class="badge border font-weight-normal">168</span>
+                        <br>
+                        <div class="mb-3">
+                        <input type="submit" value="Pesquisar" name="PesqProduto" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;" placeholder="Pesquisar">
                         </div>
                     </form>
-                    
                 </div>
                 <!-- Price End -->
                 
                 <!-- Color Start -->
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by color</span></h5>
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Por Tipo</span></h5>
                 <div class="bg-light p-4 mb-30">
                     <form>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" checked id="color-all">
-                            <label class="custom-control-label" for="price-all">All Color</label>
+                            <label class="custom-control-label" for="price-all">Todos</label>
                             <span class="badge border font-weight-normal">1000</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-1">
-                            <label class="custom-control-label" for="color-1">Black</label>
+                            <label class="custom-control-label" for="color-1">Whey</label>
                             <span class="badge border font-weight-normal">150</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-2">
-                            <label class="custom-control-label" for="color-2">White</label>
+                            <label class="custom-control-label" for="color-2">Creatina</label>
                             <span class="badge border font-weight-normal">295</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-3">
-                            <label class="custom-control-label" for="color-3">Red</label>
+                            <label class="custom-control-label" for="color-3">Barrinhas</label>
                             <span class="badge border font-weight-normal">246</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-4">
-                            <label class="custom-control-label" for="color-4">Blue</label>
+                            <label class="custom-control-label" for="color-4">Ômega</label>
                             <span class="badge border font-weight-normal">145</span>
                         </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                            <input type="checkbox" class="custom-control-input" id="color-5">
-                            <label class="custom-control-label" for="color-5">Green</label>
-                            <span class="badge border font-weight-normal">168</span>
+                        <br>
+                        <div class="mb-3">
+                        <input type="submit" value="Pesquisar" name="PesqProduto" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;" placeholder="Pesquisar">
                         </div>
                     </form>
                 </div>
                 <!-- Color End -->
 
                 <!-- Size Start -->
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by size</span></h5>
-                <div class="bg-light p-4 mb-30">
-                    <form>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" checked id="size-all">
-                            <label class="custom-control-label" for="size-all">All Size</label>
-                            <span class="badge border font-weight-normal">1000</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="size-1">
-                            <label class="custom-control-label" for="size-1">XS</label>
-                            <span class="badge border font-weight-normal">150</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="size-2">
-                            <label class="custom-control-label" for="size-2">S</label>
-                            <span class="badge border font-weight-normal">295</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="size-3">
-                            <label class="custom-control-label" for="size-3">M</label>
-                            <span class="badge border font-weight-normal">246</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="size-4">
-                            <label class="custom-control-label" for="size-4">L</label>
-                            <span class="badge border font-weight-normal">145</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                            <input type="checkbox" class="custom-control-input" id="size-5">
-                            <label class="custom-control-label" for="size-5">XL</label>
-                            <span class="badge border font-weight-normal">168</span>
-                        </div>
-                    </form>
-                </div>
+                
+                
                 <!-- Size End -->
             </div>
             <!-- Shop Sidebar End -->
 
 
-            <!-- Shop Product Start -->
+            <!-- Produtos -->
+            
             <div class="col-lg-9 col-md-8">
                 <div class="row pb-3">
+                
                     <div class="col-12 pb-1">
+                         
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div>
                                 <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
@@ -150,13 +109,14 @@
                             </div>
                             <div class="ml-2">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
+                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Ordenar por</button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Latest</a>
-                                        <a class="dropdown-item" href="#">Popularity</a>
-                                        <a class="dropdown-item" href="#">Best Rating</a>
+                                        <a class="dropdown-item" href="home.php?pagina=shopnovidade">Novidades</a>
+                                        <a class="dropdown-item" href="#">Populares</a>
+                                        <a class="dropdown-item" href="home.php?pagina=shoppreco">Menor preço</a>
                                     </div>
                                 </div>
+                                <!--
                                 <div class="btn-group ml-2">
                                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Showing</button>
                                     <div class="dropdown-menu dropdown-menu-right">
@@ -165,13 +125,14 @@
                                         <a class="dropdown-item" href="#">30</a>
                                     </div>
                                 </div>
+                                -->
                             </div>
                         </div>
-                        <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Novas promoções</span></h5>
                     </div>
+                    <!-- PHP 1/2 -->
                     <?php
                         include_once("../../config/conexao.php");
-                        $selectProdutos = "SELECT * FROM  tb_promocao FULL OUTER JOIN tb_promocao ON ";
+                        $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY id_produto DESC";
                         
                         try {
                             $resultSelProdutos = $conect->prepare($selectProdutos);
@@ -181,22 +142,32 @@
 
                             if($contSelProdutos > 0){
                                 while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
-                                    $showProdutos->id_promocao;
-                                    $showProdutos->nome_promocao;
-                                    $showProdutos->descricao_promocao;
-                                    $showProdutos->valor_promocao;
+                                    $idProduto = $showProdutos->id_produto;
+                                    $showProdutos->tipo_produto;
+                                    $showProdutos->marca_produto;
+                                    $showProdutos->nome_produto;
+                                    $showProdutos->tamanho_produto;
+                                    $showProdutos->descricao_produto;
+                                    $showProdutos->preco_compra_produto;
+                                    $showProdutos->preco_venda_produto;
+                                    $showProdutos->quantidade_produto;
+                                    $showProdutos->foto_produto;
+                                    $showProdutos->promocao_produto;
                     ?>
+                    
                     <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
                         <div class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
                                 <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
                                 <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><button type="submit" name="btn-carrinho"><i class="fa fa-shopping-cart"></i></button></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href="home.php?pagina=promocao&?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
+
+                                    <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes?idDetail=<?php echo $idProduto;?>"><i class="fa fa-search"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
+
                             <div class="text-center py-4">
                                 <a class="h6 text-decoration-none text-truncate" href=""><?php echo $showProdutos->nome_produto;?></a>
                                 <br><small><?php echo $showProdutos->marca_produto;?></small> |
@@ -205,16 +176,15 @@
                                     <h5>$<?php echo $showProdutos->preco_venda_produto;?></h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
+                                    <small>(99) </small>
+                                    <small class="fa mr-1"> Reviews</small>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
+                    
+                    <!-- PHP 2/2 -->
                     <?php
                                 }//Fim while
                             }else{
@@ -223,13 +193,9 @@
                         } catch (PDOException $erro) {
                             echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
                         }
-                    ?>   
-                        </div>
-                        <div class="col-12 pb-1">
-                        <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Novas promoções</span></h5>
-                        </div>
-                    </div>
-                    
+                    ?>
+                    </form>
+
                     <div class="col-12">
                         <nav>
                           <ul class="pagination justify-content-center">
@@ -243,8 +209,43 @@
                     </div>
                 </div>
             </div>
-            <!-- Shop Product End -->
+    </form>
+            
+            <!-- Produtos -->
+            <?php
+
+            //Carrinho
+                        if(isset($_POST["btn-carrinho"])){
+            
+                            $cadCarrinho = "INSERT INTO tb_carrinho(cliente_pedido,produto_pedido,preco_pedido,estado_pedido) VALUES(:clientePed,:produtoPed,:precoPed,:estadoPed)";
+                            
+                            echo $idProduto;
+                            $idProduto = 30;
+                            $idCliente = 6;
+                            $precoPed = 115; //$precoProdt * $prodtQtd;
+                            $estadoP = 0;
+
+                            try{
+                                $resultCadCar = $conect->prepare($cadCarrinho);
+                                $resultCadCar->bindParam(':clientePed',$idCliente,PDO::PARAM_STR);
+                                $resultCadCar->bindParam(':produtoPed',$idProduto,PDO::PARAM_STR);
+                                $resultCadCar->bindParam(':precoPed',$precoPed,PDO::PARAM_STR);
+                                $resultCadCar->bindParam(':estadoPed',$estadoP,PDO::PARAM_STR);
+                                $resultCadCar->execute();
+
+                                $contPedido = $resultCadCar->rowCount();
+                                if($contPedido > 0){
+                                    echo "<script>alert('Produto enviado para o carrinho')</script>";
+                                }else{
+                                    echo "<script>alert('[Erro] Tente novamente!')</script>";
+                                }
+
+                            }catch(PDOException	$erro){
+                                echo "ERRO DE CADASTRO [PDO] Carrinho = ".$erro->getMessage();
+                            }
+                        }
+                        
+                    ?>
         </div>
     </div>
     <!-- Shop End -->
-
