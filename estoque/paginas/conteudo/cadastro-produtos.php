@@ -141,7 +141,7 @@
                                             
                                             echo "<script>
                                                     setTimeout(function() {
-                                                        window.location.replace('http://localhost/af-suplementos/estoque/pages/cadastro-produtos.php');
+                                                        window.location.replace('home.php?pagina=lista-produtos');
                                                     }, 2000)
                                                 </script>";         
                                         }

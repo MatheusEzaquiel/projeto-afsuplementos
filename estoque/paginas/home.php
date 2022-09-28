@@ -22,6 +22,8 @@
                 include_once("conteudo/lista-produtos.php");
                 break;
         }   
+    }else{
+        include_once("conteudo/lista-produtos.php"); 
     }
 
 
