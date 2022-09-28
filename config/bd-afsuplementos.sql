@@ -52,13 +52,12 @@ CREATE TABLE `tb_carrinho` (
   `id_pedido` int NOT NULL AUTO_INCREMENT,
   `cliente_pedido` int NOT NULL,
   `produto_pedido` int NOT NULL,
-  `quantidade_produto` int NOT NULL,
-  `preco_produto` decimal(7,2) NOT NULL,
   `preco_pedido` decimal(7,2) NOT NULL,
-  `foto_produto` varchar(150) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `estado_pedido` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id_pedido`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  PRIMARY KEY (`id_pedido`),
+  KEY `prodt_pedido_idx` (`cliente_pedido`),
+  CONSTRAINT `id_cliente` FOREIGN KEY (`cliente_pedido`) REFERENCES `tb_cliente` (`id_cliente`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,6 +66,7 @@ CREATE TABLE `tb_carrinho` (
 
 LOCK TABLES `tb_carrinho` WRITE;
 /*!40000 ALTER TABLE `tb_carrinho` DISABLE KEYS */;
+INSERT INTO `tb_carrinho` VALUES (36,4,4,0.00,0),(37,4,4,0.00,0),(38,4,31,0.00,0),(39,4,32,0.00,0),(40,4,30,0.00,0),(50,4,52,0.00,0),(51,4,61,0.00,0),(52,4,54,0.00,0);
 /*!40000 ALTER TABLE `tb_carrinho` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +121,7 @@ CREATE TABLE `tb_produto` (
   `promocao_produto` int DEFAULT NULL,
   `disponibilidade_produto` int DEFAULT '1',
   PRIMARY KEY (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `tb_produto` (
 
 LOCK TABLES `tb_produto` WRITE;
 /*!40000 ALTER TABLE `tb_produto` DISABLE KEYS */;
-INSERT INTO `tb_produto` VALUES (3,'grao','marca A','Produto A','600g','Descrição do produto A.',1.00,2.00,60,'6323d53f1fc4b.png',NULL,1),(4,'po','Max Titanium','Creatina ','450g','Uma dose de creatina Max para aumentar sua energia nos treinos diários.',65.00,90.00,30,'6323cea237e32.jpeg',NULL,1),(26,'pilula','Scientifica','Ômega 1000','180g','Contém 60 pílulas na embalagem.',40.00,79.00,15,'6323cf6956a7b.jpeg',NULL,1),(30,'po','Raio','Whey Protein','2kg','Whey protein Raio...',85.00,115.00,35,'6323d0876928c.jpg',NULL,1),(31,'pilula','Nutry','Barra de cereal','22g','Uma barrinha deliciosa para um lanche rápido em dias corridos.',3.00,6.00,60,'6323d15948e24.jpg',NULL,1);
+INSERT INTO `tb_produto` VALUES (3,'grao','marca A','Produto A','600g','Descrição do produto A.',1.00,2.00,60,'6323d53f1fc4b.png',NULL,0),(26,'pilula','Teste','Teste','350g','Descrição teste',77.00,89.00,10,'6323cf6956a7b.jpeg',NULL,0),(50,'po','Max Titanium','Creatina ','450g','Uma dose de creatina Max para aumentar sua energia nos treinos diários.',65.00,90.00,30,'6323cea237e32.jpeg',NULL,0),(51,'pilula','Scientifica','Ômega 1000','180g','Contém 60 pílulas na embalagem.',40.00,79.00,15,'6323cf6956a7b.jpeg',NULL,1),(52,'po','Raio','Whey Protein','2kg','Whey protein Raio...',85.00,115.00,35,'6323d0876928c.jpg',NULL,1),(53,'pilula','Nutry plus+','Barra de cereal c/ banana','36g','Uma saborosa barrinha.',4.00,5.50,45,'6323d15948e24.jpg',NULL,1),(54,'po','Darkness','Glutamina','320g',' Glutamina Descrição...',27.00,36.00,10,'63338a9855d13.jpeg',NULL,1),(55,'po','asfds','asfdfsa','44','afdsfasdfasdfsf ',34.00,43.00,2,'63338b173e915.jpg',NULL,0),(56,'po','gfdsgfdsgdfsg','retrfgfdgsdf','55g',' sdfdsfdsfsdfsdf',34.00,44.00,4,'63338b9ae6d68.jpg',NULL,0),(57,'po','fdsafsdfasd','fsdafasdfsdaf','45',' fdsafdsfsdfasadf',44.00,55.00,1,'63338bfc331e0.jpg',NULL,0),(58,'po','fdsafsdfasd','fsdafasdfsdaf','45',' fdsafdsfsdfasadf',44.00,55.00,1,'63338c2825f3d.jpg',NULL,0),(59,'po','fdsfsdafsa','fdsafasdf','250g',' dfsfdsfgfdfgdga',45.00,445.00,1,'63338c624e0e1.jpg',NULL,0),(60,'grao','fdsafsd','fddsafdsfds','3',' dsffasfaaaaaaaaa',4.00,44.00,4,'63338cc277d65.jpg',NULL,0),(61,'po','a','a','4',' afsdfas',3.00,5.00,1,'63338cf53e7a2.png',NULL,1);
 /*!40000 ALTER TABLE `tb_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,4 +176,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-16 15:29:24
+-- Dump completed on 2022-09-28 13:39:19
