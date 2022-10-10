@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-lg-8 table-responsive mb-5">
-                <form action="?pagina=deletar" method="get">
+                <form action="" method="post">
                     <table class="table table-light table-borderless table-hover text-center mb-0">
                         <thead class="thead-dark">
                             <tr>
@@ -45,48 +45,84 @@
 
                                 if($contSelCarrinho > 0){
                                     while($carrinho = $resultSelCarrinho->FETCH(PDO::FETCH_OBJ)){
+                                        $idPedido = $carrinho->id_pedido;
                                         $idP = $carrinho->id_produto;
                                         $imgP = $carrinho->foto_produto;
                                         $nomeP = $carrinho->nome_produto;
                                         $precoP = $carrinho->preco_venda_produto;
-                                        $nomeC = $carrinho->nome_cliente;              
+                                        $nomeC = $carrinho->nome_cliente;   
+                                        $totalPed = $carrinho->preco_pedido         
                                     
                         ?>
+
                             <tr>
                                 <td class="align-middle"><img src="../../imgs/produtos/<?php echo $imgP;?>" alt="" style="width: 50px;"></td>
                                 <td class="align-middle"><?php echo $nomeP;?></td>
+
+                                <!-- Botão de aumentar e diminuir quantidade de produtos -->
                                 <td class="align-middle">
+
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-primary btn-minus" >
+                                            <button type="submit" name="qtdMenos" class="btn btn-sm btn-primary btn-minus" >
                                             <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
-                                            <input type="text" name="qtdProduto" class="form-control form-control-sm bg-secondary border-0 text-center" value="10">
+
+                                            <input type="text" name="qtdProduto" class="form-control form-control-sm bg-secondary border-0 text-center" value="0">
+
                                         <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-primary btn-plus">
+                                            <button type="button" name="qtdMais" class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </div>
                                     </div>
+
                                 </td>
+                                <!-- Fim - Botão de aumentar e diminuir quantidade de produtos -->
+
+                                
+
                                 <td class="align-middle">R$  <?php echo $precoP;?></td>
-                                <td class="align-middle">R$  <?php  $qtdP = 10; echo $precoP * $qtdP;?></td>
+  
+                                <td class="align-middle">R$  <?php echo $totalPed;?></td>
+
                                 <!-- Botão Remover -->
                                 <td class="align-middle">
-                                    <a href="conteudo/deletar.php?delP=<?php echo $idP;?>" class="btn btn-danger" onclick="return confirm('Deseja excluir este produto do carrinho?')">              
+                                    <a href="conteudo/deletar.php?delP=<?php echo $idPedido;?>" class="btn btn-danger" onclick="return confirm('Deseja excluir este produto do carrinho?')">              
                                         <i class="fa fa-times"></i>
                                     </a>
                                 </td>
 
                             </tr>
                         <?php       
-                                    
+                                
                                     }//Fim while
+                                }else{
+                                    echo "Sem Produtos";
                                 }//Fim if contSelProdutos
                             } catch (PDOException $erro) {
                                 echo "ERRO DE PDO (SELECT) -> ".$erro->getMessage();
                             }   
+
+                            //Botão de aumentar e diminuir quantidade de produtos
+                                
+                                    /*
+                                    $qtdP = $_POST["qtdProduto"];
+                                    echo "O valor é".$qtdP;
+
+                                    if(isset($_POST["qtdMenos"])){
+                                        $qtdP -= 1;
+                                        echo $qtdP;
+
+                                    }
+
+                                    if(isset($_POST["qtdMais"])){
+                                        $qtdP += 1;
+                                        echo $qtdP;
+
+                                    }
+                                    */
 
                         
                         ?>     

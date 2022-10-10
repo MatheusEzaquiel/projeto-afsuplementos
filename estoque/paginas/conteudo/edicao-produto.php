@@ -1,50 +1,38 @@
-
-    <!-- Navbar Start -->
+<?php
+    include_once("../../config/conexao.php");
+    $idProduto = $_GET["idP"];
     
-    <!-- Navbar End -->
-
-
-    <!-- Breadcrumb Start -->
     
-    <!-- Breadcrumb End -->
+    $selectProduto = "SELECT * FROM tb_produto WHERE id_produto = :idProdt";
+    
+    try {
+        $resultSelProduto = $conect->prepare($selectProduto);
+        $resultSelProduto->bindParam(":idProdt",$idProduto,PDO::PARAM_INT);
+        $resultSelProduto->execute();
+        $contSelProduto = $resultSelProduto->rowCount();
 
-    <?php   
-
-                        include_once("../../config/conexao.php");
-
-                        $idProduto = $_GET["idProduto"];
-                        
-                        $selectProduto = "SELECT * FROM tb_produto WHERE id_produto = :idProdt";
-                        
-                        try {
-                            $resultSelProduto = $conect->prepare($selectProduto);
-                            $resultSelProduto->bindParam(":idProdt",$idProduto,PDO::PARAM_INT);
-                            $resultSelProduto->execute();
-                            $contSelProduto = $resultSelProduto->rowCount();
-
-                            if($contSelProduto > 0){
-                                while($showProduto = $resultSelProduto->FETCH(PDO::FETCH_OBJ)){
-                                    $showProduto->id_produto;
-                                    $tipoP = $showProduto->tipo_produto;
-                                    $marcaP = $showProduto->marca_produto;
-                                    $nomeP = $showProduto->nome_produto;
-                                    $tamanhoP = $showProduto->tamanho_produto;
-                                    $descricaoP = $showProduto->descricao_produto;
-                                    $precoCompraP = $showProduto->preco_compra_produto;
-                                    $precoVendaP = $showProduto->preco_venda_produto;
-                                    $qtdP = $showProduto->quantidade_produto;
-                                    $fotoP = $showProduto->foto_produto;
-                                    $promocaoP = $showProduto->promocao_produto;
-                                   
-                                }//Fim while
-                            }else{
-                                echo "ERRO!!";
-                            }
-                        } catch (PDOException $erro) {
-                            echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
-                        }
-                        
-                ?>
+        if($contSelProduto > 0){
+            while($showProduto = $resultSelProduto->FETCH(PDO::FETCH_OBJ)){
+                $showProduto->id_produto;
+                $tipoP = $showProduto->tipo_produto;
+                $marcaP = $showProduto->marca_produto;
+                $nomeP = $showProduto->nome_produto;
+                $tamanhoP = $showProduto->tamanho_produto;
+                $descricaoP = $showProduto->descricao_produto;
+                $precoCompraP = $showProduto->preco_compra_produto;
+                $precoVendaP = $showProduto->preco_venda_produto;
+                $qtdP = $showProduto->quantidade_produto;
+                $fotoP = $showProduto->foto_produto;
+                $promocaoP = $showProduto->promocao_produto;
+                
+            }//Fim while
+        }else{
+            echo "ERRO!!";
+        }
+    } catch (PDOException $erro) {
+        echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
+    }   
+?>
     <!-- Checkout Start -->
     <div class="container-fluid">
         <div class="row px-xl-5">
@@ -126,79 +114,82 @@
                             
                         </div>
                     </form>
-                    <?php
-                        //Alterar cadastro p/ update
-                        include_once("../../config/conexao.php");
-                        if(isset($_POST["btn-update-prodt"])){
-                            $nomeProdt = $_POST["nome-produto"];
-                            $marcaProdt = $_POST["marca-produto"];
-                            $tipoProdt = $_POST["tipo-produto"];
-                            $tamanhoProdt = $_POST["tamanho-produto"];
-                            $descricaoProdt = $_POST["descricao-produto"];
-                            $precoCompraProdt = $_POST["preco-compra-produto"];
-                            $precoVendaProdt = $_POST["preco-venda-produto"];
-                            $qtdProdt = $_POST["qtd-produto"];
-                            $disponivel = 1;
+<?php
+    //Alterar cadastro p/ update
+    include_once("../../config/conexao.php");
 
-                                                        
-                            //Update de img
-                            $extensaoImg = pathinfo($_FILES['foto-produto']['name'], PATHINFO_EXTENSION); //Remove a extensão da img
-                            $tipoExtensao = array("jpg","jpeg","JPEG","png","gif");
+    if(isset($_POST["btn-update-prodt"])){
 
-                            if(in_array($extensaoImg, $tipoExtensao)){
-                                $pasta = "../../imgs/produtos/";
-                                $temporarioImg = $_FILES['foto-produto']['tmp_name'];
-                                $novoNomeImg =  uniqid().".$extensaoImg";
+        $nomeProdt = $_POST["nome-produto"];
+        $marcaProdt = $_POST["marca-produto"];
+        $tipoProdt = $_POST["tipo-produto"];
+        $tamanhoProdt = $_POST["tamanho-produto"];
+        $descricaoProdt = $_POST["descricao-produto"];
+        $precoCompraProdt = $_POST["preco-compra-produto"];
+        $precoVendaProdt = $_POST["preco-venda-produto"];
+        $qtdProdt = $_POST["qtd-produto"];
+        $disponivel = 1;
 
-                                if(move_uploaded_file($temporarioImg, $pasta.$novoNomeImg)){
-                                }else{
-                                    echo "Erro! Não foi possível fazer o upload da imagem";
-                                }
-
-                            }else{
-                                echo "Formato de imagem não inválido! tente outra imagem";
-                            }
-
-                            $updateProdt = "UPDATE tb_produto SET tipo_produto=:tipoProdt,marca_produto=:marcaProdt,nome_produto=:nomeProdt,tamanho_produto=:tamanhoProdt,descricao_produto=:descricaoProdt,preco_compra_produto=:precoCompProdt,preco_venda_produto=:precoVenProdt,quantidade_produto=:qtdProdt,foto_produto=:fotoProdt,disponibilidade_produto=:disponivel WHERE id_produto = :idProdt";
-                            try{
-                                $resultUpdateProdt = $conect->prepare($updateProdt);
-                                $resultUpdateProdt->bindParam(":idProdt",$idProduto,PDO::PARAM_STR);
-                                $resultUpdateProdt->bindParam(":tipoProdt",$tipoProdt,PDO::PARAM_STR);
-                                $resultUpdateProdt->bindParam(":marcaProdt",$marcaProdt,PDO::PARAM_STR);
-                                $resultUpdateProdt->bindParam(":nomeProdt",$nomeProdt,PDO::PARAM_STR);
-                                $resultUpdateProdt->bindParam(":tamanhoProdt",$tamanhoProdt,PDO::PARAM_STR);
-                                $resultUpdateProdt->bindParam(":descricaoProdt",$descricaoProdt,PDO::PARAM_STR);
-                                $resultUpdateProdt->bindParam(":precoCompProdt",$precoCompraProdt,PDO::PARAM_STR);
-                                $resultUpdateProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
-                                $resultUpdateProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
-                                $resultUpdateProdt->bindParam(":fotoProdt",$novoNomeImg,PDO::PARAM_STR);
-                                $resultUpdateProdt->bindParam(":disponivel",$disponivel,PDO::PARAM_STR);
-                                $resultUpdateProdt->execute();
-
-                                $contresUpdateP = $resultUpdateProdt->rowCount();
-                                if($contresUpdateP > 0){
-                                    echo "<div class='alert alert-success' role='alert'>
-                                            Informações atualizadas com sucesso!
-                                        </div>";
                                     
-                                    echo "<script>
-                                            setTimeout(function() {
-                                                window.location.replace('http://localhost/af-suplementos/estoque/pages/lista-produtos.php');
-                                            }, 2000)
-                                        </script>";         
-                                }
+        //Update de img
+        if(!empty($_FILES['foto-produto']['name'])){
+        
+            $extensaoImg = pathinfo($_FILES['foto-produto']['name'], PATHINFO_EXTENSION); //Remove a extensão da img
+            $tipoExtensao = array("jpg","jpeg","JPEG","png","gif");
 
-                            }catch(PDOException $erro){
-                                echo "ERRO DE PDO (CADASTRO)".$erro->getMessage();
-                            }
+            if(in_array($extensaoImg, $tipoExtensao)){
+                $pasta = "../../imgs/produtos/";
+                $temporarioImg = $_FILES['foto-produto']['tmp_name'];
+                $novoNomeImg =  uniqid().".$extensaoImg";
 
-                            
-                                
-                        }
-                        
+                if(move_uploaded_file($temporarioImg, $pasta.$novoNomeImg)){
+                }else{
+                    echo "Erro! Não foi possível fazer o upload da imagem";
+                }
 
-                        
-                    ?>
+            }else{
+                echo "Formato de imagem não inválido! tente outra imagem";
+            }
+        }else{
+            $novoNomeImg = $fotoP;
+        }
+
+        $updateProdt = "UPDATE tb_produto SET tipo_produto=:tipoProdt,marca_produto=:marcaProdt,nome_produto=:nomeProdt,tamanho_produto=:tamanhoProdt,descricao_produto=:descricaoProdt,preco_compra_produto=:precoCompProdt,preco_venda_produto=:precoVenProdt,quantidade_produto=:qtdProdt,foto_produto=:fotoProdt,disponibilidade_produto=:disponivel WHERE id_produto = :idProdt";
+        try{
+            $resultUpdateProdt = $conect->prepare($updateProdt);
+            $resultUpdateProdt->bindParam(":idProdt",$idProduto,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":tipoProdt",$tipoProdt,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":marcaProdt",$marcaProdt,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":nomeProdt",$nomeProdt,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":tamanhoProdt",$tamanhoProdt,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":descricaoProdt",$descricaoProdt,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":precoCompProdt",$precoCompraProdt,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":fotoProdt",$novoNomeImg,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":disponivel",$disponivel,PDO::PARAM_STR);
+            $resultUpdateProdt->execute();
+
+            $contresUpdateP = $resultUpdateProdt->rowCount();
+            if($contresUpdateP > 0){
+                echo "<div class='alert alert-success' role='alert'>
+                        Informações atualizadas com sucesso!
+                    </div>";
+                
+                echo "<script> window.location.reload();</script>";
+            }
+
+        }catch(PDOException $erro){
+            echo "ERRO DE PDO (CADASTRO)".$erro->getMessage();
+        }
+
+        
+            
+    }
+    
+
+    
+?>
                 </div>
             </div>
             <!-- FIM - Formulário de Login-->

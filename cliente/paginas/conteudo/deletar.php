@@ -4,7 +4,7 @@ include('../../../config/conexao.php');
 if(isset($_GET["delP"])){
 	$id = $_GET["delP"];
 	
-	$delete = "DELETE FROM tb_carrinho WHERE produto_pedido=:id";
+	$delete = "DELETE FROM tb_carrinho WHERE id_pedido=:id";
 
 	try{
 
