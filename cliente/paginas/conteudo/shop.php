@@ -5,8 +5,8 @@
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
                     <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Shop</a>
-                    <span class="breadcrumb-item active">Shop List</span>
+                    <a class="breadcrumb-item text-dark" href="#">Catálogo</a>
+                    <span class="breadcrumb-item active">LIsta de produtos</span>
                 </nav>
             </div>
         </div>
@@ -29,7 +29,7 @@
                             <span class="badge border font-weight-normal">1000</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input tname="pesquisar[]" ype="checkbox" class="custom-control-input" id="price-1">
+                            <input tname="pesquisar[]" type="checkbox" class="custom-control-input" id="price-1">
                             <label class="custom-control-label" for="price-1">$5 - $50</label>
                             <span class="badge border font-weight-normal">150</span>
                         </div>
@@ -39,13 +39,13 @@
                             <span class="badge border font-weight-normal">295</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input name="pesquisar[]" type="checkbox" class="custom-control-input" id="price-3">
+                            <input name="pesquisar[]" type="checkbox" class="custom-control-input" id="price-3" style="background-color:#DF0805;">
                             <label class="custom-control-label" for="price-3">$100 - $200</label>
                             <span class="badge border font-weight-normal">246</span>
                         </div>
                         <br>
                         <div class="mb-3">
-                        <input type="submit" value="Pesquisar" name="PesqProduto" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;" placeholder="Pesquisar">
+                        <input type="submit" value="Pesquisar" name="PesqProduto" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;border-radius:3px;" placeholder="Pesquisar">
                         </div>
                     </form>
                 </div>
@@ -62,27 +62,32 @@
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-1">
-                            <label class="custom-control-label" for="color-1">Whey</label>
+                            <label class="custom-control-label" for="color-1">Em pó</label>
                             <span class="badge border font-weight-normal">150</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-2">
-                            <label class="custom-control-label" for="color-2">Creatina</label>
+                            <label class="custom-control-label" for="color-2">Bebidas</label>
                             <span class="badge border font-weight-normal">295</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-3">
-                            <label class="custom-control-label" for="color-3">Barrinhas</label>
+                            <label class="custom-control-label" for="color-3">Grão</label>
                             <span class="badge border font-weight-normal">246</span>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <input type="checkbox" class="custom-control-input" id="color-4">
-                            <label class="custom-control-label" for="color-4">Ômega</label>
+                            <label class="custom-control-label" for="color-4">Pílulas</label>
+                            <span class="badge border font-weight-normal">145</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="color-4">
+                            <label class="custom-control-label" for="color-4">Barrinhas</label>
                             <span class="badge border font-weight-normal">145</span>
                         </div>
                         <br>
                         <div class="mb-3">
-                        <input type="submit" value="Pesquisar" name="PesqProduto" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;" placeholder="Pesquisar">
+                        <input type="submit" value="Pesquisar" name="PesqProduto" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;border-radius:3px;" placeholder="Pesquisar">
                         </div>
                     </form>
                 </div>
@@ -161,16 +166,9 @@
                                     <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
                                     <div class="product-action">
                                         <!-- Botão enviar p/ carrinho-->
-                                        <a class="btn btn-outline-dark btn-square" href="#">
-                                            <button type="submit" name="btn-carrinho<?php echo $showProdutos->id_produto;?>">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </button>
-                                        </a>
+                                        <button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $showProdutos->id_produto;?>"><i class="fa fa-shopping-cart"></i></button>
                                         <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
                                         <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
-
-                                        <a class="btn btn-outline-dark btn-square" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
-
                                     </div>
                                 </div>
 

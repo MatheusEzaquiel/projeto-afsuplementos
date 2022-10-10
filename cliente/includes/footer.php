@@ -16,7 +16,6 @@
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Home</a>
                             <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Catálogo</a>
-                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Promoção</a>
                             <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Contato</a>
 
                         </div>

@@ -4,8 +4,7 @@
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
                     <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Shop</a>
-                    <span class="breadcrumb-item active">Shopping Cart</span>
+                    <span class="breadcrumb-item active">Carrinho de compras</span>
                 </nav>
             </div>
         </div>
@@ -100,7 +99,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control border-0 p-4" placeholder="Código de cupom">
                         <div class="input-group-append">
-                            <button class="btn btn-primary">Aplicar</button>
+                            <button class="btn" style="background-color:#DF0805;border:#DF0805;color:#F9F6F6;">Aplicar</button>
                         </div>
                     </div>
                 </form>
@@ -121,7 +120,7 @@
                             <h5>Total</h5>
                             <h5>R$160</h5>
                         </div>
-                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Encaminhar Compra</button>
+                        <button class="btn btn-block font-weight-bold my-3 py-3" style="background-color:#DF0805;border:#DF0805;color:#F9F6F6;">Encaminhar Compra</button>
                     </div>
                 </div>
             </div>
