@@ -142,12 +142,13 @@
                                     if($categoria = "ADM"){
                                         echo"oi";
                                         $select ="SELECT * FROM tb_cliente WHERE email_cliente=:EmailLogin AND senha_cliente=:SenhaCliente";
+                                        /*
                                         try{
                                             $resultLogin = $conect -> prepare($select);
                                             $resultLogin->bindParam(':EmailLogin', $login, PDO::PARAM_STR);
                                             $resultLogin->bindParam(':SenhaCliente', $senha, PDO::PARAM_STR);
                                             $resultLogin->execute();
-                                        }
+                                        }*/
                                     }
                                 }
 
