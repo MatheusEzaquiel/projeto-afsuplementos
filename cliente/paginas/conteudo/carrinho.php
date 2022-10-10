@@ -51,7 +51,7 @@
                                         $nomeP = $carrinho->nome_produto;
                                         $precoP = $carrinho->preco_venda_produto;
                                         $nomeC = $carrinho->nome_cliente;   
-                                        $totalPed = $carrinho->preco_pedido         
+                                        $totalPedido = $carrinho->preco_pedido         
                                     
                         ?>
 
@@ -64,7 +64,7 @@
 
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
-                                            <button type="submit" name="qtdMenos" class="btn btn-sm btn-primary btn-minus" >
+                                            <button type="submit" name="btnMenosProdt" class="btn btn-sm btn-primary btn-minus" >
                                             <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
@@ -72,7 +72,7 @@
                                             <input type="text" name="qtdProduto" class="form-control form-control-sm bg-secondary border-0 text-center" value="0">
 
                                         <div class="input-group-btn">
-                                            <button type="button" name="qtdMais" class="btn btn-sm btn-primary btn-plus">
+                                            <button type="submit" name="btnMaisProdt" class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </div>
@@ -85,7 +85,7 @@
 
                                 <td class="align-middle">R$  <?php echo $precoP;?></td>
   
-                                <td class="align-middle">R$  <?php echo $totalPed;?></td>
+                                <td class="align-middle">R$  <?php echo $totalPedido;?></td>
 
                                 <!-- Botão Remover -->
                                 <td class="align-middle">
@@ -105,27 +105,48 @@
                                 echo "ERRO DE PDO (SELECT) -> ".$erro->getMessage();
                             }   
 
-                            //Botão de aumentar e diminuir quantidade de produtos
+                            //Aumentar quantidade de produtos
+                            
+
+                            if(isset($_POST["btnMaisProdt"])){
+                                $qtdProduto = $_POST["qtd-produto"];
+                                $precoVendaProdt = $_POST["preco-venda-produto"];
+
+                                echo    "<script>
+                                            var 
+                                        </script>";
+
+                                echo "mais 1";
+                                echo "qtd: ".$qtdProduto;
+                                /*
+
+                                $updateProdt = "UPDATE tb_pedido SET preco_venda_produto=:precoVenProdt,quantidade_produto=:qtdProdt WHERE id_pedido = :idPedido";
                                 
-                                    /*
-                                    $qtdP = $_POST["qtdProduto"];
-                                    echo "O valor é".$qtdP;
+                                try{
 
-                                    if(isset($_POST["qtdMenos"])){
-                                        $qtdP -= 1;
-                                        echo $qtdP;
+                                    $resultUpdateProdt = $conect->prepare($updateProdt);
+                                    $resultUpdateProdt->bindParam(":idPedido",$idPedido,PDO::PARAM_STR);
+                                    $resultUpdateProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
+                                    $resultUpdateProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
+                                    $resultUpdateProdt->bindParam(":totalPedido",$totalPed,PDO::PARAM_STR);
+                                    $resultUpdateProdt->execute();
 
+                                    $contresUpdateP = $resultUpdateProdt->rowCount();
+                                    if($contresUpdateP > 0){
+                                        echo "<div class='alert alert-success' role='alert'>
+                                                Informações atualizadas com sucesso!
+                                            </div>";
+                                        
+                                        echo "<script> window.location.reload(); </script>";
                                     }
 
-                                    if(isset($_POST["qtdMais"])){
-                                        $qtdP += 1;
-                                        echo $qtdP;
+                                }catch(PDOException $erro){
+                                echo "ERRO DE PDO (UPDATE)".$erro->getMessage();
+                                }
+                                */
 
-                                    }
-                                    */
-
-                        
-                        ?>     
+                                }
+                        ?>    
                         </tbody>
                     </table>
                 </form>
