@@ -72,7 +72,7 @@
                                             <input type="text" name="qtdProduto" class="form-control form-control-sm bg-secondary border-0 text-center" value="0">
 
                                         <div class="input-group-btn">
-                                            <button type="submit" name="btnMaisProdt" class="btn btn-sm btn-primary btn-plus">
+                                            <button type="submit" name="btnMaisProdt" id="btnMaisProdt" class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </div>
@@ -112,9 +112,7 @@
                                 $qtdProduto = $_POST["qtd-produto"];
                                 $precoVendaProdt = $_POST["preco-venda-produto"];
 
-                                echo    "<script>
-                                            var 
-                                        </script>";
+
 
                                 echo "mais 1";
                                 echo "qtd: ".$qtdProduto;
