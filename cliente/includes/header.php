@@ -8,6 +8,15 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
+    <!-- Jquery Mask Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" 
+        integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" 
+        crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -92,7 +101,7 @@
     <div class="container-fluid mb-30" style="background-color: #000000;">
         <div class="row px-xl-5"  style="height: 6em;">
             <div class="col-lg-3 d-none d-lg-block">
-                <a class="btn d-flex align-items-center justify-content-between w-100" style="background-color:#DF0805;height: 100%;" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
+                <a class="btn d-flex align-items-center justify-content-between w-100" style="background-color:#DF0805;height: 100%;padding-left:2em;" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
                     <h6 class=" m-0" style="color: #F9F6F6;"><i class="fa fa-bars mr-2"></i>Categorias</h6>
                     <i class="fa fa-angle-down" style="color:#F9F6F6;"></i>
                 </a>
@@ -132,17 +141,15 @@
                             <a href="home.php?pagina=contato" class="nav-item nav-link active" style="color: #F9F6F6;">Contato</a>
                             <a href="../../login-cliente.php" class="nav-item nav-link active" style="color: #F9F6F6;">Entrar</a>
                             <div class="nav-item dropdown">
-                                <!--<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #F9F6F6;">Pages </a>-->
                                 <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
                                     <a href="home.php?pagina=carrinho" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
-                                    <!--<a href="home.php?pagina=compra" class="dropdown-item" style="color: #F9F6F6;">Checkout</a>-->
                                 </div>
                                 
                             </div>
                             <div class="col-lg-6 col-6 text-left" style="margin-left:4em;">
                                 <form action="">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Pesquisa por produtos">
+                                        <input type="text" class="form-control" placeholder="Pesquisar por produtos">
                                             <div class="input-group-append">
                                                 <span class="input-group-text text-primary" style="background-color:#DF0805;border:0.3em solid #DF0805;">
                                                     <i class="fa fa-search" style="color:#f9f6f6;"></i>

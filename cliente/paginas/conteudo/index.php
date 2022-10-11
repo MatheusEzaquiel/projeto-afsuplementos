@@ -17,7 +17,7 @@
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Probiótica</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Somos pioneiros! Desde 1986 a PROBIÓTICA investe em um processo contínuo de pesquisa e inovação em colaboração com nutricionistas, médicos, treinadores e atletas.</p>
                                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                 </div>
                             </div>
@@ -27,7 +27,8 @@
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Dux Nutrition Lab</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
+Projetamos, desenvolvemos e fabricamos suplementos avançados que potencializam a capacidade humana.</p>
                                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                 </div>
                             </div>
@@ -37,7 +38,7 @@
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Max Titanium</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Na Max Titanium temos Whey Protein, Creatina,Pré Treino, hipercalorico. Aqui temos suplementos para aumentar sua performance!</p>
                                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                 </div>
                             </div>
@@ -368,18 +369,19 @@
     </div>
     <!-- Categories End -->
     <!-- Products Start -->
-    <br>
-    <br>
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3" style="color: #000000;">Produtos</span></h2>
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="#">
-                
             </div>
             <div class="container-fluid py-5">
                 <div class="row px-xl-5">
-                <?php
+                    <div class="col">
+                        <div class="owl-carousel related-carousel">
+                            
+                        <!-- PHP 1/2 -->
+                    <?php
                         include_once("../../config/conexao.php");
                         $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY preco_venda_produto ASC";
                         
@@ -403,27 +405,17 @@
                                     $showProdutos->foto_produto;
                                     $showProdutos->promocao_produto;
                     ?>
-                <div class="col">
-                    <div class="owl-carousel related-carousel">
-
                     <!-- Seção de Produtos -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                    
                         <form action="" method="post">
                             <div class="product-item bg-light mb-4">
                                 <div class="product-img position-relative overflow-hidden">
                                     <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
                                     <div class="product-action">
                                         <!-- Botão enviar p/ carrinho-->
-                                        <a class="btn btn-outline-dark btn-square" href="#">
-                                            <button type="submit" name="btn-carrinho<?php echo $showProdutos->id_produto;?>">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </button>
-                                        </a>
+                                        <button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $showProdutos->id_produto;?>"><i class="fa fa-shopping-cart"></i></button>
                                         <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
                                         <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
-
-                                        <a class="btn btn-outline-dark btn-square" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
-
                                     </div>
                                 </div>
 
@@ -442,7 +434,7 @@
                                 
                             </div>
                         </form>
-                    </div>
+                    
                    
                     
                     <!-- PHP 2/2 -->
@@ -485,17 +477,14 @@
                             echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
                         }
                     ?>
-                    
-                        </div>
-                       
-                        </div>
+                            
+                        </div>  
                     </div>
                 </div>
+            </div>
         </div>
     </div>
     <!-- Products End -->
-
-
     <!-- Offer Start -->
     <div class="container-fluid pt-5 pb-3">
         <div class="row px-xl-5">
@@ -575,4 +564,5 @@
             </div>
         </div>
     </div>
+</div>
     <!-- Vendor End -->
