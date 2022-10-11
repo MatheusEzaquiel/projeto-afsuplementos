@@ -129,7 +129,6 @@
                         <div class="navbar-nav mr-auto py-3">
                             <a href="home.php?pagina=index" class="nav-item nav-link active" style="color: #F9F6F6;">Home</a>
                             <a href="home.php?pagina=shop" class="nav-item nav-link" style="color: #F9F6F6;">Catálogo</a>
-                            <a href="home.php?pagina=promocao" class="nav-item nav-link" style="color: #F9F6F6;">Promoção</a>
                             <a href="home.php?pagina=contato" class="nav-item nav-link active" style="color: #F9F6F6;">Contato</a>
                             <a href="../../login-cliente.php" class="nav-item nav-link active" style="color: #F9F6F6;">Entrar</a>
                             <div class="nav-item dropdown">

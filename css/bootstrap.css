@@ -3589,8 +3589,8 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-  border-color: #007bff;
-  background-color: #007bff;
+  border-color: #DF0805;
+  background-color: #DF0805;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
