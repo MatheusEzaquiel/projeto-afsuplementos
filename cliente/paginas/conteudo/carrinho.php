@@ -80,10 +80,12 @@
                                             <input type="text" name="qtdProduto" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php echo $qtdPedido;?>">
 
                                         <div class="input-group-btn">
-                                            <button type="submit" name="btnMaisProduto<?php echo $idPedido;?>" id="btnMaisProduto" class="btn btn-sm btn-primary btn-plus">
+                                            <button type="submit" name="btnMaisProduto" id="btnMaisProduto" class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </div>
+
+                                        <a href="home.php?pagina=carrinho&idPedido=<?php echo $idPedido;?>&qtdPedido=<?php echo $qtdPedido;?>&totalPedido=<?php echo $totalPedido;?>&precoProduto=<?php echo $precoProduto;?>">Id do Pedido</a>
                                     </div>
 
                                 </td>
@@ -118,17 +120,18 @@
                             //Aumentar quantidade de produtos
                             
 
-                            if(isset($_POST["btnMaisProduto$idPedido"])){
-                                $idPedido;
-                                $qtdPedido = $qtdPedido + 1;
-                                $totalPedido = $qtdPedido * $precoProduto;
+                            if(isset($_GET["idPedido"])){
+                                $idPedido = $_GET["idPedido"];
+                                $qtdPedido = $_GET["qtdPedido"] + 1;#$qtdPedido + 1;
+                                $precoProduto = $_GET["precoProduto"];
+                                $totalPedido = $precoProduto * $qtdPedido;#$qtdPedido * $precoProduto;
 
                                 echo "  | id pedido:  $idPedido" ;
                                 echo "  | id produto: $produtoCarrinho";
                                 echo "  | Quantidade de Produtos: $qtdPedido ";
                                 echo "  | Preço total: $totalPedido";
                                 
-                                /*
+                                
                                 #Atualização do preço
                                 $updatePreco = "UPDATE tb_carrinho SET quantidade_pedido=:qtdPed, preco_pedido=:totalPed WHERE id_pedido = :idPedido";
                                 
@@ -137,14 +140,14 @@
                                     $resultUpdatePreco = $conect->prepare($updatePreco);
                                     $resultUpdatePreco->bindParam(":idPedido",$idPedido,PDO::PARAM_STR);
                                     $resultUpdatePreco->bindParam(":qtdPed",$qtdPedido,PDO::PARAM_STR);
-                                    $resultUpdatePreco->bindParam(":totalPedido",$totalPedido,PDO::PARAM_STR);
+                                    $resultUpdatePreco->bindParam(":totalPed",$totalPedido,PDO::PARAM_STR);
                                     $resultUpdatePreco->execute();
 
                                     $contUpdateP = $resultUpdatePreco->rowCount();
 
                                     if($contUpdateP > 0){
                                         echo "<div class='alert alert-success' role='alert'>
-                                                quantidade +1, preço atualizado
+                                                +1
                                             </div>";
                                         
                                         echo "<script> Erro na adição de quantidade de produtos; </script>";
@@ -153,7 +156,7 @@
                                 }catch(PDOException $erro){
                                     echo "ERRO DE PDO CARRINHO (UPDATE)".$erro->getMessage();
                                 }
-                                */
+                                
                             }
                         ?>    
                         </tbody>
