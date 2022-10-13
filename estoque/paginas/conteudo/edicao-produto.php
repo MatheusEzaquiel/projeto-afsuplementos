@@ -176,7 +176,7 @@
                         Informações atualizadas com sucesso!
                     </div>";
                 
-                echo "<script> window.location.reload();</script>";
+                echo "<script> //window.location.reload();</script>";
             }
 
         }catch(PDOException $erro){

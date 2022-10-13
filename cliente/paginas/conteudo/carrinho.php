@@ -30,8 +30,10 @@
                         </thead>
                         <tbody class="align-middle">
                         <?php
+
                             //Select dos produtos
                             include_once("../../config/conexao.php");
+
                             $selCarrinho = "SELECT * FROM tb_carrinho
                             INNER JOIN tb_cliente ON tb_cliente.id_cliente = tb_carrinho.cliente_pedido
                             INNER JOIN tb_produto ON tb_produto.id_produto = tb_carrinho.produto_pedido";
@@ -44,34 +46,41 @@
 
                                 if($contSelCarrinho > 0){
                                     while($carrinho = $resultSelCarrinho->FETCH(PDO::FETCH_OBJ)){
+                                        #Pedido
                                         $idPedido = $carrinho->id_pedido;
-                                        $idP = $carrinho->id_produto;
-                                        $imgP = $carrinho->foto_produto;
-                                        $nomeP = $carrinho->nome_produto;
-                                        $precoP = $carrinho->preco_venda_produto;
-                                        $nomeC = $carrinho->nome_cliente;   
-                                        $totalPedido = $carrinho->preco_pedido         
+                                        $qtdPedido = $carrinho->quantidade_pedido;
+                                        $produtoCarrinho = $carrinho->produto_pedido;
+                                        $totalPedido = $carrinho->preco_pedido;
+
+                                        #Produto
+                                        $idProduto = $carrinho->id_produto;
+                                        $imgProduto = $carrinho->foto_produto;
+                                        $nomeProduto = $carrinho->nome_produto;
+                                        $precoProduto = $carrinho->preco_venda_produto;
+
+                                        #Cliente
+                                        $nomeCliente = $carrinho->nome_cliente;   
                                     
                         ?>
 
                             <tr>
-                                <td class="align-middle"><img src="../../imgs/produtos/<?php echo $imgP;?>" alt="" style="width: 50px;"></td>
-                                <td class="align-middle"><?php echo $nomeP;?></td>
+                                <td class="align-middle"><img src="../../imgs/produtos/<?php echo $imgProduto;?>" alt="foto-produto" style="width: 50px;"></td>
+                                <td class="align-middle"><?php echo $nomeProduto;?></td>
 
                                 <!-- Botão de aumentar e diminuir quantidade de produtos -->
                                 <td class="align-middle">
 
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
-                                            <button type="submit" name="btnMenosProdt" class="btn btn-sm btn-primary btn-minus" >
+                                            <button type="submit" name="btnMenosProduto" id="btnMenosProduto" class="btn btn-sm btn-primary btn-minus" >
                                             <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
 
-                                            <input type="text" name="qtdProduto" class="form-control form-control-sm bg-secondary border-0 text-center" value="0">
+                                            <input type="text" name="qtdProduto" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php echo $qtdPedido;?>">
 
                                         <div class="input-group-btn">
-                                            <button type="submit" name="btnMaisProdt" id="btnMaisProdt" class="btn btn-sm btn-primary btn-plus">
+                                            <button type="submit" name="btnMaisProduto<?php echo $idPedido;?>" id="btnMaisProduto" class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </div>
@@ -82,7 +91,7 @@
 
                                 
 
-                                <td class="align-middle">R$  <?php echo $precoP;?></td>
+                                <td class="align-middle">R$  <?php echo $precoProduto;?></td>
   
                                 <td class="align-middle">R$  <?php echo $totalPedido;?></td>
 
@@ -92,8 +101,10 @@
                                         <i class="fa fa-times"></i>
                                     </a>
                                 </td>
+                                <!-- Fim - Botão Remover -->
 
                             </tr>
+
                         <?php       
                                 
                                     }//Fim while
@@ -107,42 +118,43 @@
                             //Aumentar quantidade de produtos
                             
 
-                            if(isset($_POST["btnMaisProdt"])){
-                                $qtdProduto = $_POST["qtd-produto"];
-                                $precoVendaProdt = $_POST["preco-venda-produto"];
+                            if(isset($_POST["btnMaisProduto$idPedido"])){
+                                $idPedido;
+                                $qtdPedido = $qtdPedido + 1;
+                                $totalPedido = $qtdPedido * $precoProduto;
 
-
-
-                                echo "mais 1";
-                                echo "qtd: ".$qtdProduto;
+                                echo "  | id pedido:  $idPedido" ;
+                                echo "  | id produto: $produtoCarrinho";
+                                echo "  | Quantidade de Produtos: $qtdPedido ";
+                                echo "  | Preço total: $totalPedido";
+                                
                                 /*
-
-                                $updateProdt = "UPDATE tb_pedido SET preco_venda_produto=:precoVenProdt,quantidade_produto=:qtdProdt WHERE id_pedido = :idPedido";
+                                #Atualização do preço
+                                $updatePreco = "UPDATE tb_carrinho SET quantidade_pedido=:qtdPed, preco_pedido=:totalPed WHERE id_pedido = :idPedido";
                                 
                                 try{
 
-                                    $resultUpdateProdt = $conect->prepare($updateProdt);
-                                    $resultUpdateProdt->bindParam(":idPedido",$idPedido,PDO::PARAM_STR);
-                                    $resultUpdateProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
-                                    $resultUpdateProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
-                                    $resultUpdateProdt->bindParam(":totalPedido",$totalPed,PDO::PARAM_STR);
-                                    $resultUpdateProdt->execute();
+                                    $resultUpdatePreco = $conect->prepare($updatePreco);
+                                    $resultUpdatePreco->bindParam(":idPedido",$idPedido,PDO::PARAM_STR);
+                                    $resultUpdatePreco->bindParam(":qtdPed",$qtdPedido,PDO::PARAM_STR);
+                                    $resultUpdatePreco->bindParam(":totalPedido",$totalPedido,PDO::PARAM_STR);
+                                    $resultUpdatePreco->execute();
 
-                                    $contresUpdateP = $resultUpdateProdt->rowCount();
-                                    if($contresUpdateP > 0){
+                                    $contUpdateP = $resultUpdatePreco->rowCount();
+
+                                    if($contUpdateP > 0){
                                         echo "<div class='alert alert-success' role='alert'>
-                                                Informações atualizadas com sucesso!
+                                                quantidade +1, preço atualizado
                                             </div>";
                                         
-                                        echo "<script> window.location.reload(); </script>";
+                                        echo "<script> Erro na adição de quantidade de produtos; </script>";
                                     }
 
                                 }catch(PDOException $erro){
-                                echo "ERRO DE PDO (UPDATE)".$erro->getMessage();
+                                    echo "ERRO DE PDO CARRINHO (UPDATE)".$erro->getMessage();
                                 }
                                 */
-
-                                }
+                            }
                         ?>    
                         </tbody>
                     </table>

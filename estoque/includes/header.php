@@ -65,12 +65,12 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="home.php?pagina=produtos" class="nav-item nav-link" style="color: #F9F6F6;">Lista de Produtos</a>
-                            <a href="home.php?pagina=produtos-desativados" class="nav-item nav-link" style="color: #F9F6F6;">Produtos Desativados</a>
-                            <a href="home.php?pagina=cadastro-produtos" class="nav-item nav-link" style="color: #F9F6F6;">Cadastro de Produtos</a>
-                            <a href="home.php?pagina=pedidos" class="nav-item nav-link" style="color: #F9F6F6;">Pedidos</a>
-                            <a href="home.php?pagina=promocoes" class="nav-item nav-link" style="color: #F9F6F6;">Promoções</a>
-                            <a href="home.php?pagina=clientes" class="nav-item nav-link" style="color: #F9F6F6;">Clientes</a>
+                            <a href="index.php?pagina=produtos" class="nav-item nav-link" style="color: #F9F6F6;">Lista de Produtos</a>
+                            <a href="index.php?pagina=produtos-desativados" class="nav-item nav-link" style="color: #F9F6F6;">Produtos Desativados</a>
+                            <a href="index.php?pagina=cadastro-produtos" class="nav-item nav-link" style="color: #F9F6F6;">Cadastro de Produtos</a>
+                            <a href="index.php?pagina=pedidos" class="nav-item nav-link" style="color: #F9F6F6;">Pedidos</a>
+                            <a href="index.php?pagina=promocoes" class="nav-item nav-link" style="color: #F9F6F6;">Promoções</a>
+                            <a href="index.php?pagina=clientes" class="nav-item nav-link" style="color: #F9F6F6;">Clientes</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                           
