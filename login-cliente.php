@@ -42,7 +42,7 @@
         </div>
         <div class="row align-items-center py-3 px-xl-5 d-none d-lg-flex" style="background-color: #000000;">
             <div class="col-lg-6">
-                <a href="" class="text-decoration-none">
+                <a href="cliente/paginas/home.php?pagina=index" class="text-decoration-none">
                     <span class="h1 text-uppercase px-2" style="background-color: #000000;color:#DF0805;">AF</span>
                     <span class="h1 text-uppercase px-2 ml-n1" style="background-color: #DF0805;color:#000000;">Suplementos</span>
                 </a>
@@ -59,7 +59,7 @@
            
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-dark py-3 py-lg-0 px-0" style="background-color:#000000;">
-                    <a href="" class="text-decoration-none d-block d-lg-none">
+                    <a href="#" class="text-decoration-none d-block d-lg-none">
                         <span class="h1 text-uppercase px-2" style="background-color:#000000;color:3DF0805;">AF</span>
                         <span class="h1 text-uppercase px-2 ml-n1" style="background-color:#DF0805;color:#000000;">Suplementos</span>
                     </a>
@@ -98,9 +98,9 @@
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <form action="" method="post">
-                                    <img src="img/cat-1.jpg" width="100px" style="margin-left: 50%;">
-                                <div class="col-md-6 form-group input-group">
-                                    <label>E-mail</label> 
+                                <img src="img/avatar/avatar-man-3.png" width="100px" class="pb-3" style="box-sizing:border-box;margin-left:45%;height:6em;width:5em;">
+                                <div class="col-md-7 form-group input-group">
+                                    <label style="padding-right:1.5em;">E-mail</label> 
                                     <input name="email" class="form-control" type="email" placeholder="exemplo@email.com">
                                     <div class="input-group-append">
                                         <div class="input-group-text">
@@ -108,9 +108,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 form-group input-group">
-                                    <label>Senha</label>
-                                <input name="senha" class="form-control" type="password" placeholder="Inserir senha">
+                                <div class="col-md-7 form-group input-group">
+                                    <label style="padding-right:1.5em;">Senha</label>
+                                    <input name="senha" class="form-control" type="password" placeholder="Inserir senha">
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <span class="fas fa-lock"></span>
@@ -124,7 +124,7 @@
                                 </div>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <button name="btnLogin" value="Entrar" type="submit" class="btn btn-block font-weight-bold py-3" style="margin-left: 9rem;background-color:#DF0805;color:#f9f6f6;">Entrar</button>
+                                    <button name="btnLogin" value="Entrar" type="submit" class="btn btn-block font-weight-bold py-3" style="margin-left: 9rem;background-color:#DF0805;color:#f9f6f6;border-radius:3px;">Entrar</button>
                                 </div>
                             </form>
                             <?php
@@ -184,12 +184,12 @@
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
+    <div class="container-fluid text-secondary mt-5 pt-5" style="background-color: #000000;">
         <div class="row px-xl-5 pt-5">
-            <div class="col-lg-6 col-md-12 mb-5 pr-3 pr-xl-5">
-                <h5 class="text-secondary text-uppercase mb-4">Sobre a página</h5>
-                <p class="mb-4">Este é um sistema de gerenciamento de estoque personalizado para a adesão, edição e remoção de produtos.</p>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Rua XXX, Pacajus-CE, Brasil</p>
+            <div class="col-lg-6 col-md-12 mb-5 pr-3 pr-xl-5" style="color: #F9F6F6;">
+                <h5 class="text-uppercase mb-4" style="color: #F9F6F6;">Sobre a página</h5>
+                <p class="mb-4" style="color: #F9F6F6;">Este é um sistema de gerenciamento de estoque personalizado para a adesão, edição e remoção de produtos.</p>
+                <p class="mb-2" style="color: #F9F6F6;"><i class="fa fa-map-marker-alt mr-3" style="color:#DF0805;"></i>Rua Maria Queiroz 107 - Buriti</p>
             </div>
             <div class="col-lg-6 col-md-12">
                 <div class="row">
@@ -199,12 +199,12 @@
                     </div>
 
                     <div class="col-md-4 mb-5">
-                        <h6 class="text-secondary text-uppercase mt-4 mb-3">Siga-nos em nossas redes sociais</h6>
+                        <h6 class="text-uppercase mt-4 mb-3" style="color: #F9F6F6;">Siga-nos em nossas redes sociais</h6>
                         <div class="d-flex">
-                            <a class="btn btn-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-square" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -214,7 +214,7 @@
         <div class="row border-top mx-xl-5 py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
             <div class="col-md-6 px-xl-0">
                 <p class="mb-md-0 text-center text-md-left text-secondary">
-                    &copy; <a class="text-primary" href="#">Domain</a>. Todos os direitos reservado a AF | Suplementos.
+                    &copy; <a style="color:#DF0805;" href="#">Domain</a>. Todos os direitos reservado a AF | Suplementos.
                 </p>
             </div>
             <div class="col-md-6 px-xl-0 text-center text-md-right">

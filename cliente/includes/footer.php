@@ -12,7 +12,7 @@
             <div class="col-lg-8 col-md-12">
                 <div class="row">
                     <div class="col-md-4 mb-5">
-                        <h5 class=" text-uppercase mb-4" style="color: #F9F6F6;">Compra rápida</h5>
+                        <h5 class="text-uppercase mb-4" style="color: #F9F6F6;">Compra rápida</h5>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Home</a>
                             <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Catálogo</a>
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                         </form>
-                        <h6 class="text-secondary text-uppercase mt-4 mb-3">Siga-nos nas redes sociais</h6>
+                        <h6 class="text-uppercase mt-4 mb-3" style="color: #F9F6F6;">Siga-nos em nossas redes sociais</h6>
                         <div class="d-flex">
                             <a class="btn  btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="btn  btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-facebook-f"></i></a>

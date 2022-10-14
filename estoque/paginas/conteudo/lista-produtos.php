@@ -21,11 +21,11 @@
             
             <div class="col-lg-8 col-6 text-left">
                 <form action="" method="post">
-                    <div class="input-group">
+                    <div class="input-group pb-3">
                         <input type="text" class="form-control" placeholder="Pesquisar por produtos">
                         <div class="input-group-append">
                             <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
+                                <i class="fa fa-search" style="color:#DF0805;"></i>
                             </span>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
             <div class="col-lg-12 table-responsive mb-5">
                 <form action="" method="post">
                 <table class="table table-light table-borderless table-hover text-center mb-0">
-                    <thead class="thead-dark">
+                    <thead style="background-color:#000000;color:#F9F6F6;">
                         <tr>
                             <th>Imagem</th>
                             <th>Nome</th>
@@ -82,13 +82,13 @@
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <button class="btn btn-sm btn-minus" style="background-color:#DF0805;color:#F9F6F6;">
                                         <i class="fa fa-minus"></i>
                                         </button>
                                     </div>
                                     <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php echo $showProdutos->quantidade_produto;?>">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
+                                        <button class="btn btn-sm btn-plus" style="background-color:#DF0805;color:#F9F6F6;" >
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     </div>
