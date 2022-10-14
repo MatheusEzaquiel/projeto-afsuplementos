@@ -106,13 +106,6 @@
                                     <button class="btn btn-sm btn-danger" name="btn-inativar<?php echo $idProdt; ?>"onclick="return confirm('Deseja Inativar o produto <?php echo $showProdutos->nome_produto;?>?')" ><i class="fa fa-times"></i></button>
                                 </a>
                                 
-                                <!-- Salvar alterações [Fazer essa função]-->
-                                <a href="#">
-                                    <button
-                                        class="btn btn-sm btn-warning" name="btn-inativar<?php echo $idProdt; ?>" onclick="return confirm('Deseja salvar a edição na quantidade do produto <?php echo $showProdutos->nome_produto;?>?')">
-                                        <img src="../../img/icones/disquete-branco-24.png" alt="salvar alterações" height="16" width="15">
-                                    </button>
-                                </a>
 
                                 <!-- Editar -->
                                 <a href="?pagina=edicaoProduto&idP=<?php echo $idProdt;?>">

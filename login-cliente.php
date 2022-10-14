@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Estoque | Login</title>
+    <title>Cliente | Login</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -98,9 +98,15 @@
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <form action="" method="post">
+<<<<<<< HEAD
                                 <img src="img/avatar/avatar-man-3.png" width="100px" class="pb-3" style="box-sizing:border-box;margin-left:45%;height:6em;width:5em;">
                                 <div class="col-md-7 form-group input-group">
                                     <label style="padding-right:1.5em;">E-mail</label> 
+=======
+                                    <img src="img/avatar/avatar-man-1.png" width="100px" style="margin-left: 50%;">
+                                <div class="col-md-6 form-group input-group">
+                                    <label>E-mail</label> 
+>>>>>>> 62d8287912fe87cdf6e06fa1c6c7648cbc9ff3e4
                                     <input name="email" class="form-control" type="email" placeholder="exemplo@email.com">
                                     <div class="input-group-append">
                                         <div class="input-group-text">
@@ -129,7 +135,7 @@
                             </form>
                             <?php
 
-                                include_once('../../config/conexao.php');
+                                include_once('config/conexao.php');
                                 if(isset($_GET['acao'])) {
                                     $acao = $_GET['acao'];
                                     $categoria = $_POST['categoria'];
