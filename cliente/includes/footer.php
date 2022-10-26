@@ -28,8 +28,8 @@
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">Newsletter</h5>
-                        <p>Duo stet tempor ipsum sit amet magna ipsum tempor est</p>
+                        <h5 class="text-secondary text-uppercase mb-4">Nosso WhatsApp</h5>
+                        <p>Nosso número para contato:</p>
                         <form action="">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Your Email Address">
@@ -38,25 +38,18 @@
                                 </div>
                             </div>
                         </form>
-                        <h6 class="text-uppercase mt-4 mb-3" style="color: #F9F6F6;">Siga-nos em nossas redes sociais</h6>
+                        <h6 class="text-uppercase mt-4 mb-3" style="color: #F9F6F6;">Nossos contatos</h6>
                         <div class="d-flex">
-                            <a class="btn  btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn  btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn  btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn  btn-square" style="background-color: #DF0805;border: solid 1px #DF0805;color: #F9F6F6;" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square" style="background-color: #DF0805;border: solid 1px #DF0805;color: #F9F6F6;" href="https://www.instagram.com/af_suplementos_/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square ml-3" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="https://wa.me/5585987338264?text=Eu%20quero%20fazer%20um%20pedido
+"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row border-top mx-xl-5 py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
-            <div class="col-md-6 px-xl-0">
-                <p class="mb-md-0 text-center text-md-left " style="color: #F9F6F6;">
-                    &copy; <a  style="color: #DF0805;" href="#">Domain</a>. All Rights Reserved. Designed
-                    by
-                    <a style="color: #DF0805;" href="https://htmlcodex.com">HTML Codex</a>
-                </p>
-            </div>
+
             <div class="col-md-6 px-xl-0 text-center text-md-right">
                 <img class="img-fluid" src="../img/payments.png" alt="">
             </div>
@@ -66,7 +59,7 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn  back-to-top" style="background-color: #DF0805;"><i class="fa fa-angle-double-up"></i></a>
+    <a href="#" class="btn  back-to-top" style="background-color: #DF0805;color:#F9F6F6;"><i class="fa fa-angle-double-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
