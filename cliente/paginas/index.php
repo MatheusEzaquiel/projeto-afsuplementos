@@ -37,11 +37,12 @@
             case $pagina == 'contato':
                     include_once("conteudo/contato.php");
                 break;
-            /*
-            case $pagina == 'deletar':
-                include_once("conteudo/deletar.php");
+            case $pagina == 'remover':
+                include_once("conteudo/remover.php");
                 break;
-            */
+            case $pagina == 'finalizar':
+                include_once("conteudo/finalizar.php");
+                break;
             default:
                 include_once("conteudo/index.php");
                 break;

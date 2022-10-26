@@ -156,30 +156,28 @@
                                 
 
                                 if($contSelProdutos > 0){
-                                    while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
-                                        $idProduto = $showProdutos->id_produto;
-                                        $nomeProduto = $showProdutos->nome_produto;
-                                        $marcaProduto = $showProdutos->marca_produto;
-                                        $tamanhoProduto = $showProdutos->tamanho_produto;
-                                        $descricaoProduto = $showProdutos->descricao_produto;
-                                        $precoVendaProduto = $showProdutos->preco_venda_produto;
-                                        $fotoProduto = $showProdutos->foto_produto;
-                                        #tipoProduto = $showProdutos->tipo_produto;
-                                        #$precoCompraProduto = $showProdutos->preco_compra_produto;
-                                        #$qtdProduto = $showProdutos->quantidade_produto;
-                                        #$promocaoProduto = $showProdutos->promocao_produto;
+                                    $fetch = $resultSelProdutos->fetchAll();
+
+                                    foreach ($fetch as $produto) {
+
                                         
                                         
                         ?>
-
+                                    <!--
+                                        <h3><?php //echo $produto['id_produto']?></h3>
+			                            <p><?php //echo $produto['nome_produto']?></p>
+			                            <p><?php //echo $produto['quantidade']?></p>
+			                            <p><?php //echo 'Preço: R$'. number_format($produto['preco_venda_produto'],2, ",", ".")?></p>
+                                    -->
+                        
                         <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
                         
                                 <div class="product-item bg-light mb-4">
                                     <div class="product-img position-relative overflow-hidden">
-                                        <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $fotoProduto;?>" alt="foto-produto">
+                                        <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $produto['foto_produto'];?>" alt="foto-produto">
                                         
                                         <div class="product-action">
-                                            <!-- Botão enviar p/ carrinho-->
+                                            <!-- Botão enviar p/ carrinho -->
                                             <button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $idProduto;?>"><i class="fa fa-shopping-cart"></i></button>
                                             <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
                                             <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes?idDetail=<?php echo $idProduto;?>"><i class="fa fa-search"></i></a>
@@ -188,50 +186,31 @@
                                     </div>
 
                                     <div class="text-center py-4">
-                                        <a class="h6 text-decoration-none text-truncate" href=""><?php echo $nomeProduto;?></a>
-                                        <br><small><?php echo $marcaProduto;?></small> |
-                                        <small><?php echo $tamanhoProduto;?></small>
+                                        <a class="h6 text-decoration-none text-truncate" href=""><?php echo $produto['nome_produto'];?></a>
+                                        <br><small><?php echo $produto['marca_produto'];?></small> |
+                                        <small><?php echo $produto['tamanho_produto'];?></small>
                                         <div class="d-flex align-items-center justify-content-center mt-2">
-                                            <h5>$<?php echo $precoVendaProduto;?></h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                            <h5>R$ <?php echo number_format($produto['preco_venda_produto'],2, ",", ".");?></h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
                                         </div>
                                     </div>
+
+                                    <div>
+                                        <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produto['id_produto']?>">Adicionar</a>
+			                        </div>
                                     
                                 </div>
                         
                         </div>
+                       
     
                     
-                        <?php
-                                        #Carrinho
-                                        if(isset($_POST["btn-carrinho$idProduto"])){
-                                            
-                                            $idProduto; 
-                                            $idCliente = 4; #Id da Session
-                                            $precoPedido = $precoVendaProduto; # apenas 1 produto;
-                                            #$qtdPedido = 1;    [1 produto por vez]
-                                            #estadoPedido = 0;  [ 0 => no carrinho, 1 => pedido feito]
+                        <?php       
+                             
+                                        
 
-                                            $cadCarrinho = "INSERT INTO tb_carrinho(cliente_pedido, produto_pedido, preco_pedido) VALUES(:clientePed,:produtoPed, :precoPed)";
-                                            
-                                            try{
-                                                $resultCadCar = $conect->prepare($cadCarrinho);
-                                                $resultCadCar->bindParam(':clientePed',$idCliente,PDO::PARAM_STR);
-                                                $resultCadCar->bindParam(':produtoPed',$idProduto,PDO::PARAM_STR);
-                                                $resultCadCar->bindParam(':precoPed',$precoPedido,PDO::PARAM_STR);
-                                                $resultCadCar->execute();
 
-                                                $contPedido = $resultCadCar->rowCount();
-                                                if($contPedido > 0){
-                                                    echo "<script>alert('${nomeProduto} enviado para o carrinho')</script>";
-                                                }else{
-                                                    echo "<script>alert('[Erro] Tente novamente!')</script>";
-                                                }
-
-                                            }catch(PDOException	$erro){
-                                                echo "ERRO DE CADASTRO [PDO] Carrinho = ".$erro->getMessage();
-                                            }
-                                            
-                                        }
+                                    
+                                        
                                     }//Fim while
                                 }else{
                                     echo "ERRO!!";
@@ -240,6 +219,12 @@
                                 echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
                             }
                         ?>
+
+
+
+
+
+
                         <!-- EXIBIR PRODUTOS-->
                         
 
