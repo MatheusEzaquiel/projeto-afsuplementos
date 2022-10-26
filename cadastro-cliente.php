@@ -38,7 +38,7 @@
         </div>
         <div class="row align-items-center py-3 px-xl-5 d-none d-lg-flex" style="background-color: #000000;">
             <div class="col-lg-6">
-                <a href="" class="text-decoration-none">
+                <a href="cliente/paginas/home.php?pagina=index" class="text-decoration-none">
                     <span class="h1 text-uppercase px-2" style="background-color: #000000;color:#DF0805;">AF</span>
                     <span class="h1 text-uppercase px-2 ml-n1" style="background-color: #DF0805;color:#000000;">Suplementos</span>
                 </a>
@@ -64,7 +64,7 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.php" class="nav-item nav-link">Login</a>
+                            <a href="login-cliente.php" class="nav-item nav-link">Login</a>
                             <a href="cadastro-cliente.php" class="nav-item nav-link">Cadastro</a>
                         </div>
                         
@@ -249,13 +249,13 @@
     </div>
     <!-- Checkout End -->
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
-    <div class="row px-xl-5 pt-5">
+     <!-- Footer Start -->
+     <div class="container-fluid text-secondary mt-5 pt-5" style="background-color: #000000;">
+        <div class="row px-xl-5 pt-5">
             <div class="col-lg-6 col-md-12 mb-5 pr-3 pr-xl-5">
-                <h5 class="text-secondary text-uppercase mb-4">Sobre a página</h5>
-                <p class="mb-4">Este é um sistema de gerenciamento de estoque personalizado para a adesão, edição e remoção de produtos.</p>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Rua XXX, Pacajus-CE, Brasil</p>
+                <h5 class="text-uppercase mb-4" style="color:#F9F6F6;">Sobre a página</h5>
+                <p class="mb-4" style="color: #F9F6F6;">Este é um sistema de gerenciamento de estoque personalizado para a adesão, edição e remoção de produtos.</p>
+                <p class="mb-2" style="color: #F9F6F6;"><i class="fa fa-map-marker-alt mr-3" style="color:#DF0805;"></i>Rua Maria Queiroz 107 - Buriti</p>
             </div>
             <div class="col-lg-6 col-md-12">
                 <div class="row">
@@ -265,12 +265,12 @@
                     </div>
 
                     <div class="col-md-4 mb-5">
-                        <h6 class="text-secondary text-uppercase mt-4 mb-3">Siga-nos em nossas redes sociais</h6>
+                        <h6 class="text-uppercase mt-4 mb-3" style="color: #F9F6F6;">Siga-nos em nossas redes sociais</h6>
                         <div class="d-flex">
-                            <a class="btn btn-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mr-2" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-square" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -280,7 +280,7 @@
         <div class="row border-top mx-xl-5 py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
             <div class="col-md-6 px-xl-0">
                 <p class="mb-md-0 text-center text-md-left text-secondary">
-                    &copy; <a class="text-primary" href="#">Domain</a>. Todos os direitos reservado a AF | Suplementos.
+                    &copy; <a style="color:#DF0805;" href="#">Domain</a>. Todos os direitos reservado a AF | Suplementos.
                 </p>
             </div>
             <div class="col-md-6 px-xl-0 text-center text-md-right">

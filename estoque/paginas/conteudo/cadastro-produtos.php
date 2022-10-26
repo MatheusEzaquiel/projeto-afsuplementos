@@ -64,13 +64,13 @@
                                 <label>Quantidade</label>
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
-                                            <button type="button" class="btn btn-sm btn-primary btn-minus" >
+                                            <button type="button" class="btn btn-sm btn-minus" style="background-color:#DF0805;color:#F9F6F6;">
                                             <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
                                         <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="0" name="qtd-produto">
                                         <div class="input-group-btn">
-                                            <button type="button" class="btn btn-sm btn-primary btn-plus">
+                                            <button type="button" class="btn btn-sm btn-plus" style="background-color:#DF0805;color:#F9F6F6;">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </div>
@@ -87,7 +87,7 @@
                             </div>
                             
                             <div class="col-md-12 form-group">
-                                <button type="submit" name="btn-cadastro" class="btn btn-block btn-primary font-weight-bold py-3 ">Cadastrar no estoque</button>
+                                <button type="submit" name="btn-cadastro" class="btn btn-block font-weight-bold py-3" style="background-color:#DF0805;color:#F9F6F6;">Cadastrar no estoque</button>
                             </div>
                             
                         </div>

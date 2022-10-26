@@ -19,11 +19,11 @@
             
             <div class="col-lg-8 col-6 text-left">
                 <form action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Pesquisar por Cliente">
+                    <div class="input-group pb-3">
+                        <input type="text" class="form-control " placeholder="Pesquisar por Cliente">
                         <div class="input-group-append">
                             <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
+                                <i class="fa fa-search" style="color:#DF0805;"></i>
                             </span>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
 
             <div class="col-lg-12 table-responsive mb-5">
                 <table class="table table-light table-borderless table-hover text-center mb-0">
-                    <thead class="thead-dark">
+                    <thead style="background-color:#000000;color:#F9F6F6;">
                         <tr>
                             <th>Id</th>
                             <th>Nome</th>
