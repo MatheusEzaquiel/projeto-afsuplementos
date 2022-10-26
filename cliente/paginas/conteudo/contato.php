@@ -40,7 +40,7 @@
                             <p class="help-block text-danger"></p>
                         </div>
                         <div>
-                            <button class="btn py-2 px-4" style="background-color:#DF0805;color:#f9f6f6;" type="submit" id="sendMessageButton">Enviar Mensagem</button>
+                            <button class="btn py-2 px-4" style="background-color:#DF0805;color:#f9f6f6;border-radius:3px;" type="submit" id="sendMessageButton">Enviar Mensagem</button>
                         </div>
                     </form>
                 </div>

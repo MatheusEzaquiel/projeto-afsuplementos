@@ -6,7 +6,7 @@
                 <nav class="breadcrumb bg-light mb-30">
                     <a class="breadcrumb-item text-dark" href="#">Home</a>
                     <a class="breadcrumb-item text-dark" href="#">Catálogo</a>
-                    <span class="breadcrumb-item active">LIsta de produtos</span>
+                    <span class="breadcrumb-item active">Lista de produtos</span>
                 </nav>
             </div>
         </div>
@@ -182,7 +182,7 @@
                                             <!-- Botão enviar p/ carrinho-->
                                             <button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $idProduto;?>"><i class="fa fa-shopping-cart"></i></button>
                                             <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
-                                            <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes?idDetail=<?php echo $idProduto;?>"><i class="fa fa-search"></i></a>
+                                            <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes&idDetail=<?php echo $idProduto;?>"><i class="fa fa-search"></i></a>
                                         </div>
 
                                     </div>
