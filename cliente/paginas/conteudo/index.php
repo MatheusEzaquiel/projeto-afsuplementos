@@ -81,13 +81,13 @@
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-shipping-fast  m-0 mr-2" style="color:#DF0805;"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+                    <h5 class="font-weight-semi-bold m-0">Fazemos entrega</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
-                    <h1 class="fas fa-exchange-alt  m-0 mr-3" style="color:#DF0805;"></h1>
-                    <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+                    <h1 class="fa fa-comments-dollar m-0 mr-3" style="color:#DF0805;"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Aceitamos Pix e Cartão ou à vista</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
@@ -102,282 +102,151 @@
 
 
     <!-- Categories Start -->
-    <div class="container-fluid pt-5">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3" style="color: #000000;">Promoções</span></h2>
-        <div class="row px-xl-5 pb-3">
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <a class="text-decoration-none" href="#">    
+    <div class="container-fluid py-5">
+  <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">You May Also Like</span></h2>
+  <div class="row px-xl-5">
+    <div class="col">
+      <div class="owl-carousel related-carousel">
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-1.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
             </div>
-            <div class="container-fluid py-5">
-                <div class="row px-xl-5">
-                    <div class="col">
-                        <div class="owl-carousel related-carousel">  
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../../img/product-1.jpg" alt="">
-                                <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Produto 02</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../../img/product-2.jpg" alt="">
-                                <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../../img/product-3.jpg" alt="">
-                                <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../../img/product-4.jpg" alt="">
-                                <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../../img/product-5.jpg" alt="">
-                                <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Segunda row -->
-                <br>
-                <br>
-                <div class="col">
-                    <div class="owl-carousel related-carousel">         
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../../img/product-1.jpg" alt="">
-                                <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Produto 02</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../../img/product-2.jpg" alt="">
-                                <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../../img/product-3.jpg" alt="">
-                                <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../../img/product-4.jpg" alt="">
-                                <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="../../img/product-5.jpg" alt="">
-                                <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
         </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-2.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-3.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-4.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-5.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<div class="container-fluid py-5">
+<div class="row px-xl-5">
+    <div class="col">
+      <div class="owl-carousel related-carousel">
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-1.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-2.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-3.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-4.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-5.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- Categories End -->
     <!-- Products Start -->
-    <div class="container-fluid pt-5">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3" style="color: #000000;">Produtos</span></h2>
-        <div class="row px-xl-5 pb-3">
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <a class="text-decoration-none" href="#">
-            </div>
-            <div class="container-fluid py-5">
-                <div class="row px-xl-5">
-                    <div class="col">
-                        <div class="owl-carousel related-carousel">                      
-                        <!-- PHP 1/2 -->
-                    <?php
+    <div class="container-fluid py-5">
+  <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">You May Also Like</span></h2>
+  <div class="row px-xl-5">
+    <div class="col">
+      <div class="owl-carousel related-carousel">
+      <?php
                         include_once("../../config/conexao.php");
                         $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY preco_venda_produto ASC";
                         
@@ -401,8 +270,7 @@
                                     $showProdutos->foto_produto;
                                     $showProdutos->promocao_produto;
                     ?>
-                    <!-- Seção de Produtos -->
-                        <form action="" method="post">
+        <form action="" method="post">
                             <div class="product-item bg-light mb-4">
                                 <div class="product-img position-relative overflow-hidden">
                                     <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
@@ -428,8 +296,7 @@
                                 </div>
                             </div>
                         </form>
-                    <!-- PHP 2/2 -->
-                    <?php
+                        <?php
                                     //Carrinho
                                     if(isset($_POST["btn-carrinho$showProdutos->id_produto"])){
                                         $showProdutos->id_produto;
@@ -468,12 +335,78 @@
                             echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
                         }
                     ?>
-                        </div>  
-                    </div>
-                </div>
+  </div>
+</div>
+                      </div>
+<!-- Second Row -->
+<div class="container-fluid py-5">
+<div class="row px-xl-5">
+    <div class="col">
+      <div class="owl-carousel related-carousel">
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-1.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
             </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
         </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-2.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-3.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-4.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+        <div class="product-item bg-light">
+          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-5.jpg" alt="website template image">
+            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
+          </div>
+          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+              <h5>$123.00</h5>
+              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
     <!-- Products End -->
     <!-- Offer Start -->
     <div class="container-fluid pt-5 pb-3">
@@ -501,8 +434,6 @@
         </div>
     </div>
     <!-- Offer End -->
-
-
     <!-- Products Start -->
     <div class="container-fluid pt-5">
   <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Categories</span></h2>
