@@ -4,7 +4,7 @@
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <h5 class=" text-uppercase mb-4" style="color: #F9F6F6;">Sobre nós</h5>
-                <p class="mb-4" style="color: #F9F6F6;">Nossa loja oferece as melhores ofertas de produtos de ótima qualidade com atendimento prestativo a fim de auxiliar os clientes a obter os melhores suplementos da região.</p>
+                <p class="mb-4" style="color: #F9F6F6;">Nosso objetivo é fornecer itens necessários para aproporcionar melhor desempenho em seus treinos, como roupas, suplementos e acessórios. De alta qualidade e preço justo!</p>
                 <p class="mb-2" style="color: #F9F6F6;"><i class="fa fa-map-marker-alt  mr-3" style="color: #DF0805;"></i>Rua Maria Queiroz 107 - Buriti</p>
                 <p class="mb-2" style="color: #F9F6F6;"><i class="fa fa-envelope  mr-3" style="color: #DF0805;"></i>afsuplementosemodafitness@gmail.com</p>
                 <p class="mb-0" style="color: #F9F6F6;"><i class="fa fa-phone-alt  mr-3" style="color: #DF0805;"></i>+55 85 99108-5837</p>
@@ -41,7 +41,7 @@
                         <h6 class="text-uppercase mt-4 mb-3" style="color: #F9F6F6;">Nossos contatos</h6>
                         <div class="d-flex">
                             <a class="btn btn-square" style="background-color: #DF0805;border: solid 1px #DF0805;color: #F9F6F6;" href="https://www.instagram.com/af_suplementos_/"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-square ml-3" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="https://wa.me/5585987338264?text=Eu%20quero%20fazer%20um%20pedido
+                            <a class="btn btn-square ml-3" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="https://api.whatsapp.com/send?phone=5585987338264&text=teste%20amigao
 "><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
