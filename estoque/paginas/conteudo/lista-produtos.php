@@ -44,7 +44,7 @@
                             <th>Preço de Compra</th>
                             <th>Preço de Venda</th>
                             <th>Quantidade</th>
-                            <th>Adicionar Promoção</th>
+                            <th>Validade</th>
                             <th>Remover/Editar</th>
                         </tr>
                     </thead>
@@ -70,6 +70,7 @@
                                     $showProdutos->preco_venda_produto;
                                     $showProdutos->quantidade_produto;
                                     $showProdutos->foto_produto;
+                                    $showProdutos->validade_produto;
                                     $showProdutos->promocao_produto;
                     ?>
                         <tr>
@@ -81,20 +82,10 @@
                             <td class="align-middle"><?php echo $showProdutos->preco_venda_produto;?></td>
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-minus" style="background-color:#DF0805;color:#F9F6F6;">
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
                                     <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php echo $showProdutos->quantidade_produto;?>">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-plus" style="background-color:#DF0805;color:#F9F6F6;" >
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
                                 </div>
                             </td>
-                            <td class="align-middle"><?php echo $showProdutos->promocao_produto;?></td>
+                            <td class="align-middle"><?php echo $showProdutos->validade_produto;?></td>
                             
                             <td class="align-middle">
                                 

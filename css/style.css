@@ -9193,6 +9193,10 @@ button.bg-dark:focus {
   .text-sm-center {
     text-align: center !important;
   }
+  body{
+    background: "blue";
+  }
+  
 }
 
 @media (min-width: 768px) {

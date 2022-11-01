@@ -37,20 +37,24 @@
                             <div class="col-md-6 form-group">
                                 <label>Tipo</label>
                                 <select class="custom-select" name="tipo-produto">
-                                    <option value="po" selected>em pó</option>
-                                    <option value="bebida">bebida</option>
-                                    <option value="grao">grão</option>
-                                    <option value="pilula">pílula</option>
-                                    <option value="pilula">barra</option>
+                                    <option value="0" selected>escolher tipo</option>
+                                    <option value="1">em pó</option>
+                                    <option value="2">bebida</option>
+                                    <option value="3">pílula</option>
+                                    <option value="4">barra</option>
                                 </select>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Tamanho</label>
                                 <input class="form-control" type="text" placeholder="1000 Kg/L" name="tamanho-produto">
                             </div>
-                            <div class="col-md-12 form-group">
+                            <div class="col-md-6 form-group">
                                 <label>Descricão</label>
                                 <textarea class="form-control" type="text" placeholder="Características do produto" name="descricao-produto"> </textarea>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Validade</label>
+                                <input class="form-control" type="date" placeholder="00/00/0000" name="validade-produto">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Preço de compra</label>
@@ -100,6 +104,7 @@
                             $tipoProdt = $_POST["tipo-produto"];
                             $tamanhoProdt = $_POST["tamanho-produto"];
                             $descricaoProdt = $_POST["descricao-produto"];
+                            $validadeProdt = $_POST["validade-produto"];
                             $precoCompraProdt = $_POST["preco-compra-produto"];
                             $precoVendaProdt = $_POST["preco-venda-produto"];
                             $qtdProdt = $_POST["qtd-produto"];
@@ -108,7 +113,6 @@
                             //Cadastro da imagem do Produto
                             $extensaoImg = pathinfo($_FILES['foto-produto']['name'], PATHINFO_EXTENSION); //Remove a extensão da img
                             $tipoExtensao = array("jpg","jpeg","JPEG","png","gif");
-                            
 
                             if(in_array($extensaoImg, $tipoExtensao)){
                                 $pasta = "../../imgs/produtos/";
@@ -117,7 +121,7 @@
 
                                 if(move_uploaded_file($temporarioImg, $pasta.$novoNomeImg)){
 
-                                    $cadastroProdt = "INSERT INTO tb_produto(tipo_produto,marca_produto,nome_produto,tamanho_produto,descricao_produto,preco_compra_produto,preco_venda_produto,quantidade_produto,foto_produto,disponibilidade_produto) VALUES(:tipoProdt,:marcaProdt,:nomeProdt,:tamanhoProdt,:descricaoProdt,:precoCompProdt,:precoVenProdt,:qtdProdt,:fotoProdt,:disponivel)";
+                                    $cadastroProdt = "INSERT INTO tb_produto(tipo_produto,marca_produto,nome_produto,tamanho_produto,descricao_produto,preco_compra_produto,preco_venda_produto,validade_produto,quantidade_produto,foto_produto,disponibilidade_produto) VALUES(:tipoProdt,:marcaProdt,:nomeProdt,:tamanhoProdt,:descricaoProdt,:precoCompProdt,:precoVenProdt,:validade,:qtdProdt,:fotoProdt,:disponivel)";
                             
                                     try{
                                         $resultCadProdt = $conect->prepare($cadastroProdt);
@@ -128,6 +132,7 @@
                                         $resultCadProdt->bindParam(":descricaoProdt",$descricaoProdt,PDO::PARAM_STR);
                                         $resultCadProdt->bindParam(":precoCompProdt",$precoCompraProdt,PDO::PARAM_STR);
                                         $resultCadProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
+                                        $resultCadProdt->bindParam(":validade",$validadeProdt,PDO::PARAM_STR);
                                         $resultCadProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
                                         $resultCadProdt->bindParam(":fotoProdt",$novoNomeImg,PDO::PARAM_STR);
                                         $resultCadProdt->bindParam(":disponivel",$disponivel,PDO::PARAM_STR);
@@ -141,7 +146,7 @@
                                             
                                             echo "<script>
                                                     setTimeout(function() {
-                                                        window.location.replace('home.php?pagina=lista-produtos');
+                                                        window.location.replace('index.php?pagina=lista-produtos');
                                                     }, 2000)
                                                 </script>";         
                                         }

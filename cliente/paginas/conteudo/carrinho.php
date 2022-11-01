@@ -103,12 +103,14 @@
                         <?php
 
                             }
-
+                        
+                            /*
                             echo '<a href="conteudo/finalizar.php">
                                     <div class="btnFinalizar">
                                         Finalizar pedido
                                     </div>
                                 </a>';
+                            */
 
                             
                         }
@@ -132,15 +134,11 @@
                             <h5>Total</h5>
                             <h5>R$ 0,00</h5>
                         </div>
-                        <a href="conteudo/finalizar.php">
-                        <button class="btn btn-block font-weight-bold my-3 py-3" style="background-color:#DF0805;border:#DF0805;color:#F9F6F6;">Encaminhar Compra</button>
+
+                        <a href="conteudo/finalizar.php" style="text-decoration: none;" onclick="return confirm('Deseja enviar o pedido?<?php echo '#01' ;?>')">
+                            <button class="btn btn-block font-weight-bold my-3 py-3" style="background-color:#DF0805;border:#DF0805;color:#F9F6F6;">Encaminhar Compra</button>
                         </a>
                     </div>
-                    
-                    <button id="btnPopup">Mostrar</button>
-                    <dialog id="popup">
-                        ok
-                    </dialog>
 
                 </div>
             </div>

@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 13-Out-2022 às 22:39
--- Versão do servidor: 8.0.30-0ubuntu0.20.04.2
+-- Tempo de geração: 01-Nov-2022 às 13:30
+-- Versão do servidor: 8.0.31-0ubuntu0.20.04.1
 -- versão do PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -56,7 +56,8 @@ CREATE TABLE `tb_carrinho` (
 --
 
 INSERT INTO `tb_carrinho` (`id_pedido`, `cliente_pedido`, `produto_pedido`, `quantidade_pedido`, `preco_pedido`, `estado_pedido`) VALUES
-(99, 4, 52, 6, '708.00', 0);
+(104, 4, 52, 11, '100.00', 0),
+(105, 4, 54, 13, '0.00', 0);
 
 -- --------------------------------------------------------
 
@@ -94,12 +95,46 @@ INSERT INTO `tb_cliente` (`id_cliente`, `nome_cliente`, `email_cliente`, `senha_
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tb_pedido`
+--
+
+CREATE TABLE `tb_pedido` (
+  `id_pedido` int NOT NULL,
+  `fk_cliente_pedido` int NOT NULL,
+  `fk_produto_pedido` int NOT NULL,
+  `quantidade_produto` int NOT NULL,
+  `preco_produto` float NOT NULL,
+  `total_pedido` float NOT NULL,
+  `data_pedido` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tb_pedido`
+--
+
+INSERT INTO `tb_pedido` (`id_pedido`, `fk_cliente_pedido`, `fk_produto_pedido`, `quantidade_produto`, `preco_produto`, `total_pedido`, `data_pedido`) VALUES
+(52, 4, 3, 2, 202, 404, '2022-10-27 03:00:00'),
+(53, 4, 3, 1, 202, 202, '2022-10-27 03:00:00'),
+(54, 4, 3, 1, 202, 202, '2022-10-27 03:00:00'),
+(55, 4, 51, 5, 65, 325, '2022-10-27 03:00:00'),
+(56, 4, 52, 10, 118, 1180, '2022-10-27 03:00:00'),
+(57, 4, 51, 5, 65, 325, '2022-10-27 03:00:00'),
+(58, 4, 52, 10, 118, 1180, '2022-10-27 03:00:00'),
+(59, 4, 53, 11, 5.5, 60.5, '2022-10-27 03:00:00'),
+(60, 4, 62, 7, 14, 98, '2022-10-27 03:00:00'),
+(61, 4, 54, 3, 36, 108, '2022-10-27 03:00:00'),
+(62, 4, 52, 2, 118, 236, '2022-10-28 03:00:00'),
+(63, 4, 52, 10, 118, 1180, '2022-10-28 03:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tb_produto`
 --
 
 CREATE TABLE `tb_produto` (
   `id_produto` int NOT NULL,
-  `tipo_produto` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tipo_produto` int NOT NULL,
   `marca_produto` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nome_produto` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tamanho_produto` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -107,8 +142,9 @@ CREATE TABLE `tb_produto` (
   `preco_compra_produto` decimal(7,2) NOT NULL,
   `preco_venda_produto` decimal(7,2) NOT NULL,
   `quantidade_produto` int NOT NULL,
+  `validade_produto` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `foto_produto` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `promocao_produto` int DEFAULT NULL,
+  `promocao_produto` int DEFAULT '0',
   `disponibilidade_produto` int DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -116,22 +152,46 @@ CREATE TABLE `tb_produto` (
 -- Extraindo dados da tabela `tb_produto`
 --
 
-INSERT INTO `tb_produto` (`id_produto`, `tipo_produto`, `marca_produto`, `nome_produto`, `tamanho_produto`, `descricao_produto`, `preco_compra_produto`, `preco_venda_produto`, `quantidade_produto`, `foto_produto`, `promocao_produto`, `disponibilidade_produto`) VALUES
-(3, 'grao', 'marca A', 'Produto A', '600g', 'Descrição do produto A.', '1.00', '2.00', 60, '', 0, 0),
-(26, 'pilula', 'Teste', 'Teste', '350g', 'Descrição teste', '77.00', '89.00', 10, '', 0, 0),
-(50, 'po', 'Max Titanium', 'Creatina ', '450g', 'Uma dose de creatina Max para aumentar sua energia nos treinos diários.', '65.00', '90.00', 30, '', 0, 0),
-(51, 'pilula', 'Scientifica', 'Ômega 1000', '180g', 'Contém 35 pílulas na embalagem.', '48.00', '65.00', 35, '634457d2d574b.jpeg', 0, 1),
-(52, 'po', 'Raio', 'Whey Protein', '3kg', 'Whey protein Raio...', '80.00', '118.00', 42, '634458cbedd23.jpg', 0, 1),
-(53, 'pilula', 'Nutry plus+', 'Barra de cereal c/ banana', '36g', 'Uma saborosa barrinha.', '3.00', '5.50', 46, '6344658239311.jpg', 5, 1),
-(54, 'po', 'Darkness', 'Glutamina', '320g', ' Glutamina Descrição...', '27.00', '36.00', 10, '6346c88490cf4.jpeg', 1, 1),
-(55, 'po', 'asfds', 'asfdfsa', '44', 'afdsfasdfasdfsf ', '34.00', '43.00', 2, '', 0, 0),
-(56, 'po', 'gfdsgfdsgdfsg', 'retrfgfdgsdf', '55g', ' sdfdsfdsfsdfsdf', '34.00', '44.00', 4, '', 0, 0),
-(57, 'po', 'fdsafsdfasd', 'fsdafasdfsdaf', '45', ' fdsafdsfsdfasadf', '44.00', '55.00', 1, '', 0, 0),
-(58, 'po', 'fdsafsdfasd', 'fsdafasdfsdaf', '45', ' fdsafdsfsdfasadf', '44.00', '55.00', 1, '', 0, 0),
-(59, 'po', 'fdsfsdafsa', 'fdsafasdf', '250g', ' dfsfdsfgfdfgdga', '45.00', '445.00', 1, '', 0, 0),
-(60, 'grao', 'fdsafsd', 'fddsafdsfds', '3', ' dsffasfaaaaaaaaa', '4.00', '44.00', 4, '', 0, 0),
-(61, 'po', 'a', 'a', '4', ' afsdfas', '3.00', '5.00', 1, '', 0, 0),
-(62, 'bebida', 'Aloha', 'bebida FourX', '600ml', 'Uma bebida lotada de cálcio e diversos minerais para fortalecer seu corpo e espírito.', '7.00', '14.00', 20, '63475db465672.jpg', 0, 1);
+INSERT INTO `tb_produto` (`id_produto`, `tipo_produto`, `marca_produto`, `nome_produto`, `tamanho_produto`, `descricao_produto`, `preco_compra_produto`, `preco_venda_produto`, `quantidade_produto`, `validade_produto`, `foto_produto`, `promocao_produto`, `disponibilidade_produto`) VALUES
+(3, 0, 'marca A', 'Produto A', '600g', 'Descrição do produto A.', '179.99', '200.00', 15, '2022-12-31 03:00:00', '635b085c9b485.jpg', 0, 1),
+(26, 3, 'Teste', 'Teste', '350g', 'Descrição teste', '77.00', '89.00', 10, '0000-00-00 00:00:00', '', 0, 0),
+(50, 1, 'Max Titanium', 'Creatina ', '450g', 'Uma dose de creatina Max para aumentar sua energia nos treinos diários.', '65.00', '90.00', 30, '0000-00-00 00:00:00', '', 0, 0),
+(51, 0, 'Scientifica', 'Ômega 1000', '180g', 'Contém 35 pílulas na embalagem.', '48.00', '65.00', 25, '2022-11-15 03:00:00', '634457d2d574b.jpeg', 0, 1),
+(52, 0, 'Raio', 'Whey Protein', '3kg', 'Whey protein Raio...', '80.00', '118.00', 18, '2023-01-25 03:00:00', '634458cbedd23.jpg', 0, 1),
+(53, 4, 'Nutry plus+', 'Barra de cereal c/ banana', '36g', 'Uma saborosa barrinha.', '3.00', '5.50', 15, '0000-00-00 00:00:00', '6344658239311.jpg', 5, 1),
+(54, 1, 'Darkness', 'Glutamina', '320g', ' Glutamina Descrição...', '27.00', '36.00', 25, '0000-00-00 00:00:00', '6346c88490cf4.jpeg', 1, 1),
+(62, 2, 'Aloha', 'bebida FourX', '600ml', 'Uma bebida lotada de cálcio e diversos minerais para fortalecer seu corpo e espírito.', '7.00', '14.00', 20, '0000-00-00 00:00:00', '63475db465672.jpg', 0, 1),
+(63, 2, 'marca teste', 'teste II', '200g', ' teste do projeto', '120.00', '210.00', 20, '0000-00-00 00:00:00', 'ok', NULL, 1),
+(68, 1, 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaa', '2kg', ' aaaaaaaaaaaaaaaaaa', '2.00', '3.00', 2, '2023-01-31 03:00:00', '635c0c4d26065.jpg', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_produto2`
+--
+
+CREATE TABLE `tb_produto2` (
+  `id_produto` int NOT NULL,
+  `tipo_produto` int NOT NULL,
+  `marca_produto` varchar(100) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `nome_produto` varchar(100) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `tamanho_produto` varchar(30) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `descricao_produto` varchar(200) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `preco_compra_produto` decimal(7,2) NOT NULL,
+  `preco_venda_produto` decimal(7,2) NOT NULL,
+  `quantidade_produto` int NOT NULL,
+  `validade_produto` date NOT NULL,
+  `foto_produto` varchar(200) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `promocao_produto` int NOT NULL DEFAULT '0',
+  `disponibilidade_produto` int NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tb_produto2`
+--
+
+INSERT INTO `tb_produto2` (`id_produto`, `tipo_produto`, `marca_produto`, `nome_produto`, `tamanho_produto`, `descricao_produto`, `preco_compra_produto`, `preco_venda_produto`, `quantidade_produto`, `validade_produto`, `foto_produto`, `promocao_produto`, `disponibilidade_produto`) VALUES
+(1, 1, 'marca teste', 'nome teste', '500g', 'descrição de produto inexistente, teste', '80.00', '109.99', 15, '2023-01-01', '', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -145,6 +205,25 @@ CREATE TABLE `tb_promocao` (
   `descricao_promocao` int NOT NULL,
   `valor_promocao` decimal(7,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `teste_date`
+--
+
+CREATE TABLE `teste_date` (
+  `id_teste` int NOT NULL,
+  `data` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Extraindo dados da tabela `teste_date`
+--
+
+INSERT INTO `teste_date` (`id_teste`, `data`) VALUES
+(1, '2022-10-15'),
+(2, '2022-10-15');
 
 --
 -- Índices para tabelas despejadas
@@ -170,9 +249,21 @@ ALTER TABLE `tb_cliente`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
+-- Índices para tabela `tb_pedido`
+--
+ALTER TABLE `tb_pedido`
+  ADD PRIMARY KEY (`id_pedido`);
+
+--
 -- Índices para tabela `tb_produto`
 --
 ALTER TABLE `tb_produto`
+  ADD PRIMARY KEY (`id_produto`);
+
+--
+-- Índices para tabela `tb_produto2`
+--
+ALTER TABLE `tb_produto2`
   ADD PRIMARY KEY (`id_produto`);
 
 --
@@ -180,6 +271,12 @@ ALTER TABLE `tb_produto`
 --
 ALTER TABLE `tb_promocao`
   ADD PRIMARY KEY (`id_promocao`);
+
+--
+-- Índices para tabela `teste_date`
+--
+ALTER TABLE `teste_date`
+  ADD PRIMARY KEY (`id_teste`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -195,7 +292,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT de tabela `tb_carrinho`
 --
 ALTER TABLE `tb_carrinho`
-  MODIFY `id_pedido` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id_pedido` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT de tabela `tb_cliente`
@@ -204,16 +301,34 @@ ALTER TABLE `tb_cliente`
   MODIFY `id_cliente` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT de tabela `tb_pedido`
+--
+ALTER TABLE `tb_pedido`
+  MODIFY `id_pedido` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
 -- AUTO_INCREMENT de tabela `tb_produto`
 --
 ALTER TABLE `tb_produto`
-  MODIFY `id_produto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_produto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+
+--
+-- AUTO_INCREMENT de tabela `tb_produto2`
+--
+ALTER TABLE `tb_produto2`
+  MODIFY `id_produto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `tb_promocao`
 --
 ALTER TABLE `tb_promocao`
   MODIFY `id_promocao` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `teste_date`
+--
+ALTER TABLE `teste_date`
+  MODIFY `id_teste` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para despejos de tabelas
