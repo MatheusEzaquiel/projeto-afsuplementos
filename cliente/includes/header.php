@@ -13,6 +13,9 @@
     }
     include_once('../sair.php');
     */
+
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +36,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
+
+    <!-- Jquery Carrinho -->
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+	<script type="text/javascript" src="../../js/functions.js"></script>
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -143,13 +150,13 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-3">
-                            <a href="home.php?pagina=index" class="nav-item nav-link active" style="color: #F9F6F6;">Home</a>
-                            <a href="home.php?pagina=shop" class="nav-item nav-link" style="color: #F9F6F6;">Catálogo</a>
-                            <a href="home.php?pagina=contato" class="nav-item nav-link active" style="color: #F9F6F6;">Contato</a>
+                            <a href="index.php?pagina=index" class="nav-item nav-link active" style="color: #F9F6F6;">Home</a>
+                            <a href="index.php?pagina=shop" class="nav-item nav-link" style="color: #F9F6F6;">Catálogo</a>
+                            <a href="index.php?pagina=contato" class="nav-item nav-link active" style="color: #F9F6F6;">Contato</a>
                             <a href="../../login-cliente.php" class="nav-item nav-link active" style="color: #F9F6F6;">Entrar</a>
                             <div class="nav-item dropdown">
                                 <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
-                                    <a href="home.php?pagina=carrinho" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
+                                    <a href="index.php?pagina=carrinho" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
                                 </div>
                                 
                             </div>
@@ -171,7 +178,7 @@
                                 <i class="fas fa-heart" style="color:#DF0805;"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
-                            <a href="home.php?pagina=carrinho" class="btn px-0 ml-3">
+                            <a href="index.php?pagina=carrinho" class="btn px-0 ml-3">
                                 <i class="fas fa-shopping-cart" style="color:#DF0805;"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>

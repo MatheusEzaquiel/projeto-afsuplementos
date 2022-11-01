@@ -15,18 +15,25 @@
                 case $pagina == 'cadastro-produtos':
                         include_once("conteudo/cadastro-produtos.php");
                     break;
-                case $pagina == 'pedidos':
-                        include_once("conteudo/info-pedidos.php");
-                    break;
+
                 case $pagina == 'promocoes':
-                        include_once("conteudo/promocoes.php");
+                    include_once("conteudo/promocoes.php");
                     break;
-                case $pagina == 'clientes';
-                        include_once("conteudo/info-clientes.php");
-                    break;
+               
                 case $pagina == 'edicaoProduto':
                     include_once("conteudo/edicao-produto.php");
                 break;
+
+                 /*
+                    case $pagina == 'pedidos':
+                        include_once("conteudo/info-pedidos.php");
+                    break;
+            
+                case $pagina == 'clientes';
+                        include_once("conteudo/info-clientes.php");
+                    break;
+                */
+                
                 default:
                     include_once("conteudo/lista-produtos.php");
                     break;

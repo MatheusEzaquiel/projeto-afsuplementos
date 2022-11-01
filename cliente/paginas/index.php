@@ -40,6 +40,11 @@
                 break;
             case $pagina == 'sair':
                     include_once("conteudo/sair.php");
+            case $pagina == 'remover':
+                include_once("conteudo/remover.php");
+                break;
+            case $pagina == 'finalizar':
+                include_once("conteudo/finalizar.php");
                 break;
             default:
                 include_once("conteudo/index.php");

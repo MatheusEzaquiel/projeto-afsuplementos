@@ -22,6 +22,7 @@
                 $precoCompraP = $showProduto->preco_compra_produto;
                 $precoVendaP = $showProduto->preco_venda_produto;
                 $qtdP = $showProduto->quantidade_produto;
+                $validadeP = $showProduto->validade_produto;
                 $fotoP = $showProduto->foto_produto;
                 $promocaoP = $showProduto->promocao_produto;
                 
@@ -57,29 +58,36 @@
                             <div class="col-md-6 form-group">
                                 <label>Tipo</label>
                                 <select class="custom-select" name="tipo-produto">
-                                    <option value="<?php echo $tipoP;?>" selected><?php echo $tipoP;?></option>
-                                    <option value="po">em pó</option>
-                                    <option value="bebida">bebida</option>
-                                    <option value="grao">grão</option>
-                                    <option value="pilula">pílula</option>
-                                    <option value="pilula">barra</option>
+                                    <option value=0 selected>alterar tipo</option>
+                                    <option value="1">em pó</option>
+                                    <option value="2">bebida</option>
+                                    <option value="3">pílula</option>
+                                    <option value="4">barra</option>
                                 </select>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Tamanho</label>
                                 <input class="form-control" type="text" value="<?php echo $tamanhoP;?>" name="tamanho-produto">
                             </div>
-                            <div class="col-md-12 form-group">
+
+                            <div class="col-md-6 form-group">
                                 <label>Descricão</label>
                                 <textarea class="form-control" type="text" name="descricao-produto"><?php echo $descricaoP;?></textarea>
                             </div>
+
+                            <div class="col-md-6 form-group">
+                                <label>Validade</label>
+                                <input class="form-control" type="date" value="<?php echo $validadeP;?>" name="validade-produto">
+
+                            </div>
+
                             <div class="col-md-6 form-group">
                                 <label>Preço de compra</label>
-                                <input class="form-control" type="number" value="<?php echo $precoCompraP;?>" name="preco-compra-produto">
+                                <input class="form-control" type="text" value="<?php echo $precoCompraP;?>" name="preco-compra-produto">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Preço de venda</label>
-                                <input class="form-control" type="number" value="<?php echo $precoVendaP;?>" name="preco-venda-produto">
+                                <input class="form-control" type="text" value="<?php echo $precoVendaP;?>" name="preco-venda-produto">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Quantidade</label>
@@ -115,7 +123,8 @@
                         </div>
                     </form>
 <?php
-    //Alterar cadastro p/ update
+
+    //update
     include_once("../../config/conexao.php");
 
     if(isset($_POST["btn-update-prodt"])){
@@ -125,6 +134,7 @@
         $tipoProdt = $_POST["tipo-produto"];
         $tamanhoProdt = $_POST["tamanho-produto"];
         $descricaoProdt = $_POST["descricao-produto"];
+        $validadeProdt = $_POST["validade-produto"];
         $precoCompraProdt = $_POST["preco-compra-produto"];
         $precoVendaProdt = $_POST["preco-venda-produto"];
         $qtdProdt = $_POST["qtd-produto"];
@@ -154,7 +164,7 @@
             $novoNomeImg = $fotoP;
         }
 
-        $updateProdt = "UPDATE tb_produto SET tipo_produto=:tipoProdt,marca_produto=:marcaProdt,nome_produto=:nomeProdt,tamanho_produto=:tamanhoProdt,descricao_produto=:descricaoProdt,preco_compra_produto=:precoCompProdt,preco_venda_produto=:precoVenProdt,quantidade_produto=:qtdProdt,foto_produto=:fotoProdt,disponibilidade_produto=:disponivel WHERE id_produto = :idProdt";
+        $updateProdt = "UPDATE tb_produto SET tipo_produto=:tipoProdt,marca_produto=:marcaProdt,nome_produto=:nomeProdt,tamanho_produto=:tamanhoProdt,descricao_produto=:descricaoProdt,preco_compra_produto=:precoCompProdt,preco_venda_produto=:precoVenProdt,quantidade_produto=:qtdProdt, validade_produto=:validade, foto_produto=:fotoProdt,disponibilidade_produto=:disponivel WHERE id_produto = :idProdt";
         try{
             $resultUpdateProdt = $conect->prepare($updateProdt);
             $resultUpdateProdt->bindParam(":idProdt",$idProduto,PDO::PARAM_STR);
@@ -163,6 +173,7 @@
             $resultUpdateProdt->bindParam(":nomeProdt",$nomeProdt,PDO::PARAM_STR);
             $resultUpdateProdt->bindParam(":tamanhoProdt",$tamanhoProdt,PDO::PARAM_STR);
             $resultUpdateProdt->bindParam(":descricaoProdt",$descricaoProdt,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":validade",$validadeProdt,PDO::PARAM_STR);
             $resultUpdateProdt->bindParam(":precoCompProdt",$precoCompraProdt,PDO::PARAM_STR);
             $resultUpdateProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
             $resultUpdateProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
