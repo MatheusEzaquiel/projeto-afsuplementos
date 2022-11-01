@@ -1,3 +1,20 @@
+<?php
+    /*
+    ob_start();
+    session_start();
+    if(isset($_SESSION['loginUser']) && (!isset($_SESSION['senhaUser']))){
+        echo"<script>
+            setTimeout(
+                function() {
+                    window.location.replace('../paginas/conteudo/home.php?pagina=shop');
+                }, 2000)
+            </script>";
+            exit;
+    }
+    include_once('../sair.php');
+    */
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -158,6 +175,17 @@
                                 <i class="fas fa-shopping-cart" style="color:#DF0805;"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
+                        </div>
+                        <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                            <a class="btn d-flex align-items-center justify-content-between w-100" style="background-color:#DF0805;height: 100%;" data-toggle="collapse" href="#sair-login" style="height: 65px; padding: 0 30px;">
+                                <i class="fas fa-sign-out-alt" style="color:#F9F6F6;"></i>
+                            </a>
+                            <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="sair-login" style="width: calc(100% - 30px); z-index: 999;">
+                                <div class="navbar-nav w-25">
+                                    <a href="?sair" class="nav-item nav-link">Sair da conta</a>
+                                    <a href="../../login-cliente.php" class="nav-item nav-link">Fazer login</a>
+                                </div>
+                            </nav>
                         </div>
                     </div>
                 </nav>

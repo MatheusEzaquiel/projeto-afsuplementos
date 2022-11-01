@@ -1,3 +1,16 @@
+<?php
+    ob_start();
+    session_start();
+    if(isset($_SESSION['loginUser']) && (isset($_SESSION['senhaUser']))){
+        echo"<script>
+            setTimeout(
+                function() {
+                    window.location.replace('cliente/paginas/home.php?pagina=index');
+                }, 2000)
+            </script>";
+            exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt_br">
 
@@ -97,7 +110,7 @@
                 <div class="bg-light p-30 mb-5">
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <form action="" method="post">
+                            <form action="" method="post" enctype="multipart/form-data">
                                 <img src="img/avatar/avatar-man-3.png" width="100px" class="pb-3" style="box-sizing:border-box;margin-left:45%;height:6em;width:5em;">
                                 <div class="col-md-7 form-group input-group">
                                     <label style="padding-right:1.5em;">E-mail</label>  
@@ -127,6 +140,57 @@
                                     <button name="btnLogin" value="Entrar" type="submit" class="btn btn-block font-weight-bold py-3" style="margin-left: 9rem;background-color:#DF0805;color:#f9f6f6;border-radius:3px;">Entrar</button>
                                 </div>
                             </form>
+                            <?php
+                             include_once('config/conexao.php');
+                             if(isset($_GET['acao'])){
+                                $acao = $_GET['acao'];
+                                if($acao=='negado'){
+                                    echo '<div class="alert alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert">x</button>
+                                        <strong>Erro ao acessar o sistema!</strong> Efetue o login.</div>';
+                                }else if($acao == 'sair'){
+                                    echo '<div class="alert alert-warning">
+                                        <button type="button" class="close" data-dismiss="alert">x</button>
+                                        <strong>Você saiu da agenda eletrônica :(</strong> Esperamos sua volta!.</div>';
+                                }
+                             }
+                             if(isset($_POST['btnLogin'])){
+                                $login = filter_input(INPUT_POST, 'email', FILTER_DEFAULT);
+                                $senha = base64_encode(filter_input(INPUT_POST, 'senha', FILTER_DEFAULT));
+                                $select = "SELECT * FROM tb_cliente WHERE email_cliente=:emailLogin AND senha_cliente=:senhaLogin";
+                                try{
+                                    $resultLogin = $conect->prepare($select);
+                                    $resultLogin->bindParam(':emailLogin',$login, PDO::PARAM_STR);
+                                    $resultLogin->bindParam(':senhaLogin',$senha, PDO::PARAM_STR);
+                                    $resultLogin->execute();
+
+                                    $verificar = $resultLogin->rowCount();
+                                    if($verificar>0){
+                                        $login = $_POST['email'];
+                                        $senha = $_POST['senha'];
+                                        //CRIAR SESSÃO
+                                        $_SESSION['loginUser'] = $login;
+                                        $_SESSION['senhzUser'] = $senha;
+                                        echo'<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">x</button><strong>Logado com sucesso!</strong>Você será redirecionado para a loja!</div>';
+                                        echo"<script>
+                                        setTimeout(
+                                            function() {
+                                            window.location.replace('cliente/paginas/home.php?pagina=index');
+                                            }, 2000)
+                                        </script>";
+                                    }else{
+                                        echo '<div class="alert alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert">x</button>
+                                        <strong>ERRO!</strong> Login ou senha incorretos, digite outro login.</div>';
+                                    }
+                                    
+                                    }catch(PDOException $e){
+                                        echo "ERRO DE LOGIN DO PDO :".$e ->getMessage();
+
+                                    }
+
+                                }
+                            ?>
                             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                             <script>
                                 function onSignIn(googleUser) {

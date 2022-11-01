@@ -1,4 +1,5 @@
 <?php
+    include_once("conteudo/sair.php");
     include_once("../includes/header.php");
 
     if(isset($_GET["pagina"])){
@@ -37,11 +38,9 @@
             case $pagina == 'contato':
                     include_once("conteudo/contato.php");
                 break;
-            /*
-            case $pagina == 'deletar':
-                include_once("conteudo/deletar.php");
+            case $pagina == 'sair':
+                    include_once("conteudo/sair.php");
                 break;
-            */
             default:
                 include_once("conteudo/index.php");
                 break;
