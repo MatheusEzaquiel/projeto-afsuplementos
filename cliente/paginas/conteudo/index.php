@@ -1,5 +1,6 @@
 
 
+
     <!-- Carousel Start -->
     
     <div class="container-fluid mb-3">
@@ -18,7 +19,7 @@
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Probiótica</h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Somos pioneiros! Desde 1986 a PROBIÓTICA investe em um processo contínuo de pesquisa e inovação em colaboração com nutricionistas, médicos, treinadores e atletas.</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="index.php?pagina=shop">Comprar agora</a>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Comprar agora</a>
                                 </div>
                             </div>
                         </div>
@@ -107,137 +108,97 @@
   <div class="row px-xl-5">
     <div class="col">
       <div class="owl-carousel related-carousel">
-        <div class="product-item bg-light">
-          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-1.jpg" alt="website template image">
-            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
-          </div>
-          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$123.00</h5>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+      <?php
+          include_once("../../config/conexao.php");
+          $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 AND promocao_produto > 0  ORDER BY preco_venda_produto ASC";
+            try {
+              $resultSelProdutos = $conect->prepare($selectProdutos);
+              $resultSelProdutos->execute();
+              $contSelProdutos = $resultSelProdutos->rowCount();
+
+              if($contSelProdutos > 0){
+                while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
+                                      $showProdutos->id_produto;
+                                      $showProdutos->tipo_produto;
+                                      $showProdutos->marca_produto;
+                                      $nomeP = $showProdutos->nome_produto;
+                                      $showProdutos->tamanho_produto;
+                                      $showProdutos->descricao_produto;
+                                      $showProdutos->preco_compra_produto;
+                                      $showProdutos->preco_venda_produto;
+                                      $showProdutos->quantidade_produto;
+                                      $showProdutos->foto_produto;
+                                      $showProdutos->promocao_produto;
+           ?>
+        <form action="" method="post">
+          <div class="product-item bg-light mb-4">
+            <div class="product-img position-relative overflow-hidden">
+              <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
+              <div class="product-action">
+                <!-- Botão enviar p/ carrinho-->
+                <button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $showProdutos->id_produto;?>"><i class="fa fa-shopping-cart"></i></button>
+                <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
+                <a class="btn btn-outline-dark btn-square" href="index.php?pagina=detalhes&idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
+              </div>
             </div>
-            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
-          </div>
-        </div>
-        <div class="product-item bg-light">
-          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-2.jpg" alt="website template image">
-            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
-          </div>
-          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$123.00</h5>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+
+            <div class="text-center py-4">
+              <a class="h6 text-decoration-none text-truncate" href=""><?php echo $showProdutos->nome_produto;?></a>
+              <br><small><?php echo $showProdutos->marca_produto;?></small> |
+              <small><?php echo $showProdutos->tamanho_produto;?></small>
+              <div class="d-flex align-items-center justify-content-center mt-2">
+                <h5>$<?php echo $showProdutos->preco_venda_produto;?></h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+              </div>
+              <div class="d-flex align-items-center justify-content-center mb-1">
+                <small>(99) </small>
+                <small class="fa mr-1"> Reviews</small>
+              </div>
             </div>
-            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
           </div>
-        </div>
-        <div class="product-item bg-light">
-          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-3.jpg" alt="website template image">
-            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
-          </div>
-          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$123.00</h5>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
-          </div>
-        </div>
-        <div class="product-item bg-light">
-          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-4.jpg" alt="website template image">
-            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
-          </div>
-          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$123.00</h5>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
-          </div>
-        </div>
-        <div class="product-item bg-light">
-          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-5.jpg" alt="website template image">
-            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
-          </div>
-          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$123.00</h5>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
-          </div>
-        </div>
-      </div>
+        </form>
+        <?php
+                                    //Carrinho
+                                    if(isset($_POST["btn-carrinho$showProdutos->id_produto"])){
+                                        $showProdutos->id_produto;
+                                        
+                                        $idCliente = 4;
+                                        $precoPed = 0; //$precoProdt * $prodtQtd;
+                                        $estadoP = 0;
+
+                                        $cadCarrinho = "INSERT INTO tb_carrinho(cliente_pedido,produto_pedido,preco_pedido,estado_pedido) VALUES(:clientePed,:produtoPed,:precoPed,:estadoPed)";
+                                        
+                                        try{
+                                            $resultCadCar = $conect->prepare($cadCarrinho);
+                                            $resultCadCar->bindParam(':clientePed',$idCliente,PDO::PARAM_STR);
+                                            $resultCadCar->bindParam(':produtoPed',$showProdutos->id_produto,PDO::PARAM_STR);
+                                            $resultCadCar->bindParam(':precoPed',$precoPed,PDO::PARAM_STR);
+                                            $resultCadCar->bindParam(':estadoPed',$estadoP,PDO::PARAM_STR);
+                                            $resultCadCar->execute();
+
+                                            $contPedido = $resultCadCar->rowCount();
+                                            if($contPedido > 0){
+                                                echo "<script>alert('${nomeP} enviado para o carrinho')</script>";
+                                            }else{
+                                                echo "<script>alert('[Erro] Tente novamente!')</script>";
+                                            }
+
+                                        }catch(PDOException	$erro){
+                                            echo "ERRO DE CADASTRO [PDO] Carrinho = ".$erro->getMessage();
+                                        }
+                                        
+                                    }
+                                }//Fim while
+                            }else{
+                                echo "ERRO!!";
+                            }
+                        } catch (PDOException $erro) {
+                            echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
+                        }
+                    ?>
     </div>
   </div>
 </div>
-<div class="container-fluid py-5">
-<div class="row px-xl-5">
-    <div class="col">
-      <div class="owl-carousel related-carousel">
-        <div class="product-item bg-light">
-          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-1.jpg" alt="website template image">
-            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
-          </div>
-          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$123.00</h5>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
-          </div>
-        </div>
-        <div class="product-item bg-light">
-          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-2.jpg" alt="website template image">
-            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
-          </div>
-          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$123.00</h5>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
-          </div>
-        </div>
-        <div class="product-item bg-light">
-          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-3.jpg" alt="website template image">
-            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
-          </div>
-          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$123.00</h5>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
-          </div>
-        </div>
-        <div class="product-item bg-light">
-          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-4.jpg" alt="website template image">
-            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
-          </div>
-          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$123.00</h5>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
-          </div>
-        </div>
-        <div class="product-item bg-light">
-          <div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="../assets/img/product-5.jpg" alt="website template image">
-            <div class="product-action"><a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-shopping-cart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="far fa-heart"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-sync-alt"></i></a> <a class="btn btn-outline-dark btn-square" href="https://www.free-css.com/free-css-templates"><i class="fa fa-search"></i></a></div>
-          </div>
-          <div class="text-center py-4"><a class="h6 text-decoration-none text-truncate" href="https://www.free-css.com/free-css-templates">Product Name Goes Here</a>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-              <h5>$123.00</h5>
-              <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-            </div>
-            <div class="d-flex align-items-center justify-content-center mb-1"><small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small class="fa fa-star text-primary mr-1"></small> <small>(99)</small></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </div>
     <!-- Categories End -->
     <!-- Products Start -->
@@ -246,57 +207,55 @@
   <div class="row px-xl-5">
     <div class="col">
       <div class="owl-carousel related-carousel">
-      <?php
-                        include_once("../../config/conexao.php");
-                        $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY preco_venda_produto ASC";
-                        
-                        try {
-                            $resultSelProdutos = $conect->prepare($selectProdutos);
-                            $resultSelProdutos->execute();
-                            $contSelProdutos = $resultSelProdutos->rowCount();
-                            
+        <?php
+          include_once("../../config/conexao.php");
+          $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY preco_venda_produto ASC";
+            try {
+              $resultSelProdutos = $conect->prepare($selectProdutos);
+              $resultSelProdutos->execute();
+              $contSelProdutos = $resultSelProdutos->rowCount();
 
-                            if($contSelProdutos > 0){
-                                while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
-                                    $showProdutos->id_produto;
-                                    $showProdutos->tipo_produto;
-                                    $showProdutos->marca_produto;
-                                    $nomeP = $showProdutos->nome_produto;
-                                    $showProdutos->tamanho_produto;
-                                    $showProdutos->descricao_produto;
-                                    $showProdutos->preco_compra_produto;
-                                    $showProdutos->preco_venda_produto;
-                                    $showProdutos->quantidade_produto;
-                                    $showProdutos->foto_produto;
-                                    $showProdutos->promocao_produto;
-                    ?>
+              if($contSelProdutos > 0){
+                while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
+                                      $showProdutos->id_produto;
+                                      $showProdutos->tipo_produto;
+                                      $showProdutos->marca_produto;
+                                      $nomeP = $showProdutos->nome_produto;
+                                      $showProdutos->tamanho_produto;
+                                      $showProdutos->descricao_produto;
+                                      $showProdutos->preco_compra_produto;
+                                      $showProdutos->preco_venda_produto;
+                                      $showProdutos->quantidade_produto;
+                                      $showProdutos->foto_produto;
+                                      $showProdutos->promocao_produto;
+        ?>
         <form action="" method="post">
-                            <div class="product-item bg-light mb-4">
-                                <div class="product-img position-relative overflow-hidden">
-                                    <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
-                                    <div class="product-action">
-                                        <!-- Botão enviar p/ carrinho-->
-                                        <button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $showProdutos->id_produto;?>"><i class="fa fa-shopping-cart"></i></button>
-                                        <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
-                                        <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes&idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
-                                    </div>
-                                </div>
+          <div class="product-item bg-light mb-4">
+            <div class="product-img position-relative overflow-hidden">
+              <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
+              <div class="product-action">
+                <!-- Botão enviar p/ carrinho-->
+                <button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $showProdutos->id_produto;?>"><i class="fa fa-shopping-cart"></i></button>
+                <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
+                <a class="btn btn-outline-dark btn-square" href="index.php?pagina=detalhes&idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
+              </div>
+            </div>
 
-                                <div class="text-center py-4">
-                                    <a class="h6 text-decoration-none text-truncate" href=""><?php echo $showProdutos->nome_produto;?></a>
-                                    <br><small><?php echo $showProdutos->marca_produto;?></small> |
-                                    <small><?php echo $showProdutos->tamanho_produto;?></small>
-                                    <div class="d-flex align-items-center justify-content-center mt-2">
-                                        <h5>$<?php echo $showProdutos->preco_venda_produto;?></h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center mb-1">
-                                        <small>(99) </small>
-                                        <small class="fa mr-1"> Reviews</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <?php
+            <div class="text-center py-4">
+              <a class="h6 text-decoration-none text-truncate" href=""><?php echo $showProdutos->nome_produto;?></a>
+              <br><small><?php echo $showProdutos->marca_produto;?></small> |
+              <small><?php echo $showProdutos->tamanho_produto;?></small>
+              <div class="d-flex align-items-center justify-content-center mt-2">
+                <h5>$<?php echo $showProdutos->preco_venda_produto;?></h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+              </div>
+              <div class="d-flex align-items-center justify-content-center mb-1">
+                <small>(99) </small>
+                <small class="fa mr-1"> Reviews</small>
+              </div>
+            </div>
+          </div>
+        </form>
+        <?php
                                     //Carrinho
                                     if(isset($_POST["btn-carrinho$showProdutos->id_produto"])){
                                         $showProdutos->id_produto;

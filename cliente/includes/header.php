@@ -153,7 +153,6 @@ session_start();
                             <a href="index.php?pagina=index" class="nav-item nav-link active" style="color: #F9F6F6;">Home</a>
                             <a href="index.php?pagina=shop" class="nav-item nav-link" style="color: #F9F6F6;">Catálogo</a>
                             <a href="index.php?pagina=contato" class="nav-item nav-link active" style="color: #F9F6F6;">Contato</a>
-                            <a href="../../login-cliente.php" class="nav-item nav-link active" style="color: #F9F6F6;">Entrar</a>
                             <div class="nav-item dropdown">
                                 <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
                                     <a href="index.php?pagina=carrinho" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
@@ -187,10 +186,10 @@ session_start();
                             <a class="btn d-flex align-items-center justify-content-between w-100" style="background-color:#DF0805;height: 100%;" data-toggle="collapse" href="#sair-login" style="height: 65px; padding: 0 30px;">
                                 <i class="fas fa-sign-out-alt" style="color:#F9F6F6;"></i>
                             </a>
-                            <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="sair-login" style="width: calc(100% - 30px); z-index: 999;">
+                            <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="sair-login" style="z-index: 999;">
                                 <div class="navbar-nav w-25">
-                                    <a href="?sair" class="nav-item nav-link">Sair da conta</a>
                                     <a href="../../login-cliente.php" class="nav-item nav-link">Fazer login</a>
+                                    <a href="?sair" class="nav-item nav-link">Sair da conta</a>
                                 </div>
                             </nav>
                         </div>
