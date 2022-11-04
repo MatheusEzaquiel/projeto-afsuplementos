@@ -13,7 +13,7 @@
     <!-- Breadcrumb End -->
 
 
-    <!-- Cart Start -->
+    <!-- Início Carrinho -->
     <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-lg-8 table-responsive mb-5">
@@ -24,19 +24,22 @@
                                 <th>Produto</th>
                                 <th>Preço</th>
                                 <th>Quantidade</th>
-                                <th>Total</th>
-                                <th>Adicionar</th>
+                                <th>Subtotal</th>
                                 <th>Remover</th>
                             </tr>
                         </thead>
                         <tbody class="align-middle">
                         <?php
+                        //array que guardará os subtotais para somá-los posteriormente e o que contém o preço final
+                        $arrayTotalCarrinho = [];
+                        $totalCarrinho = 0;
+
 
                         if(!isset($_SESSION['itens'])){
                             $_SESSION['itens'] = array();
                         }
 
-                        if(isset($_GET['add']) && $_GET['add'] == "carrinho"){
+                        if(isset($_GET['add']) && $_GET['add'] == "carrinho" && @!$_GET["idMenos"]){
 
                             /*Adiciona ao carrinho*/
                             $idProduto = $_GET['id'];
@@ -48,6 +51,15 @@
                                 $_SESSION['itens'][$idProduto] += 1;
                             }
 
+                            
+
+
+                        }else if(isset($_GET['add']) && $_GET['add'] == "carrinho" && $_GET["idMenos"]){
+                            /*Adiciona ao carrinho*/
+                            $idProduto = $_GET['id'];
+
+                            $_SESSION['itens'][$idProduto] -= 1;
+                            
 
                         }
 
@@ -60,21 +72,26 @@
                             $_SESSION['dados'] = array();
 
 
+                            
                             foreach($_SESSION['itens'] as $idProduto => $quantidade){
 
                                 $select = $conect->prepare("SELECT * FROM tb_produto WHERE id_produto=?");
                                 $select->bindParam(1,$idProduto);
                                 $select->execute();
                                 $produtos = $select->fetchAll();
-                                $total = $quantidade * $produtos[0]["preco_venda_produto"];
+                                @$total = $quantidade * $produtos[0]["preco_venda_produto"];
 
-                                
+
+
+                               
+    
+
                             
                                 array_push(
 
                                     $_SESSION['dados'],
 
-                                    array(
+                                    @array(
                                         'id_produto' => $idProduto,
                                         'quantidade' => $quantidade,//$produtos[0]["quantidade"],
                                         'preco' => $produtos[0]["preco_venda_produto"],
@@ -85,12 +102,16 @@
                         ?>
                                 <tr>
                                     <!-- <td><?php //echo $produtos[0]["id_produto"]?></td> -->
-                                    <td><?php echo $produtos[0]["nome_produto"]?></td>
-                                    <td><?php echo $produtos[0]["preco_venda_produto"]?></td>
-                                    <td><?php echo $quantidade;//$produtos[0]["quantidade"]?></td>
-                                    <td><?php echo $total?></td>
-                                    <td><a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produtos[0]["id_produto"]?>">+</a></td>
+                                    <td><?php echo @$produtos[0]["nome_produto"]?></td>
+                                    <td><?php echo @$produtos[0]["preco_venda_produto"]?></td>
+                                    <td>
+                                        <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produtos[0]["id_produto"]?>&idMenos=<?php echo $produtos[0]["id_produto"]?>">-</a>    
+                                        <?php echo $quantidade;//$produtos[0]["quantidade"]?>
+                                        <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produtos[0]["id_produto"]?>">+</a>
+                                    </td>
 
+                                    <td><?php echo $total?></td>
+                                
                                     
                                     <td>
                                         <a href="?pagina=remover&remover=carrinho&id=<?php echo $idProduto?>" class="remover">
@@ -101,18 +122,28 @@
                             
                                     
                         <?php
+                                //Insere todos os subtotais em um array
+                                array_push($arrayTotalCarrinho, $total);
+                                
+                                /*
+                                echo "<pre>";
+                                print_r($totalCarrinho);
+                                echo "</pre>";
+                                */
 
-                            }
-                        
-                            /*
-                            echo '<a href="conteudo/finalizar.php">
-                                    <div class="btnFinalizar">
-                                        Finalizar pedido
-                                    </div>
-                                </a>';
-                            */
 
+                                
+                            }//fim foreach
                             
+                            
+                            //Soma todos os subtotais
+                            $totalCarrinho = array_sum($arrayTotalCarrinho);
+
+                            if($totalCarrinho == 0){
+                                return $totalCarrinho = "Sem produtos";
+                            }
+                           
+                        
                         }
 
 
@@ -131,8 +162,8 @@
         
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
-                            <h5>Total</h5>
-                            <h5>R$ 0,00</h5>
+                            <h5>Total:</h5>
+                            <h5>R$ <?php echo $totalCarrinho;?></h5>
                         </div>
 
                         <a href="conteudo/finalizar.php" style="text-decoration: none;" onclick="return confirm('Deseja enviar o pedido?<?php echo '#01' ;?>')">
@@ -144,15 +175,4 @@
             </div>
         </div>
     </div>
-    <!-- Cart End -->
-
-    <script>
-        let btn = document.getElementById("btnPopup")
-        btn.addEventListener("click",popUp)
-
-        function popUp(){
-            alert("Tem certeza que deseja enviar o pedido?")
-        }
-
-        
-    </script>
+    <!-- Fim Carrinho -->
