@@ -127,6 +127,7 @@
                                         4 -> Barrinhas
                                     --> 
 
+
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tipo de Produto</button>
                                         <div class="dropdown-menu dropdown-menu-right">
@@ -142,21 +143,17 @@
                                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Preço</button>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="index.php?pagina=shop&filtroPreco=0">Qualquer preço</a>
-                                            <a class="dropdown-item" href="index.php?pagina=shop&filtroPreco=1">menor que 50</a>
-                                            <a class="dropdown-item" href="index.php?pagina=shop&filtroPreco=2">50 a 100</a>
-                                            <a class="dropdown-item" href="index.php?pagina=shop&filtroPreco=3">100 a 200</a>
-                                            <a class="dropdown-item" href="index.php?pagina=shop&filtroPreco=4">mais que 200</a>
+                                            <a class="dropdown-item" href="index.php?pagina=shop&filtroPreco=1">Menor que $50</a>
+                                            <a class="dropdown-item" href="index.php?pagina=shop&filtroPreco=2">$50 - $100</a>
+                                            <a class="dropdown-item" href="index.php?pagina=shop&filtroPreco=3">$100 - $200</a>
+                                            <a class="dropdown-item" href="index.php?pagina=shop&filtroPreco=4">Maior que $200</a>
                                         </div>
                                     </div>
 
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Filtro</button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="index.php?pagina=shop&filtro=1">Mais recentes</a>
-                                            <a class="dropdown-item" href="index.php?pagina=shop&filtro=2">Menor Preço</a>
-                                            <a class="dropdown-item" href="index.php?pagina=shop&filtro=3">Promoções</a>
-                                        </div>
-                                    </div>
+                                
+                                   
+                                    
+
 
                                 </div>
                             </div>
@@ -203,7 +200,7 @@
                                             <!-- Botão enviar p/ carrinho -->
                                             <button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $idProduto;?>"><i class="fa fa-shopping-cart"></i></button>
                                             <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
-                                            <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes&idDetail=<?php echo $idProduto;?>"><i class="fa fa-search"></i></a>
+                                            <a class="btn btn-outline-dark btn-square" href="index.php?pagina=detalhes&idDetail=<?php echo $idProduto;?>"><i class="fa fa-search"></i></a>
                                         </div>
 
                                     </div>

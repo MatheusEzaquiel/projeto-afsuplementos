@@ -5,7 +5,7 @@
         echo"<script>
             setTimeout(
                 function() {
-                    window.location.replace('cliente/paginas/home.php?pagina=index');
+                    window.location.replace('cliente/paginas/index.php?pagina=index');
                 }, 2000)
             </script>";
             exit;
@@ -55,7 +55,7 @@
         </div>
         <div class="row align-items-center py-3 px-xl-5 d-none d-lg-flex" style="background-color: #000000;">
             <div class="col-lg-6">
-                <a href="cliente/paginas/home.php?pagina=index" class="text-decoration-none">
+                <a href="cliente/paginas/index.php?pagina=index" class="text-decoration-none">
                     <span class="h1 text-uppercase px-2" style="background-color: #000000;color:#DF0805;">AF</span>
                     <span class="h1 text-uppercase px-2 ml-n1" style="background-color: #DF0805;color:#000000;">Suplementos</span>
                 </a>
@@ -175,7 +175,7 @@
                                         echo"<script>
                                         setTimeout(
                                             function() {
-                                            window.location.replace('cliente/paginas/home.php?pagina=index');
+                                            window.location.replace('cliente/paginas/index.php?pagina=index');
                                             }, 2000)
                                         </script>";
                                     }else{

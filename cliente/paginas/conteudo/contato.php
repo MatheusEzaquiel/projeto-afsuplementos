@@ -6,7 +6,7 @@
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="home.php?pagina=index">Home</a>
+                    <a class="breadcrumb-item text-dark" href="index.php?pagina=index">Home</a>
                     <span class="breadcrumb-item active">Contato</span>
                 </nav>
             </div>
@@ -40,7 +40,12 @@
                             <p class="help-block text-danger"></p>
                         </div>
                         <div>
-                            <button class="btn py-2 px-4" style="background-color:#DF0805;color:#f9f6f6;border-radius:3px;" type="submit" id="sendMessageButton">Enviar Mensagem</button>
+                            <script>
+                                var name = document.querySelector("#name");
+                                var message = document.querySelector("#message");
+                            </script>
+                            <button class="btn py-2 px-4" style="background-color:#DF0805;color:#f9f6f6;border-radius:3px;" type="submit" id="sendMessageButton"><a href="<script></script>"></a></button>
+                            <!-- https://api.whatsapp.com/send?phone=5585987338264&text=teste%20amigao -->
                         </div>
                     </form>
                 </div>

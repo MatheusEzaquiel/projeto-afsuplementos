@@ -1,3 +1,4 @@
+
 <?php
 /*
 
@@ -52,6 +53,31 @@ if(isset($_GET["TipoProduto"])){
 
 }
 
+#Filtro por preço
+if(isset($_GET["filtroPreco"])){
+
+    $filtroPreco = $_GET["filtroPreco"];
+
+    if($filtroPreco == 0){
+        $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY id_produto DESC";
+
+    }else if($filtroPreco == 1){
+        $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 AND preco_venda_produto < 50 ORDER BY preco_venda_produto DESC";
+
+    }else if($filtroPreco == 2){
+        $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 AND preco_venda_produto < 100  AND preco_venda_produto >= 50 ORDER BY preco_venda_produto DESC";
+
+    }
+    else if($filtroPreco == 3){
+        $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 AND preco_venda_produto < 200  AND preco_venda_produto >= 100 ORDER BY preco_venda_produto DESC";
+
+    }else if($filtroPreco == 4){
+        $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 AND preco_venda_produto > 200 ORDER BY preco_venda_produto DESC";
+    }else{
+        echo "Tipo de produto inexistente";
+    }
+
+}
 #Filtro por preço
 if(isset($_GET["filtroPreco"])){
 
