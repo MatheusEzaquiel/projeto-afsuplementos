@@ -5,7 +5,7 @@
         echo"<script>
             setTimeout(
                 function() {
-                    window.location.replace('cliente/paginas/home.php?pagina=index');
+                    window.location.replace('cliente/paginas/index.php?pagina=index');
                 }, 2000)
             </script>";
             exit;
@@ -46,7 +46,7 @@
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid">
-        <div class="row bg-secondary py-1 px-xl-5">
+        <div class="row py-1 px-xl-5" style="background-color:#000000">
             
             <div class="col-lg-6 text-center text-lg-right">
                 
@@ -55,7 +55,7 @@
         </div>
         <div class="row align-items-center py-3 px-xl-5 d-none d-lg-flex" style="background-color: #000000;">
             <div class="col-lg-6">
-                <a href="cliente/paginas/home.php?pagina=index" class="text-decoration-none">
+                <a href="cliente/paginas/index.php?pagina=index" class="text-decoration-none">
                     <span class="h1 text-uppercase px-2" style="background-color: #000000;color:#DF0805;">AF</span>
                     <span class="h1 text-uppercase px-2 ml-n1" style="background-color: #DF0805;color:#000000;">Suplementos</span>
                 </a>
@@ -170,12 +170,12 @@
                                         $senha = $_POST['senha'];
                                         //CRIAR SESSÃO
                                         $_SESSION['loginUser'] = $login;
-                                        $_SESSION['senhzUser'] = $senha;
+                                        $_SESSION['senhaUser'] = $senha;
                                         echo'<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">x</button><strong>Logado com sucesso!</strong>Você será redirecionado para a loja!</div>';
                                         echo"<script>
                                         setTimeout(
                                             function() {
-                                            window.location.replace('cliente/paginas/home.php?pagina=index');
+                                            window.location.replace('cliente/paginas/index.php?pagina=index');
                                             }, 2000)
                                         </script>";
                                     }else{
@@ -254,9 +254,6 @@
     </div>
     <!-- Footer End -->
 
-
-    <!-- Back to Top -->
-    <a href="#" class="btn back-to-top" style="background-color: #DF0805;border:solid 1px #DF0805;color:#f9f6f6;"><i class="fa fa-angle-double-up"></i></a>
 
 
     <!-- JavaScript Libraries -->

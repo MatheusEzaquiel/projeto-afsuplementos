@@ -81,7 +81,7 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle active" style="color:#F9F6F6;" data-toggle="dropdown">Admin <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
-                                    <a href="cart.html" class="dropdown-item active">Sua conta</a>
+                                    <a href="../../login-estoque.php" class="dropdown-item active">Sua conta</a>
                                     <a href="checkout.html" class="dropdown-item">Sair</a>
                                 </div>
                             </div>

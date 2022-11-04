@@ -43,6 +43,10 @@
                             <button class="btn py-2 px-4" style="background-color:#DF0805;color:#f9f6f6;border-radius:3px;" type="submit" id="sendMessageButton">Enviar Mensagem</button>
                         </div>
                     </form>
+                    <script>
+                        var mensagem = document.querySelector("#name");
+                        var texto = input.value;
+                    </script>
                 </div>
             </div>
             <div class="col-lg-5 mb-5">
