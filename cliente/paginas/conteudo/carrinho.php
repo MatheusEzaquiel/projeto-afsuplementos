@@ -30,9 +30,13 @@
                         </thead>
                         <tbody class="align-middle">
                         <?php
+                    
+
                         //array que guardará os subtotais para somá-los posteriormente e o que contém o preço final
                         $arrayTotalCarrinho = [];
                         $totalCarrinho = 0;
+
+
 
 
                         if(!isset($_SESSION['itens'])){
@@ -75,6 +79,13 @@
                             
                             foreach($_SESSION['itens'] as $idProduto => $quantidade){
 
+                                //verificação da quantidade
+                                if($quantidade < 1){
+                                    $_SESSION['itens'][$idProduto] = 1;
+                                    $quantidade = 1;
+                                    
+                                }
+
                                 $select = $conect->prepare("SELECT * FROM tb_produto WHERE id_produto=?");
                                 $select->bindParam(1,$idProduto);
                                 $select->execute();
@@ -99,29 +110,71 @@
                                     )
                                 );
      
-                        ?>
+                        ?> 
+                                <!-- Carrinho HTML -->
                                 <tr>
                                     <!-- <td><?php //echo $produtos[0]["id_produto"]?></td> -->
                                     <td><?php echo @$produtos[0]["nome_produto"]?></td>
                                     <td><?php echo @$produtos[0]["preco_venda_produto"]?></td>
-                                    <td>
-                                        <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produtos[0]["id_produto"]?>&idMenos=<?php echo $produtos[0]["id_produto"]?>">-</a>    
-                                        <?php echo $quantidade;//$produtos[0]["quantidade"]?>
-                                        <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produtos[0]["id_produto"]?>">+</a>
-                                    </td>
 
-                                    <td><?php echo $total?></td>
+
+                                    <!-- Quantidade de produtos -->
+
+                                    <td>
+                                        <div class="input-group quantity mx-auto" style="width: 100px;">
+
+                                            <!-- Botão menos - -->
+                                            <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produtos[0]["id_produto"]?>&idMenos=<?php echo $produtos[0]["id_produto"]?>">
+                                                <div class="input-group-btn">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-minus" >
+                                                    <i class="fa fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                            </a>    
+
+                                           
+                                            <input type="text" id="inputQuantidade" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php echo $quantidade;?>">
+                                            <!--
+                                                <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value=" <?php echo $quantidade;//$produtos[0]["quantidade"]?>">
+
+                                            <!-- Botão mais + -->
+                                            <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produtos[0]["id_produto"]?>">
+
+                                                <div class="input-group-btn">
+                                                    <button type="button" class="btn btn-sm btn-primary btn-plus">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+
+                        
+                                            </a>
+
+
+                                        </div>
+                                    </td>
+                                    
+
+                                  
+                                    <td>
+                                    
+                                        <?php echo $total?>
+
+                                    </td>
                                 
                                     
                                     <td>
                                         <a href="?pagina=remover&remover=carrinho&id=<?php echo $idProduto?>" class="remover">
-                                            Remover
+                                            <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
                                         </a>
                                     </td>
+
+                                   
                                 </tr>
                             
                                     
-                        <?php
+                        <?php   
+                                
+                                
                                 //Insere todos os subtotais em um array
                                 array_push($arrayTotalCarrinho, $total);
                                 
@@ -131,7 +184,7 @@
                                 echo "</pre>";
                                 */
 
-
+                             
                                 
                             }//fim foreach
                             
@@ -142,11 +195,14 @@
                             if($totalCarrinho == 0){
                                 return $totalCarrinho = "Sem produtos";
                             }
-                           
-                        
+                       
                         }
 
-
+                            //Informações complemantares
+                            
+                            $idCliente = 4;
+                            $telefone = 5585992902871;
+                            $telefone2 = 5585987338264;
                         ?>		
 
 
@@ -166,13 +222,21 @@
                             <h5>R$ <?php echo $totalCarrinho;?></h5>
                         </div>
 
-                        <a href="conteudo/finalizar.php" style="text-decoration: none;" onclick="return confirm('Deseja enviar o pedido?<?php echo '#01' ;?>')">
+                        <a href="conteudo/finalizar.php" style="text-decoration: none;" onclick="return confirm('Deseja enviar o pedido?')">
                             <button class="btn btn-block font-weight-bold my-3 py-3" style="background-color:#DF0805;border:#DF0805;color:#F9F6F6;">Encaminhar Compra</button>
                         </a>
                     </div>
+                 
+                  
+
 
                 </div>
             </div>
         </div>
     </div>
     <!-- Fim Carrinho -->
+
+    
+<a href="&" name="linkWhatsappT">Clique aqui no olink de teste</a>
+
+  

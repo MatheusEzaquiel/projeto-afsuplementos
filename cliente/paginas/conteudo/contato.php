@@ -48,10 +48,6 @@
                             <!-- https://api.whatsapp.com/send?phone=5585987338264&text=teste%20amigao -->
                         </div>
                     </form>
-                    <script>
-                        var mensagem = document.querySelector("#name");
-                        var texto = input.value;
-                    </script>
                 </div>
             </div>
             <div class="col-lg-5 mb-5">

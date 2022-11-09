@@ -46,7 +46,7 @@
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid">
-        <div class="row py-1 px-xl-5" style="background-color:#000000">
+        <div class="row bg-secondary py-1 px-xl-5">
             
             <div class="col-lg-6 text-center text-lg-right">
                 
@@ -170,7 +170,7 @@
                                         $senha = $_POST['senha'];
                                         //CRIAR SESSÃO
                                         $_SESSION['loginUser'] = $login;
-                                        $_SESSION['senhaUser'] = $senha;
+                                        $_SESSION['senhzUser'] = $senha;
                                         echo'<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">x</button><strong>Logado com sucesso!</strong>Você será redirecionado para a loja!</div>';
                                         echo"<script>
                                         setTimeout(
@@ -254,6 +254,9 @@
     </div>
     <!-- Footer End -->
 
+
+    <!-- Back to Top -->
+    <a href="#" class="btn back-to-top" style="background-color: #DF0805;border:solid 1px #DF0805;color:#f9f6f6;"><i class="fa fa-angle-double-up"></i></a>
 
 
     <!-- JavaScript Libraries -->

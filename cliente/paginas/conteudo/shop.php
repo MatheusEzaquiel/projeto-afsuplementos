@@ -26,13 +26,14 @@
                         <!-- Price Start -->
                         <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Por preço</span></h5>
                         <div class="bg-light p-4 mb-30">
+                        
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                                     <input name="pesquisar" type="checkbox" class="custom-control-input" checked id="price-all">
                                     <label class="custom-control-label" for="price-all">Todos os preços</label>
                                     <span class="badge border font-weight-normal">1000</span>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input name="filtro01" type="checkbox" class="custom-control-input" id="price-1">
+                                    <input tname="pesquisar[]" type="checkbox" class="custom-control-input" id="price-1">
                                     <label class="custom-control-label" for="price-1">$5 - $50</label>
                                     <span class="badge border font-weight-normal">150</span>
                                 </div>
@@ -50,6 +51,7 @@
                                 <div class="mb-3">
                                 <input type="submit" value="Pesquisar" name="PesqProduto" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;border-radius:3px;" placeholder="Pesquisar">
                                 </div>
+                        
                         </div>
                         <!-- Price End -->
                     

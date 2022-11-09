@@ -19,7 +19,8 @@
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Probiótica</h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Somos pioneiros! Desde 1986 a PROBIÓTICA investe em um processo contínuo de pesquisa e inovação em colaboração com nutricionistas, médicos, treinadores e atletas.</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Comprar agora</a>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">
+                                      ora</a>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +31,7 @@
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Integralmédica</h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
                                     Integralmédica tem os melhores suplementos para aumentar a sua performance e resultado.</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="index.php?pagina=shop">Comprar agora</a>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Comprar agora</a>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +41,7 @@
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Max Titanium</h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Na Max Titanium temos suplementos para aumentar sua performance!</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="index.php?pagina=shop">Comprar agora</a>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Comprar agora</a>
                                 </div>
                             </div>
                         </div>

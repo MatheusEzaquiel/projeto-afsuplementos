@@ -46,6 +46,13 @@
             case $pagina == 'finalizar':
                 include_once("conteudo/finalizar.php");
                 break;
+
+            //Informações do pedido em texto (só para teste, deletar esse case)
+            case $pagina == 'pedidotxt':
+                include_once("conteudo/pedido-txt.php");
+                break;
+
+                
             default:
                 include_once("conteudo/index.php");
                 break;

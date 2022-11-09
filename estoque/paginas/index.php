@@ -24,11 +24,11 @@
                     include_once("conteudo/edicao-produto.php");
                 break;
 
-                 /*
-                    case $pagina == 'pedidos':
-                        include_once("conteudo/info-pedidos.php");
-                    break;
+                case $pagina == 'pedidos':
+                    include_once("conteudo/info-pedidos.php");
+                break;
             
+                /*
                 case $pagina == 'clientes';
                         include_once("conteudo/info-clientes.php");
                     break;
