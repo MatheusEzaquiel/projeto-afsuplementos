@@ -36,23 +36,7 @@
     <div class="container-fluid bg-dark mb-30">
         <div class="row px-xl-5" style="background-color:#000000;">
             <div class="col-lg-3 d-none d-lg-block">
-                <a class="btn d-flex align-items-center justify-content-between w-100" style="background-color:#DF0805;height: 100%;padding-left:2em;" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
-                    <h6 class="m-0" style="color: #F9F6F6;"><i class="fa fa-bars mr-2"></i>Menu</h6>
-                    <i class="fa fa-angle-down" style="color: #F9F6F6;" ></i>
-                </a>
-                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
-                    <div class="navbar-nav w-100">
-                        <div class="nav-item dropdown dropright">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Item 1 <i class="fa fa-angle-right float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                <a href="" class="dropdown-item">sub-item a</a>
-                                <a href="" class="dropdown-item">sub-item b</a>
-                                <a href="" class="dropdown-item">sub-item c</a>
-                            </div>
-                        </div>
-                        <a href="" class="nav-item nav-link">Item 2</a>
-                    </div>
-                </nav>
+               <h6>logo</h6>
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg navbar-dark py-3 py-lg-0 px-0" style="background-color:#000000;">
@@ -82,8 +66,8 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle active" style="color:#F9F6F6;" data-toggle="dropdown">Admin <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
-                                    <a href="cart.html" class="dropdown-item active">Sua conta</a>
-                                    <a href="checkout.html" class="dropdown-item">Sair</a>
+                                    <a href="cart.html" class="dropdown-item" style="color:#F9F6F6;">Sua conta</a>
+                                    <a href="checkout.html" class="dropdown-item" style="color:#F9F6F6;">Sair</a>
                                 </div>
                             </div>
                         </div>

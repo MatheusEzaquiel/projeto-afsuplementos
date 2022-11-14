@@ -1,3 +1,4 @@
+
 <?php include_once("../../config/conexao.php");?>
     <!-- Breadcrumb Start -->
     <div class="container-fluid">
@@ -104,9 +105,11 @@
 
                                     @array(
                                         'id_produto' => $idProduto,
+                                        'produto' => $produtos[0]["nome_produto"],
                                         'quantidade' => $quantidade,//$produtos[0]["quantidade"],
                                         'preco' => $produtos[0]["preco_venda_produto"],
                                         'total' => $total
+                                        
                                     )
                                 );
      
@@ -137,7 +140,7 @@
                                             <!--
                                                 <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value=" <?php echo $quantidade;//$produtos[0]["quantidade"]?>">
 
-                                            <!-- Botão mais + -->
+                                            Botão mais + -->
                                             <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produtos[0]["id_produto"]?>">
 
                                                 <div class="input-group-btn">
@@ -192,6 +195,8 @@
                             //Soma todos os subtotais
                             $totalCarrinho = array_sum($arrayTotalCarrinho);
 
+
+
                             if($totalCarrinho == 0){
                                 return $totalCarrinho = "Sem produtos";
                             }
@@ -222,7 +227,7 @@
                             <h5>R$ <?php echo $totalCarrinho;?></h5>
                         </div>
 
-                        <a href="conteudo/finalizar.php" style="text-decoration: none;" onclick="return confirm('Deseja enviar o pedido?')">
+                        <a href="index.php?pagina=pedido" style="text-decoration: none;" onclick="return confirm('Deseja enviar o pedido?')">
                             <button class="btn btn-block font-weight-bold my-3 py-3" style="background-color:#DF0805;border:#DF0805;color:#F9F6F6;">Encaminhar Compra</button>
                         </a>
                     </div>
@@ -236,7 +241,5 @@
     </div>
     <!-- Fim Carrinho -->
 
-    
-<a href="&" name="linkWhatsappT">Clique aqui no olink de teste</a>
 
   

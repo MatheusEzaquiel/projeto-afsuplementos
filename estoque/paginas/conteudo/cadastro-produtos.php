@@ -58,11 +58,11 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Preço de compra</label>
-                                <input class="form-control" type="number" placeholder="R$ 0,00" name="preco-compra-produto">
+                                <input class="form-control" type="text" placeholder="R$ 0,00" name="preco-compra-produto">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Preço de venda</label>
-                                <input class="form-control" type="number" placeholder="R$ 0,00" name="preco-venda-produto">
+                                <input class="form-control" type="text" placeholder="R$ 0,00" name="preco-venda-produto">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Quantidade</label>
@@ -96,19 +96,27 @@
                             
                         </div>
                     </form>
+
+                    
+
                     <?php
+
+
                         include_once("../../config/conexao.php");
                         if(isset($_POST["btn-cadastro"])){
+                            
                             $nomeProdt = $_POST["nome-produto"];
                             $marcaProdt = $_POST["marca-produto"];
                             $tipoProdt = $_POST["tipo-produto"];
                             $tamanhoProdt = $_POST["tamanho-produto"];
                             $descricaoProdt = $_POST["descricao-produto"];
                             $validadeProdt = $_POST["validade-produto"];
-                            $precoCompraProdt = $_POST["preco-compra-produto"];
-                            $precoVendaProdt = $_POST["preco-venda-produto"];
+                            $precoCompraProdt = str_replace(',' , '.', $_POST["preco-compra-produto"]);
+                            $precoVendaProdt = str_replace(',' , '.', $_POST["preco-venda-produto"]);
                             $qtdProdt = $_POST["qtd-produto"];
                             $disponivel = 1;
+
+                            
 
                             //Cadastro da imagem do Produto
                             $extensaoImg = pathinfo($_FILES['foto-produto']['name'], PATHINFO_EXTENSION); //Remove a extensão da img

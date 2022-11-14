@@ -14,35 +14,25 @@
                     <div class="col-md-4 mb-5">
                         <h5 class="text-uppercase mb-4" style="color: #F9F6F6;">Compra rápida</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Catálogo</a>
-                            <a class="text-secondary mb-2" href="#" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Contato</a>
+                            <a class="text-secondary mb-2" href="index.php?pagina=index" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-secondary mb-2" href="index.php?pagina=shop" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Catálogo</a>
+                            <a class="text-secondary mb-2" href="index.php?pagina=contato" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Contato</a>
 
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
                         <h5 class="text-secondary text-uppercase mb-4">Minha conta</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Login</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Cadastro</a>
+                            <a class="text-secondary mb-2" href="../../login-cliente.php"><i class="fa fa-angle-right mr-2"></i>Login</a>
+                            <a class="text-secondary mb-2" href="../../cadastro-cliente.php"><i class="fa fa-angle-right mr-2"></i>Cadastro</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">Nosso WhatsApp</h5>
-                        <p>Nosso número para contato:</p>
-                        <form action="">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Your Email Address">
-                                <div class="input-group-append">
-                                    <button class="btn " style="background-color: #DF0805; border: #DF0805 solid 1px;color:#F9F6F6;">Sign Up</button>
-                                </div>
-                            </div>
-                        </form>
                         <h6 class="text-uppercase mt-4 mb-3" style="color: #F9F6F6;">Nossos contatos</h6>
                         <div class="d-flex">
                             <a class="btn btn-square" style="background-color: #DF0805;border: solid 1px #DF0805;color: #F9F6F6;" href="https://www.instagram.com/af_suplementos_/"><i class="fab fa-instagram"></i></a>
                             <a class="btn btn-square ml-3" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="https://api.whatsapp.com/send?phone=5585987338264&text=teste%20amigao
-"><i class="fab fa-whatsapp"></i></a>
+                            "><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>

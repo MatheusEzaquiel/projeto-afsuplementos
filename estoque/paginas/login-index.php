@@ -1,5 +1,5 @@
 <?php
-    include_once("conteudo/sair.php");
+    //include_once("conteudo/sair.php");
     include_once("../includes/header.php");
 
     if(isset($_GET["pagina"])){
@@ -51,8 +51,7 @@
             case $pagina == 'pedido':
                 include_once("conteudo/pedido.php");
                 break;
-
-                
+  
             default:
                 include_once("conteudo/index.php");
                 break;

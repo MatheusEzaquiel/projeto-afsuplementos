@@ -1,17 +1,26 @@
 <?php
     include_once("../includes/header.php");
 
+
+    include_once("conteudo/alerta-vencimento.php");
     try{
 
         if(isset($_GET["pagina"])){
             $pagina = $_GET["pagina"];
             switch ($pagina) {
+
+                case $pagina == 'home':
+                    include_once("conteudo/home.php");
+                break;
+
                 case $pagina == 'produtos':
                         include_once("conteudo/lista-produtos.php");
                     break;
+
                 case $pagina == 'produtos-desativados':
                         include_once("conteudo/produtos-inativados.php");
                     break;
+
                 case $pagina == 'cadastro-produtos':
                         include_once("conteudo/cadastro-produtos.php");
                     break;

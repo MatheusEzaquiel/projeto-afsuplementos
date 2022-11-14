@@ -6,8 +6,8 @@
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Estoque</a>
-                    <a class="breadcrumb-item text-dark" href="#">lista de Produtos</a>
+                    <div class="breadcrumb-item text-dark" style="cursor:pointer;">Estoque</div>
+                    <a class="breadcrumb-item text-dark" href="">Pedidos feitos</a>
                 </nav>
             </div>
         </div>

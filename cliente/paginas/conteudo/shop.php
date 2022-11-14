@@ -3,8 +3,8 @@
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Catálogo</a>
+                    <a class="breadcrumb-item text-dark" href="index.php?pagina=index">Home</a>
+                    <a class="breadcrumb-item text-dark" href="">Catálogo</a>
                     <span class="breadcrumb-item active">Lista de produtos</span>
                 </nav>
             </div>
@@ -15,100 +15,7 @@
     <form action="" method="post">
         <!-- Shop Start -->
         <div class="container-fluid">
-            <div class="row px-xl-5">
-
-                <!-- Shop Sidebar Start -->
-                
-                <form action="" method="get">
-                    <div class="col-lg-3 col-md-4">
-
-                    <!-- Filtro por preço -->
-                        <!-- Price Start -->
-                        <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Por preço</span></h5>
-                        <div class="bg-light p-4 mb-30">
-                        
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input name="pesquisar" type="checkbox" class="custom-control-input" checked id="price-all">
-                                    <label class="custom-control-label" for="price-all">Todos os preços</label>
-                                    <span class="badge border font-weight-normal">1000</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input tname="pesquisar[]" type="checkbox" class="custom-control-input" id="price-1">
-                                    <label class="custom-control-label" for="price-1">$5 - $50</label>
-                                    <span class="badge border font-weight-normal">150</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input name="pesquisar[]" type="checkbox" class="custom-control-input" id="price-2">
-                                    <label class="custom-control-label" for="price-2">$50 - $100</label>
-                                    <span class="badge border font-weight-normal">295</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input name="pesquisar[]" type="checkbox" class="custom-control-input" id="price-3" style="background-color:#DF0805;">
-                                    <label class="custom-control-label" for="price-3">$100 - $200</label>
-                                    <span class="badge border font-weight-normal">246</span>
-                                </div>
-                                <br>
-                                <div class="mb-3">
-                                <input type="submit" value="Pesquisar" name="PesqProduto" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;border-radius:3px;" placeholder="Pesquisar">
-                                </div>
-                        
-                        </div>
-                        <!-- Price End -->
-                    
-                    <!-- Filtro por tipo -->
-                    
-                        <!-- Color Start -->
-                        <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Por Tipo</span></h5>
-                        <div class="bg-light p-4 mb-30">
-                        
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" checked id="color-all">
-                                    <label class="custom-control-label" for="price-all">Todos</label>
-                                    <span class="badge border font-weight-normal">1000</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="color-1">
-                                    <label class="custom-control-label" for="color-1">Em pó</label>
-                                    <span class="badge border font-weight-normal">150</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="color-2">
-                                    <label class="custom-control-label" for="color-2">Bebidas</label>
-                                    <span class="badge border font-weight-normal">295</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="color-3">
-                                    <label class="custom-control-label" for="color-3">Grão</label>
-                                    <span class="badge border font-weight-normal">246</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="color-4">
-                                    <label class="custom-control-label" for="color-4">Pílulas</label>
-                                    <span class="badge border font-weight-normal">145</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="color-4">
-                                    <label class="custom-control-label" for="color-4">Barrinhas</label>
-                                    <span class="badge border font-weight-normal">145</span>
-                                </div>
-                                <br>
-                                <div class="mb-3">
-                                <input type="submit" value="Pesquisar" name="PesqProduto" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;border-radius:3px;" placeholder="Pesquisar">
-                                </div>
-
-                        </div>
-                        <!-- Color End -->
-
-                        <!-- Size Start -->
-                        
-                        
-                        <!-- Size End -->
-                    </div>
-                </form>
-                    <!-- Shop Sidebar End -->
-
-
-
+            <div class="row px-xl-5 d-flex align-items-center justify-content-center">
                 <!-- Produtos -->
                 
                 <div class="col-lg-9 col-md-8">
@@ -198,9 +105,8 @@
                                         
                                         <div class="product-action">
                                             <!-- Botão enviar p/ carrinho -->
-                                            <button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $idProduto;?>"><i class="fa fa-shopping-cart"></i></button>
-                                            <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
-                                            <a class="btn btn-outline-dark btn-square" href="index.php?pagina=detalhes&idDetail=<?php echo $idProduto;?>"><i class="fa fa-search"></i></a>
+                                            <a class="btn btn-outline-dark btn-square" href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produto['id_produto']?>" name="btn-carrinho<?php echo $idProduto;?>"><i class="fa fa-shopping-cart"></i></a>
+                                            <a class="btn btn-outline-dark btn-square" href="index.php?pagina=detalhes&idDetail=<?php echo $produto['id_produto']?>"><i class="fa fa-search"></i></a>
                                         </div>
 
                                     </div>
@@ -213,11 +119,6 @@
                                             <h5>R$ <?php echo number_format($produto['preco_venda_produto'],2, ",", ".");?></h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
                                         </div>
                                     </div>
-
-                                    <div>
-                                        <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produto['id_produto']?>">Adicionar</a>
-			                        </div>
-                                    
                                 </div>
                         
                         </div>
@@ -233,7 +134,15 @@
                                         
                                     }//Fim while
                                 }else{
-                                    echo "ERRO!!";
+                                    echo '<div class="alert alert-danger d-flex justify-content-center" style="box-sizing:border-box;margin-left:33%;">
+                                    <div class="pr-2"><button type="button" class="close" data-dismiss="alert">x</button></div>
+                                     Não há produtos nesta categoria :(</div>';
+                                     echo"<script>
+                                        setTimeout(
+                                            function() {
+                                            window.location.replace('index.php?pagina=index');
+                                            }, 5000)
+                                        </script>";
                                 }
                             } catch (PDOException $erro) {
                                 echo "ERRO DE PDO SELECT -> ".$erro->getMessage();

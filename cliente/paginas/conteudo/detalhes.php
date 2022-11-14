@@ -5,8 +5,8 @@
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Catálogo</a>
+                    <a class="breadcrumb-item text-dark" href="index.php?pagina=index">Home</a>
+                    <a class="breadcrumb-item text-dark" href="">Catálogo</a>
                     <span class="breadcrumb-item active">Detalhes do produto</span>
                 </nav>
             </div>
@@ -152,7 +152,7 @@
                                 </button>
                             </div>
                         </div>
-                        <button class="btn px-3" style="background-color:#DF0805;color:#F9F6F6;border-radius:3px;border:solid 1px #DF0805;"><i class="fa fa-shopping-cart mr-1"></i> Adicionar ao carrinho</button>
+                        <a class="btn px-3" href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produto['id_produto']?>" style="background-color:#DF0805;color:#F9F6F6;border-radius:3px;border:solid 1px #DF0805;"><i class="fa fa-shopping-cart mr-1"></i> Adicionar ao carrinho</a>
                     </div>
                     <div class="d-flex pt-2">
                         <strong class="text-dark mr-2">Compartilhar no:</strong>

@@ -166,7 +166,7 @@ a {
 }
 
 a:hover {
-  color: #e6b400;
+  color: #DF0805;
   text-decoration: underline;
 }
 
@@ -1915,7 +1915,7 @@ pre code {
 .form-control:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #ffefb3;
+  border-color: #DF0805;
   outline: 0;
   box-shadow: none;
 }
@@ -3214,13 +3214,13 @@ input[type="button"].btn-block {
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
-  color: #16181b;
+  color: #000000;
   text-decoration: none;
-  background-color: #f8f9fa;
+  background-color: #b10300;
 }
 
 .dropdown-item.active, .dropdown-item:active {
-  color: #fff;
+  color: #000000;
   text-decoration: none;
   background-color: #DF0805;
 }

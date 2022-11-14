@@ -16,7 +16,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Cliente | Login</title>
+    <title>Admin | Login</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -32,11 +32,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
     <!-- Login do google -->
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
@@ -46,10 +46,9 @@
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid">
-
         <div class="row align-items-center py-3 px-xl-5 d-none d-lg-flex" style="background-color: #000000;">
             <div class="col-lg-6">
-                <a href="cliente/paginas/index.php?pagina=index" class="text-decoration-none">
+                <a href="" class="text-decoration-none">
                     <span class="h1 text-uppercase px-2" style="background-color: #000000;color:#DF0805;">AF</span>
                     <span class="h1 text-uppercase px-2 ml-n1" style="background-color: #DF0805;color:#000000;">Suplementos</span>
                 </a>
@@ -66,7 +65,7 @@
            
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-dark py-3 py-lg-0 px-0" style="background-color:#000000;">
-                    <a href="#" class="text-decoration-none d-block d-lg-none">
+                    <a href="" class="text-decoration-none d-block d-lg-none">
                         <span class="h1 text-uppercase px-2" style="background-color:#000000;color:3DF0805;">AF</span>
                         <span class="h1 text-uppercase px-2 ml-n1" style="background-color:#DF0805;color:#000000;">Suplementos</span>
                     </a>
@@ -105,10 +104,10 @@
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <form action="" method="post" enctype="multipart/form-data">
-                                <img src="img/avatar/avatar-man-3.png" width="100px" class="pb-3" style="box-sizing:border-box;margin-left:45%;height:6em;width:5em;">
+                                <img src="../img/avatar/avatar-man-3.png" width="100px" class="pb-3" style="box-sizing:border-box;margin-left:45%;height:6em;width:5em;">
                                 <div class="col-md-7 form-group input-group">
                                     <label style="padding-right:1.5em;">E-mail</label>  
-                                    <input name="email" class="form-control" type="email" placeholder="exemplo@email.com">
+                                    <input name="usuario" class="form-control" type="text" placeholder="exemplo@email.com">
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <span class="fas fa-envelope"></span>
@@ -135,7 +134,7 @@
                                 </div>
                             </form>
                             <?php
-                             include_once('config/conexao.php');
+                             include_once('../config/conexao.php');
                              if(isset($_GET['acao'])){
                                 $acao = $_GET['acao'];
                                 if($acao=='negado'){
@@ -149,27 +148,27 @@
                                 }
                              }
                              if(isset($_POST['btnLogin'])){
-                                $login = filter_input(INPUT_POST, 'email', FILTER_DEFAULT);
+                                $login = filter_input(INPUT_POST, 'usuario', FILTER_DEFAULT);
                                 $senha = base64_encode(filter_input(INPUT_POST, 'senha', FILTER_DEFAULT));
-                                $select = "SELECT * FROM tb_cliente WHERE email_cliente=:emailLogin AND senha_cliente=:senhaLogin";
+                                $select = "SELECT * FROM tb_admin WHERE nome_admin=:usuarioLogin AND senha_admin=:senhaLogin";
                                 try{
                                     $resultLogin = $conect->prepare($select);
-                                    $resultLogin->bindParam(':emailLogin',$login, PDO::PARAM_STR);
+                                    $resultLogin->bindParam(':usuarioLogin',$login, PDO::PARAM_STR);
                                     $resultLogin->bindParam(':senhaLogin',$senha, PDO::PARAM_STR);
                                     $resultLogin->execute();
 
                                     $verificar = $resultLogin->rowCount();
                                     if($verificar>0){
-                                        $login = $_POST['email'];
+                                        $login = $_POST['usuario'];
                                         $senha = $_POST['senha'];
                                         //CRIAR SESSÃO
-                                        $_SESSION['loginUser'] = $login;
-                                        $_SESSION['senhzUser'] = $senha;
+                                        $_SESSION['usuarioLogin'] = $login;
+                                        $_SESSION['senhaLogin'] = $senha;
                                         echo'<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">x</button><strong>Logado com sucesso!</strong>Você será redirecionado para a loja!</div>';
                                         echo"<script>
                                         setTimeout(
                                             function() {
-                                            window.location.replace('cliente/paginas/index.php?pagina=index');
+                                            window.location.replace('estoque/paginas/index.php?pagina=produtos');
                                             }, 2000)
                                         </script>";
                                     }else{

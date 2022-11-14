@@ -13,23 +13,65 @@
 
         if($contSelProduto > 0){
             while($showProduto = $resultSelProduto->FETCH(PDO::FETCH_OBJ)){
-                $showProduto->id_produto;
-                $tipoP = $showProduto->tipo_produto;
-                $marcaP = $showProduto->marca_produto;
-                $nomeP = $showProduto->nome_produto;
-                $tamanhoP = $showProduto->tamanho_produto;
-                $descricaoP = $showProduto->descricao_produto;
-                $precoCompraP = $showProduto->preco_compra_produto;
-                $precoVendaP = $showProduto->preco_venda_produto;
-                $qtdP = $showProduto->quantidade_produto;
-                $validadeP = $showProduto->validade_produto;
-                $fotoP = $showProduto->foto_produto;
-                $promocaoP = $showProduto->promocao_produto;
+
+                //$idProduto         = $showProduto->id_produto;
+                $tipoProduto       = $showProduto->tipo_produto;
+                $marcaProduto      = $showProduto->marca_produto;
+                $nomeProduto       = $showProduto->nome_produto;
+                $tamanhoProduto    = $showProduto->tamanho_produto;
+                $descricaoProduto  = $showProduto->descricao_produto;
+                $precoCompraP      = $showProduto->preco_compra_produto;
+                $precoVendaP       = $showProduto->preco_venda_produto;
+                $qtdProduto        = $showProduto->quantidade_produto;
+                $fotoProduto       = $showProduto->foto_produto;
+                $validadeProduto   = $showProduto->validade_produto;
+                $promocaoProduto   = $showProduto->promocao_produto;
+
+            }
+
+
+            /* Tipos de produtos
+            
+                1 - em pó
+                2 - bebida
+                3 - pílula
+                4 - barra 
+            
+            */
+           
+            switch ($tipoProduto){
+
+                case $tipoProduto == 0:
+                    $tipoProdutoTxt = "nenhum tipo";
+                    break;
+
+                case $tipoProduto == 1 :
+                    $tipoProdutoTxt = "em pó";
+                    break;
+
+                case $tipoProduto == 2 :
+                    $tipoProdutoTxt = "bebida";
+                    break;
+
+                case $tipoProduto == 3 :
+                    $tipoProdutoTxt = "pílula";
+                    break;
+
+                case $tipoProduto == 4 :
+                    $tipoProdutoTxt = "barra";
+                    break;
                 
-            }//Fim while
+                default :
+                    $tipoProdutoTxt = "nenhum tipo";
+                    
+
+
+            }
+
         }else{
             echo "ERRO!!";
         }
+
     } catch (PDOException $erro) {
         echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
     }   
@@ -49,16 +91,16 @@
                     
                             <div class="col-md-6 form-group">
                                 <label>Nome</label>
-                                <input class="form-control" type="text" value="<?php echo $nomeP;?>" name="nome-produto">
+                                <input class="form-control" type="text" value="<?php echo $nomeProduto;?>" name="nome-produto">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Marca</label>
-                                <input class="form-control" type="text" value="<?php echo $marcaP;?>" name="marca-produto">
+                                <input class="form-control" type="text" value="<?php echo $marcaProduto;?>" name="marca-produto">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Tipo</label>
                                 <select class="custom-select" name="tipo-produto">
-                                    <option value=0 selected>alterar tipo</option>
+                                    <option value=<?php echo $tipoProduto;?> selected> <?php echo $tipoProdutoTxt;?></option>
                                     <option value="1">em pó</option>
                                     <option value="2">bebida</option>
                                     <option value="3">pílula</option>
@@ -67,27 +109,27 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Tamanho</label>
-                                <input class="form-control" type="text" value="<?php echo $tamanhoP;?>" name="tamanho-produto">
+                                <input class="form-control" type="text" value="<?php echo $tamanhoProduto;?>" name="tamanho-produto">
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label>Descricão</label>
-                                <textarea class="form-control" type="text" name="descricao-produto"><?php echo $descricaoP;?></textarea>
+                                <textarea class="form-control" type="text" name="descricao-produto"><?php echo $descricaoProduto;?></textarea>
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label>Validade</label>
-                                <input class="form-control" type="date" value="<?php echo $validadeP;?>" name="validade-produto">
+                                <input class="form-control" type="date" value="<?php echo $validadeProduto;?>" name="validade-produto">
 
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label>Preço de compra</label>
-                                <input class="form-control" type="text" value="<?php echo $precoCompraP;?>" name="preco-compra-produto">
+                                <input class="form-control" type="text" value="<?php echo str_replace('.' , ',', $precoCompraP);?>" name="preco-compra-produto">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Preço de venda</label>
-                                <input class="form-control" type="text" value="<?php echo $precoVendaP;?>" name="preco-venda-produto">
+                                <input class="form-control" type="text" value="<?php echo str_replace('.' , ',', $precoVendaP);?>" name="preco-venda-produto">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Quantidade</label>
@@ -97,7 +139,7 @@
                                             <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
-                                        <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php echo $qtdP;?>" name="qtd-produto">
+                                        <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php echo $qtdProduto;?>" name="qtd-produto">
                                         <div class="input-group-btn">
                                             <button type="button" class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
@@ -135,10 +177,9 @@
         $tamanhoProdt = $_POST["tamanho-produto"];
         $descricaoProdt = $_POST["descricao-produto"];
         $validadeProdt = $_POST["validade-produto"];
-        $precoCompraProdt = $_POST["preco-compra-produto"];
-        $precoVendaProdt = $_POST["preco-venda-produto"];
+        $precoCompraProdt = str_replace(',' , '.', $_POST["preco-compra-produto"]);
+        $precoVendaProdt = str_replace(',' , '.', $_POST["preco-venda-produto"]);
         $qtdProdt = $_POST["qtd-produto"];
-        $disponivel = 1;
 
                                     
         //Update de img
@@ -161,10 +202,10 @@
                 echo "Formato de imagem não inválido! tente outra imagem";
             }
         }else{
-            $novoNomeImg = $fotoP;
+            $novoNomeImg = $fotoProduto;
         }
 
-        $updateProdt = "UPDATE tb_produto SET tipo_produto=:tipoProdt,marca_produto=:marcaProdt,nome_produto=:nomeProdt,tamanho_produto=:tamanhoProdt,descricao_produto=:descricaoProdt,preco_compra_produto=:precoCompProdt,preco_venda_produto=:precoVenProdt,quantidade_produto=:qtdProdt, validade_produto=:validade, foto_produto=:fotoProdt,disponibilidade_produto=:disponivel WHERE id_produto = :idProdt";
+        $updateProdt = "UPDATE tb_produto SET tipo_produto=:tipoProdt,marca_produto=:marcaProdt,nome_produto=:nomeProdt,tamanho_produto=:tamanhoProdt,descricao_produto=:descricaoProdt,preco_compra_produto=:precoCompProdt,preco_venda_produto=:precoVenProdt,quantidade_produto=:qtdProdt, validade_produto=:validade, foto_produto=:fotoProdt WHERE id_produto = :idProdt";
         try{
             $resultUpdateProdt = $conect->prepare($updateProdt);
             $resultUpdateProdt->bindParam(":idProdt",$idProduto,PDO::PARAM_STR);
@@ -178,7 +219,6 @@
             $resultUpdateProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
             $resultUpdateProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
             $resultUpdateProdt->bindParam(":fotoProdt",$novoNomeImg,PDO::PARAM_STR);
-            $resultUpdateProdt->bindParam(":disponivel",$disponivel,PDO::PARAM_STR);
             $resultUpdateProdt->execute();
 
             $contresUpdateP = $resultUpdateProdt->rowCount();
@@ -213,20 +253,20 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                <img src="../../imgs/produtos/<?php echo $fotoP;?>" alt="imagem do produto" width="80%">
+                                <img src="../../imgs/produtos/<?php echo $fotoProduto;?>" alt="imagem do produto" width="80%">
                             </div>
                             <div class="col-md-12 form-group">
-                                <labe><h1 style="text-align:center;"><?php echo $nomeP;?></h1></label>
+                                <labe><h1 style="text-align:center;"><?php echo $nomeProduto;?></h1></label>
                             </div>
                             <div class="col-md-12 form-group">
-                                <h2 style="text-align:center;"><?php echo $marcaP;?></h2>
+                                <h2 style="text-align:center;"><?php echo $marcaProduto;?></h2>
                             </div>
                             
                             <div class= "col-md-6 form-group">
-                                <h3>R$<?php echo $precoCompraP;?></h3>
+                                <h3>R$<?php echo str_replace('.' , ',', $precoCompraP);?></h3>
                             </div>
                             <div class="col-md-6 form-group">
-                                <h3>R$ <?php echo $precoVendaP;?></h3>
+                                <h3>R$ <?php echo str_replace('.' , ',', $precoVendaP);?></h3>
                             </div>
                     
 

@@ -125,19 +125,7 @@ session_start();
     <div class="container-fluid mb-30" style="background-color: #000000;">
         <div class="row px-xl-5"  style="height: 6em;">
             <div class="col-lg-3 d-none d-lg-block">
-                <a class="btn d-flex align-items-center justify-content-between w-100" style="background-color:#DF0805;height: 100%;padding-left:2em;" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
-                    <h6 class=" m-0" style="color: #F9F6F6;"><i class="fa fa-bars mr-2"></i>Categorias</h6>
-                    <i class="fa fa-angle-down" style="color:#F9F6F6;"></i>
-                </a>
-                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
-                    <div class="navbar-nav w-100">
-                        <a href="" class="nav-item nav-link">Em pó</a>
-                        <a href="" class="nav-item nav-link">Bebidas</a>
-                        <a href="" class="nav-item nav-link">Grão</a>
-                        <a href="" class="nav-item nav-link">Pílulas</a>
-                        <a href="" class="nav-item nav-link">Barrinhas</a>
-                    </div>
-                </nav>
+                <h6>logo</h6>
             </div>
             <div class="col-lg-9" style="height: 4em;">
                 <nav class="navbar navbar-expand-lg py-3 py-lg-0 px-0" style="background-color: #000000;margin-top: 0.7em;margin-right: 3em;">
@@ -182,16 +170,12 @@ session_start();
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
                         </div>
-                        <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                            <a class="btn d-flex align-items-center justify-content-between w-100" style="background-color:#DF0805;height: 100%;" data-toggle="collapse" href="#sair-login" style="height: 65px; padding: 0 30px;">
-                                <i class="fas fa-sign-out-alt" style="color:#F9F6F6;"></i>
-                            </a>
-                            <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="sair-login" style="z-index: 999;">
-                                <div class="navbar-nav w-25">
-                                    <a href="../../login-cliente.php" class="nav-item nav-link">Fazer login</a>
-                                    <a href="?sair" class="nav-item nav-link">Sair da conta</a>
+                        <div class="nav-item dropdown">
+                                <a href="#" class="nav-link pl-5" style="color:#F9F6F6;" data-toggle="dropdown">Login <i class="fa fa-angle-down"></i></a>
+                                <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
+                                    <a href="cart.html" class="dropdown-item" style="color:#F9F6F6;">Sua conta</a>
+                                    <a href="checkout.html" class="dropdown-item" style="color:#F9F6F6;">Sair</a>
                                 </div>
-                            </nav>
                         </div>
                     </div>
                 </nav>
