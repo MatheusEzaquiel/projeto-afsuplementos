@@ -3,8 +3,8 @@
     $idProduto = $_GET["idP"];
     
     
-    $selectProduto = "SELECT * FROM tb_produto WHERE id_produto = :idProdt";
-    
+    $selectProduto = "SELECT * FROM tb_produto INNER JOIN tb_promocao ON tb_produto.promocao_produto = tb_promocao.id_promocao  WHERE id_produto = :idProdt ";
+    //ON tb_produto.promocao_produto = tb_promocao.id_promocao
     try {
         $resultSelProduto = $conect->prepare($selectProduto);
         $resultSelProduto->bindParam(":idProdt",$idProduto,PDO::PARAM_INT);
@@ -26,6 +26,8 @@
                 $fotoProduto       = $showProduto->foto_produto;
                 $validadeProduto   = $showProduto->validade_produto;
                 $promocaoProduto   = $showProduto->promocao_produto;
+                $nomePromocao      = $showProduto->nome_promocao;
+               
 
             }
 
@@ -107,6 +109,38 @@
                                     <option value="4">barra</option>
                                 </select>
                             </div>
+
+                            <!-- Promoções -->
+                            <div class="col-md-6 form-group">
+                                <label>Promoção</label>
+                                <select class="custom-select" name="promocao-produto">
+
+                                    
+                                    <option value=<?php echo $promocaoProduto;?> selected> <?php echo $nomePromocao;?></option>
+                                    <option value="1">10% de desconto</option>
+                                    <option value="2">15% de desconto</option>
+                                    <option value="3">20% de desconto</option>
+                                    <option value="4">25% de desconto</option>
+                                    <option value="5">30% de desconto</option>
+                                    <option value="6">40% de desconto</option>
+                                    <option value="7">50% de desconto</option>
+                                </select>
+                            </div>
+
+                            <?php
+
+                                    while($promocoes = $resultSelProduto->FETCH(PDO::FETCH_OBJ)){
+
+                                        //$idProduto         = $showProduto->id_produto;
+                                        $tipoProduto       = $promocoes->tipo_produto;
+                                        $promocaoProduto   = $promocoes->promocao_produto;
+
+                                        echo $tipoProduto;
+                                    }
+
+
+                                    ?>
+
                             <div class="col-md-6 form-group">
                                 <label>Tamanho</label>
                                 <input class="form-control" type="text" value="<?php echo $tamanhoProduto;?>" name="tamanho-produto">
@@ -135,14 +169,14 @@
                                 <label>Quantidade</label>
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
-                                            <button type="button" class="btn btn-sm btn-primary btn-minus" >
-                                            <i class="fa fa-minus"></i>
+                                            <button type="button" class="btn btn-sm btn-minus" style="background-color:#DF0805;">
+                                            <i class="fa fa-minus" style="color:#f9f6f6;"></i>
                                             </button>
                                         </div>
                                         <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php echo $qtdProduto;?>" name="qtd-produto">
                                         <div class="input-group-btn">
-                                            <button type="button" class="btn btn-sm btn-primary btn-plus">
-                                                <i class="fa fa-plus"></i>
+                                            <button type="button" class="btn btn-sm btn-plus" style="background-color:#DF0805;">
+                                                <i class="fa fa-plus" style="color:#f9f6f6;"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -159,7 +193,7 @@
                             </div>
                             
                             <div class="col-md-12 form-group">
-                                <button type="submit" name="btn-update-prodt" class="btn btn-block btn-primary font-weight-bold py-3 ">Atualizar</button>
+                                <button type="submit" name="btn-update-prodt" class="btn btn-block font-weight-bold py-3" style="background-color:#DF0805;color:#f9f6f6;">Atualizar</button>
                             </div>
                             
                         </div>
@@ -180,6 +214,7 @@
         $precoCompraProdt = str_replace(',' , '.', $_POST["preco-compra-produto"]);
         $precoVendaProdt = str_replace(',' , '.', $_POST["preco-venda-produto"]);
         $qtdProdt = $_POST["qtd-produto"];
+        $promocaoProdt = $_POST["promocao-produto"];
 
                                     
         //Update de img
@@ -205,7 +240,20 @@
             $novoNomeImg = $fotoProduto;
         }
 
-        $updateProdt = "UPDATE tb_produto SET tipo_produto=:tipoProdt,marca_produto=:marcaProdt,nome_produto=:nomeProdt,tamanho_produto=:tamanhoProdt,descricao_produto=:descricaoProdt,preco_compra_produto=:precoCompProdt,preco_venda_produto=:precoVenProdt,quantidade_produto=:qtdProdt, validade_produto=:validade, foto_produto=:fotoProdt WHERE id_produto = :idProdt";
+        $updateProdt = "UPDATE tb_produto SET 
+            tipo_produto=:tipoProdt,
+            marca_produto=:marcaProdt,
+            nome_produto=:nomeProdt,
+            tamanho_produto=:tamanhoProdt,
+            descricao_produto=:descricaoProdt,
+            preco_compra_produto=:precoCompProdt,
+            preco_venda_produto=:precoVenProdt,
+            quantidade_produto=:qtdProdt,
+            validade_produto=:validade,
+            foto_produto=:fotoProdt,
+            promocao_produto=:promocaoProdt
+            WHERE id_produto = :idProdt";
+
         try{
             $resultUpdateProdt = $conect->prepare($updateProdt);
             $resultUpdateProdt->bindParam(":idProdt",$idProduto,PDO::PARAM_STR);
@@ -219,6 +267,7 @@
             $resultUpdateProdt->bindParam(":precoVenProdt",$precoVendaProdt,PDO::PARAM_STR);
             $resultUpdateProdt->bindParam(":qtdProdt",$qtdProdt,PDO::PARAM_STR);
             $resultUpdateProdt->bindParam(":fotoProdt",$novoNomeImg,PDO::PARAM_STR);
+            $resultUpdateProdt->bindParam(":promocaoProdt",$promocaoProdt,PDO::PARAM_STR);
             $resultUpdateProdt->execute();
 
             $contresUpdateP = $resultUpdateProdt->rowCount();
@@ -252,20 +301,23 @@
                     <div class="bg-light p-30 mb-5">
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-md-12 form-group">
+                            <div class="col-md-12 form-group d-flex align-items-center justify-content-center">
                                 <img src="../../imgs/produtos/<?php echo $fotoProduto;?>" alt="imagem do produto" width="80%">
                             </div>
-                            <div class="col-md-12 form-group">
-                                <labe><h1 style="text-align:center;"><?php echo $nomeProduto;?></h1></label>
+                            <div class="col-md-12 form-group d-flex align-items-center justify-content-center">
+                                <label><h2 style="text-align:center;"><?php echo $nomeProduto;?></h2></label>
                             </div>
                             <div class="col-md-12 form-group">
-                                <h2 style="text-align:center;"><?php echo $marcaProduto;?></h2>
+                                <small style="margin-left:9em;">Marca do Produto</small>
+                                <h4 style="text-align:center;"><?php echo $marcaProduto;?></h4>
                             </div>
                             
-                            <div class= "col-md-6 form-group">
-                                <h3>R$<?php echo str_replace('.' , ',', $precoCompraP);?></h3>
+                            <div class= "col-md-6 form-group pl-5">
+                                <small>Preço de Compra</small>
+                                <h3>R$ <?php echo str_replace('.' , ',', $precoCompraP);?></h3>
                             </div>
-                            <div class="col-md-6 form-group">
+                            <div class="col-md-6 form-group pl-4">
+                                <small>Preço de Venda</small>
                                 <h3>R$ <?php echo str_replace('.' , ',', $precoVendaP);?></h3>
                             </div>
                     

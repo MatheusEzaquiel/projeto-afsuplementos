@@ -20,7 +20,7 @@
             <div class="col-lg-8 table-responsive mb-5">
                 <form action="" method="post">
                     <table class="table table-light table-borderless table-hover text-center mb-0">
-                        <thead class="thead-dark">
+                        <thead style="background-color:#000000;color:#f9f6f6;">
                             <tr>
                                 <th>Produto</th>
                                 <th>Preço</th>
@@ -70,7 +70,7 @@
 
                         /*Exibe o carrinho*/
                         if(count($_SESSION['itens']) == 0){
-                            echo 'Carrinho vazio <br><a href="index.php?pagina=shop">Adicionar itens</a>';
+                            echo '<div class="alert alert-light"><strong>Carrinho vazio: &nbsp;</strong><a href="index.php?pagina=shop">Volte para o catálogo e adicione produtos!</a></div>';
                         }else{
 
                             //Sessão que vai armazenar todos os dados p/ cadastrar no BD
@@ -129,7 +129,7 @@
                                             <!-- Botão menos - -->
                                             <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produtos[0]["id_produto"]?>&idMenos=<?php echo $produtos[0]["id_produto"]?>">
                                                 <div class="input-group-btn">
-                                                    <button type="button" class="btn btn-sm btn-primary btn-minus" >
+                                                    <button type="button" class="btn btn-sm btn-minus" style="background-color:#DF0805;color:#f9f6f6;">
                                                     <i class="fa fa-minus"></i>
                                                     </button>
                                                 </div>
@@ -144,7 +144,7 @@
                                             <a href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produtos[0]["id_produto"]?>">
 
                                                 <div class="input-group-btn">
-                                                    <button type="button" class="btn btn-sm btn-primary btn-plus">
+                                                    <button type="button" class="btn btn-sm btn-plus" style="background-color:#DF0805;color:#f9f6f6;">
                                                         <i class="fa fa-plus"></i>
                                                     </button>
                                                 </div>

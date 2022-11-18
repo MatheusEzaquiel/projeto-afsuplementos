@@ -75,7 +75,7 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.php" class="nav-item nav-link">Login</a>
+                            <a href="login-cliente.php" class="nav-item nav-link">Login</a>
                             <a href="cadastro-cliente.php" class="nav-item nav-link">Cadastro</a>
                         </div>
                         
@@ -85,11 +85,6 @@
         </div>
     </div>
     <!-- Navbar End -->
-
-
-    <!-- Breadcrumb Start -->
-    
-    <!-- Breadcrumb End -->
 
 
     <!-- Checkout Start -->
@@ -102,11 +97,13 @@
             <div class="col-lg-6">
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Seção de Login</span></h5>
                 <div class="bg-light p-30 mb-5">
-                    <div class="row">
+                    <div class="row d-flex justify-content-center align-items-center">
                         <div class="col-md-12 form-group">
                             <form action="" method="post" enctype="multipart/form-data">
-                                <img src="img/avatar/avatar-man-3.png" width="100px" class="pb-3" style="box-sizing:border-box;margin-left:45%;height:6em;width:5em;">
-                                <div class="col-md-7 form-group input-group">
+                                <div class="d-flex justify-content-center align-items-center">
+                                <img src="img/avatar/avatar-man-3.png" width="100px" class="pb-3" style="box-sizing:border-box;height:6em;width:5em;" class="d-flex align-items-center">
+                                </div>
+                                <div class="col-md-9 form-group input-group">
                                     <label style="padding-right:1.5em;">E-mail</label>  
                                     <input name="email" class="form-control" type="email" placeholder="exemplo@email.com">
                                     <div class="input-group-append">
@@ -115,7 +112,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-7 form-group input-group">
+                                <div class="col-md-9 form-group input-group pb-3">
                                     <label style="padding-right:1.5em;">Senha</label>
                                     <input name="senha" class="form-control" type="password" placeholder="Inserir senha">
                                     <div class="input-group-append">
@@ -124,14 +121,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 form-group">
-                                    <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="newaccount">
-                                    <label class="custom-control-label" for="newaccount">Lembre-se de mim</label> 
-                                </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <button name="btnLogin" value="Entrar" type="submit" class="btn btn-block font-weight-bold py-3" style="margin-left: 9rem;background-color:#DF0805;color:#f9f6f6;border-radius:3px;">Entrar</button>
+                                <div class="form-group">
+                                    <button name="btnLogin" value="Entrar" type="submit" class="btn btn-block font-weight-bold py-3" style="background-color:#DF0805;color:#f9f6f6;border-radius:3px;">Entrar</button>
                                 </div>
                             </form>
                             <?php
@@ -185,23 +176,6 @@
 
                                 }
                             ?>
-                            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                            <script>
-                                function onSignIn(googleUser) {
-                                // Useful data for your client-side scripts:
-                                var profile = googleUser.getBasicProfile();
-                                console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-                                console.log('Full Name: ' + profile.getName());
-                                console.log('Given Name: ' + profile.getGivenName());
-                                console.log('Family Name: ' + profile.getFamilyName());
-                                console.log("Image URL: " + profile.getImageUrl());
-                                console.log("Email: " + profile.getEmail());
-
-                                // The ID token you need to pass to your backend:
-                                var id_token = googleUser.getAuthResponse().id_token;
-                                console.log("ID Token: " + id_token);
-                            }
-    </script>
                         </div>
                     </div>
                 </div>

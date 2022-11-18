@@ -28,7 +28,8 @@ try {
             /* Verificação de validade */
             
             $dateAntiga = date_create($validadeProduto);
-            $dateAtual = date_create('2022-11-14');
+            //$dateAtual = date_create('2022-11-14');
+            $dateAtual = date_create();
 
             $diasDeVencimento = date_diff($dateAtual, $dateAntiga);
             

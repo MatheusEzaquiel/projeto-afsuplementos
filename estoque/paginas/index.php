@@ -1,8 +1,6 @@
 <?php
     include_once("../includes/header.php");
 
-
-    include_once("conteudo/alerta-vencimento.php");
     try{
 
         if(isset($_GET["pagina"])){
@@ -54,5 +52,5 @@
         echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
     }
 
-    include_once("../includes/footer.php");
+
 ?>

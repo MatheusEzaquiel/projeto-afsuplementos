@@ -57,64 +57,12 @@ session_start();
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../css/style.css" rel="stylesheet">
-
-    <!-- CSS DO OUTRO SITE -->
     
 </head>
 
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid">
-                    <!--
-        <div class="row bg-secondary py-1 px-xl-5">
-            <div class="col-lg-6 d-none d-lg-block">
-                <div class="d-inline-flex align-items-center h-100">
-                    <a class="text-body mr-3" href="">About</a>
-                    <a class="text-body mr-3" href="">Contato</a>
-                    <a class="text-body mr-3" href="">Help</a>
-                    <a class="text-body mr-3" href="">FAQs</a>
-                </div>
-            </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Sign in</button>
-                            <button class="dropdown-item" type="button">Sign up</button>
-                        </div>
-                    </div>
-                    <div class="btn-group mx-2">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">EUR</button>
-                            <button class="dropdown-item" type="button">GBP</button>
-                            <button class="dropdown-item" type="button">CAD</button>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">FR</button>
-                            <button class="dropdown-item" type="button">AR</button>
-                            <button class="dropdown-item" type="button">RU</button>
-                        </div>
-                    </div>
-                </div>
-                lembre de colocar o png da logo
-                <div class="d-inline-flex align-items-center d-block d-lg-none">
-                    <a href="" class="btn px-0 ml-2">
-                        <i class="fas fa-heart text-dark"></i>
-                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
-                    </a>
-                    <a href="" class="btn px-0 ml-2">
-                        <i class="fas fa-shopping-cart text-dark"></i>
-                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
-                    </a>
-                </div>
-            </div>
-        </div>
--->
 
         </div>
     </div>
@@ -128,11 +76,31 @@ session_start();
                 <h6>logo</h6>
             </div>
             <div class="col-lg-9" style="height: 4em;">
-                <nav class="navbar navbar-expand-lg py-3 py-lg-0 px-0" style="background-color: #000000;margin-top: 0.7em;margin-right: 3em;">
-                    <a href="" class="text-decoration-none d-block d-lg-none">
-                        <span class="h1 text-uppercase text-dark bg-light px-2">AF</span>
-                        <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1"> Suplementos</span>
+                <nav class="navbar navbar-expand-lg mr-auto" style="background-color: #000000;">
+                    <div class="navbar-item d-block d-lg-none d-flex justify-content-between">
+                    <a href="#" class="text-decoration-none d-block d-lg-none">
+                        <span class="h1 text-uppercase px-2" style="background-color:#000000;color:3DF0805;">AF</span>
+                        <span class="h1 text-uppercase px-2 ml-n1" style="background-color:#DF0805;color:#000000;">Suplementos</span>
                     </a>
+                    </div>
+                    <div class="navbar-item d-block d-lg-none d-flex justify-content-between">
+                        <a href="index.php?pagina=index" class="nav-item nav-link active" style="color: #F9F6F6;">Home</a>
+                        <a href="index.php?pagina=shop" class="nav-item nav-link" style="color: #F9F6F6;">Catálogo</a>
+                        <a href="index.php?pagina=contato" class="nav-item nav-link active" style="color: #F9F6F6;">Contato</a>
+                    </div>
+                    <div class="nav-item d-block d-lg-none pl-5">
+                        <a href="index.php?pagina=carrinho" class="btn px-0 ml-3">
+                            <i class="fas fa-shopping-cart" style="color:#DF0805;"></i>
+                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                        </a>
+                    </div>
+                    <div class="nav-item dropdown text-decoration-none d-block d-lg-none">
+                        <a href="#" class="nav-link pl-5" style="color:#F9F6F6;" data-toggle="dropdown">Login <i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
+                            <a href="../../login-cliente.php" class="dropdown-item" style="color:#F9F6F6;">Fazer login</a>
+                            <a href="../paginas/conteudo/index.php?pagina=sair" class="dropdown-item" style="color:#F9F6F6;">Sair</a>
+                        </div>
+                    </div>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -141,30 +109,8 @@ session_start();
                             <a href="index.php?pagina=index" class="nav-item nav-link active" style="color: #F9F6F6;">Home</a>
                             <a href="index.php?pagina=shop" class="nav-item nav-link" style="color: #F9F6F6;">Catálogo</a>
                             <a href="index.php?pagina=contato" class="nav-item nav-link active" style="color: #F9F6F6;">Contato</a>
-                            <div class="nav-item dropdown">
-                                <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
-                                    <a href="index.php?pagina=carrinho" class="dropdown-item" style="color: #F9F6F6;">Shopping Cart</a>
-                                </div>
-                                
-                            </div>
-                            <div class="col-lg-6 col-6 text-left" style="margin-left:4em;">
-                                <form action="">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Pesquisar por produtos">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text text-primary" style="background-color:#DF0805;border:0.3em solid #DF0805;">
-                                                    <i class="fa fa-search" style="color:#f9f6f6;"></i>
-                                                </span>
-                                            </div>
-                                    </div>
-                                </form>
-                            </div>
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                            <a href="" class="btn px-0">
-                                <i class="fas fa-heart" style="color:#DF0805;"></i>
-                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-                            </a>
                             <a href="index.php?pagina=carrinho" class="btn px-0 ml-3">
                                 <i class="fas fa-shopping-cart" style="color:#DF0805;"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
@@ -173,8 +119,8 @@ session_start();
                         <div class="nav-item dropdown">
                                 <a href="#" class="nav-link pl-5" style="color:#F9F6F6;" data-toggle="dropdown">Login <i class="fa fa-angle-down"></i></a>
                                 <div class="dropdown-menu rounded-0 border-0 m-0" style="background-color:#DF0805;">
-                                    <a href="cart.html" class="dropdown-item" style="color:#F9F6F6;">Sua conta</a>
-                                    <a href="checkout.html" class="dropdown-item" style="color:#F9F6F6;">Sair</a>
+                                    <a href="../../login-cliente.php" class="dropdown-item" style="color:#F9F6F6;">Fazer login</a>
+                                    <a href="../paginas/conteudo/index.php?pagina=sair" class="dropdown-item" style="color:#F9F6F6;">Sair</a>
                                 </div>
                         </div>
                     </div>

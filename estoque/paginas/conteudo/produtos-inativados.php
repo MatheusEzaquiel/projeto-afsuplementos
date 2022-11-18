@@ -1,35 +1,6 @@
-
-    <!-- Breadcrumb Start -->
+<!-- Cart Start -->
     <div class="container-fluid">
-        <div class="row px-xl-5">
-            <div class="col-12">
-                <nav class="breadcrumb bg-light mb-30">
-                    <div class="breadcrumb-item text-dark" style="cursor:pointer;">Estoque</div>
-                    <a class="breadcrumb-item text-dark" href="">Produtos Desativados</a>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb End -->
-
-
-    <!-- Cart Start -->
-    <div class="container-fluid">
-        <div class="row px-xl-5">
-            
-            <div class="col-lg-8 col-6 text-left">
-                <form action="">
-                    <div class="input-group  pb-3">
-                        <input type="text" class="form-control" placeholder="Pesquisar por produtos">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent" style="color:#DF0805;">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
+        <div class="row px-xl-5" style="margin-top:5em;">
             <div class="col-lg-12 table-responsive mb-5">
                 <form action="" method="post">
                 <table class="table table-light table-borderless table-hover text-center mb-0">
@@ -94,16 +65,14 @@
 
                             <td class="align-middle">
                                 <!-- Reativar -->
-                                <button class="btn btn-sm btn-info" name="btn-inativar<?php echo $idProduto; ?>"onclick="return confirm('Deseja reativar o produto <?php echo $showProdutos->nome_produto;?>?')" >
-                                    <img src="../../img/icones/arquivar-branco-24.png" alt="desarquivar" height="16" width="15">
+                                <button class="btn btn-sm btn-info mx-2" name="btn-inativar<?php echo $idProduto; ?>"onclick="return confirm('Deseja reativar o produto <?php echo $showProdutos->nome_produto;?>?')" >
+                                    <i class="fa fa-eject"></i>
                                 </button>
 
                                 <!-- Editar -->
                                 <a href="?pagina=edicaoProduto&idP=<?php echo $idProduto;?>">
                                     <button type="button" class="btn btn-sm btn-success">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
-                                                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
-                                            </svg>
+                                        <i class="fa fa-pen"></i>
                                     </button>
                                 </a>
                             </td>

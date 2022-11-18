@@ -1,13 +1,4 @@
 
-    <!-- Navbar Start -->
-    
-    <!-- Navbar End -->
-
-
-    <!-- Breadcrumb Start -->
-    
-    <!-- Breadcrumb End -->
-
 
     <!-- Checkout Start -->
     <div class="container-fluid">

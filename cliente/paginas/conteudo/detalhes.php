@@ -57,67 +57,24 @@
                         <div class="carousel-item active">
                             <img class="w-100 h-100" src="../../imgs/produtos/<?php echo $FotoProd;?>" alt="Image">
                         </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="../../img/product-2.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="../../img/product-3.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="../../img/product-4.jpg" alt="Image">
-                        </div>
                     </div>
+                    <!--
                     <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
                         <i class="fa fa-2x fa-angle-left text-dark"></i>
                     </a>
                     <a class="carousel-control-next" href="#product-carousel" data-slide="next">
                         <i class="fa fa-2x fa-angle-right text-dark"></i>
                     </a>
+                    -->
                 </div>
             </div>
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
                     <h3><?php echo $nomeProd; ?></h3>
                     <h5 class="font-weight-semi-bold mb-4"><?php echo $marcaProd; ?></h5>
-                    <div class="d-flex mb-3">
-                        <div class="text-primary mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star-half-alt"></small>
-                            <small class="far fa-star"></small>
-                        </div>
-                        <small class="pt-1">(99 Reviews)</small>
-                    </div>
+
                     <h3 class="font-weight-semi-bold mb-4">$<?php echo $precoProd; ?></h3>
                     <p class="mb-4"><?php echo $descProd; ?></p>
-                   <!-- <div class="d-flex mb-3">
-                        <strong class="text-dark mr-3">Sizes:</strong>
-                        <form>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-1" name="size">
-                                <label class="custom-control-label" for="size-1">XS</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-2" name="size">
-                                <label class="custom-control-label" for="size-2">S</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-3" name="size">
-                                <label class="custom-control-label" for="size-3">M</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-4" name="size">
-                                <label class="custom-control-label" for="size-4">L</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-5" name="size">
-                                <label class="custom-control-label" for="size-5">XL</label>
-                            </div>
-                        </form>
-                        
-                    </div>
-                    -->
                     <!--
                     <div class="d-flex mb-4">
                         <strong class="text-dark mr-3">Sabores:</strong>
@@ -154,23 +111,7 @@
                         </div>
                         <a class="btn px-3" href="index.php?pagina=carrinho&add=carrinho&id=<?php echo $produto['id_produto']?>" style="background-color:#DF0805;color:#F9F6F6;border-radius:3px;border:solid 1px #DF0805;"><i class="fa fa-shopping-cart mr-1"></i> Adicionar ao carrinho</a>
                     </div>
-                    <div class="d-flex pt-2">
-                        <strong class="text-dark mr-2">Compartilhar no:</strong>
-                        <div class="d-inline-flex">
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-pinterest"></i>
-                            </a>
-                        </div>
-                    </div>
+
                    
                 </div>
             </div>
@@ -180,8 +121,8 @@
                 <div class="bg-light p-30">
                     <div class="nav nav-tabs mb-4">
                         <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Descrição</a>
-                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Tabela Nutricional</a>
-                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Rewiews (0)</a>
+                        <!--<a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Tabela Nutricional</a>-->
+                        <!--<a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Rewiews (0)</a>-->
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-pane-1">
@@ -291,10 +232,33 @@
     <!-- Products Start -->
     
     </div><div class="container-fluid py-5">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">You May Also Like</span></h2>
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Você também pode gostar</span></h2>
         <div class="row px-xl-5">
             <div class="col">
                 <div class="owl-carousel related-carousel">
+                <?php
+                    include_once("../../config/conexao.php");
+                    $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY preco_venda_produto ASC";
+                        try {
+                        $resultSelProdutos = $conect->prepare($selectProdutos);
+                        $resultSelProdutos->execute();
+                        $contSelProdutos = $resultSelProdutos->rowCount();
+
+                        if($contSelProdutos > 0){
+                            while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
+                                                $showProdutos->id_produto;
+                                                $showProdutos->tipo_produto;
+                                                $showProdutos->marca_produto;
+                                                $nomeP = $showProdutos->nome_produto;
+                                                $showProdutos->tamanho_produto;
+                                                $showProdutos->descricao_produto;
+                                                $showProdutos->preco_compra_produto;
+                                                $showProdutos->preco_venda_produto;
+                                                $showProdutos->quantidade_produto;
+                                                $showProdutos->foto_produto;
+                                                $showProdutos->promocao_produto;
+        ?>
+                    <form action="" method="post">
                         <div class="product-item bg-light">
                             <div class="product-img position-relative overflow-hidden">
                                 <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
@@ -310,18 +274,50 @@
                                 <div class="d-flex align-items-center justify-content-center mt-2">
                                     <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
                                 </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+                    <?php
+                                        //Carrinho
+                                        if(isset($_POST["btn-carrinho$showProdutos->id_produto"])){
+                                            $showProdutos->id_produto;
+                                            
+                                            $idCliente = 4;
+                                            $precoPed = 0; //$precoProdt * $prodtQtd;
+                                            $estadoP = 0;
+
+                                            $cadCarrinho = "INSERT INTO tb_carrinho(cliente_pedido,produto_pedido,preco_pedido,estado_pedido) VALUES(:clientePed,:produtoPed,:precoPed,:estadoPed)";
+                                            
+                                            try{
+                                                $resultCadCar = $conect->prepare($cadCarrinho);
+                                                $resultCadCar->bindParam(':clientePed',$idCliente,PDO::PARAM_STR);
+                                                $resultCadCar->bindParam(':produtoPed',$showProdutos->id_produto,PDO::PARAM_STR);
+                                                $resultCadCar->bindParam(':precoPed',$precoPed,PDO::PARAM_STR);
+                                                $resultCadCar->bindParam(':estadoPed',$estadoP,PDO::PARAM_STR);
+                                                $resultCadCar->execute();
+
+                                                $contPedido = $resultCadCar->rowCount();
+                                                if($contPedido > 0){
+                                                    echo "<script>alert('${nomeP} enviado para o carrinho')</script>";
+                                                }else{
+                                                    echo "<script>alert('[Erro] Tente novamente!')</script>";
+                                                }
+
+                                            }catch(PDOException	$erro){
+                                                echo "ERRO DE CADASTRO [PDO] Carrinho = ".$erro->getMessage();
+                                            }
+                                            
+                                        }
+                                    }//Fim while
+                                }else{
+                                    echo "ERRO!!";
+                                }
+                            } catch (PDOException $erro) {
+                                echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
+                            }
+                    ?>
                 </div>
             </div>
         </div>
+    </div>
     <!-- Products End -->

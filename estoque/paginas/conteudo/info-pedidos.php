@@ -1,37 +1,6 @@
-
-
-
-    <!-- Breadcrumb Start -->
+<!-- Cart Start -->
     <div class="container-fluid">
-        <div class="row px-xl-5">
-            <div class="col-12">
-                <nav class="breadcrumb bg-light mb-30">
-                    <div class="breadcrumb-item text-dark" style="cursor:pointer;">Estoque</div>
-                    <a class="breadcrumb-item text-dark" href="">Pedidos feitos</a>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb End -->
-
-
-    <!-- Cart Start -->
-    <div class="container-fluid">
-        <div class="row px-xl-5">
-            
-            <div class="col-lg-8 col-6 text-left">
-                <form action="" method="post">
-                    <div class="input-group pb-3">
-                        <input type="text" class="form-control" placeholder="Pesquisar por produtos">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search" style="color:#DF0805;"></i>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
+        <div class="row px-xl-5" style="margin-top:5em;">
             <div class="col-lg-12 table-responsive mb-5">
                 <form action="" method="post">
                 <table class="table table-light table-borderless table-hover text-center mb-0">

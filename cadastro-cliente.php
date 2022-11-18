@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt_br">
 
 <head>
     <meta charset="utf-8">
-    <title>Estoque | Login</title>
+    <title>Cliente | Login</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="../img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,18 +24,16 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <!-- Login do google -->
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid">
-        <div class="row bg-secondary py-1 px-xl-5">
-            
-            <div class="col-lg-6 text-center text-lg-right">
-                
-                
-            </div>
-        </div>
+
         <div class="row align-items-center py-3 px-xl-5 d-none d-lg-flex" style="background-color: #000000;">
             <div class="col-lg-6">
                 <a href="cliente/paginas/index.php?pagina=index" class="text-decoration-none">
@@ -50,14 +48,14 @@
 
 
     <!-- Navbar Start -->
-    <div class="container-fluid mb-30">
+    <div class="container-fluid bg-dark mb-30">
         <div class="row px-xl-5" style="background-color: #000000;">
            
             <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg navbar-dark py-3 py-lg-0 px-0" style="background-color: #000000;">
-                    <a href="" class="text-decoration-none d-block d-lg-none">
-                        <span class="h1 text-uppercase text-dark bg-light px-2">AF</span>
-                        <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Suplementos</span>
+                <nav class="navbar navbar-expand-lg navbar-dark py-3 py-lg-0 px-0" style="background-color:#000000;">
+                    <a href="#" class="text-decoration-none d-block d-lg-none">
+                        <span class="h1 text-uppercase px-2" style="background-color:#000000;color:3DF0805;">AF</span>
+                        <span class="h1 text-uppercase px-2 ml-n1" style="background-color:#DF0805;color:#000000;">Suplementos</span>
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
@@ -74,12 +72,6 @@
         </div>
     </div>
     <!-- Navbar End -->
-
-
-    <!-- Breadcrumb Start -->
-    
-    <!-- Breadcrumb End -->
-
 
     <!-- Checkout Start -->
     <div class="container-fluid">

@@ -138,9 +138,9 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-2">
-                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
-                    <h1 class="fa fa-shipping-fast  m-0 mr-2" style="color:#DF0805;"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Fazemos entregas</h5>
+                <div class="d-flex align-items-center bg-light" style="padding: 30px;">
+                    <h1 class="fa fa-shipping-fast m-0 mr-2" style="color:#DF0805;"></h1>
+                    <h5 class="font-weight-semi-bold m-0 pl-2">Fazemos<br>entregas &nbsp;&nbsp;&nbsp;</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
@@ -205,10 +205,6 @@
               <small><?php echo $showProdutos->tamanho_produto;?></small>
               <div class="d-flex align-items-center justify-content-center mt-2">
                 <h5>$<?php echo $showProdutos->preco_venda_produto;?></h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-              </div>
-              <div class="d-flex align-items-center justify-content-center mb-1">
-                <small>(99) </small>
-                <small class="fa mr-1"> Reviews</small>
               </div>
             </div>
           </div>
@@ -304,10 +300,6 @@
               <div class="d-flex align-items-center justify-content-center mt-2">
                 <h5>$<?php echo $showProdutos->preco_venda_produto;?></h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
               </div>
-              <div class="d-flex align-items-center justify-content-center mb-1">
-                <small>(99) </small>
-                <small class="fa mr-1"> Reviews</small>
-              </div>
             </div>
           </div>
         </form>
@@ -350,10 +342,10 @@
                             echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
                         }
                     ?>
-  </div>
-</div>
-                      </div>
-  </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
     <!-- Products End -->
     <!-- Offer Start -->
@@ -388,7 +380,7 @@
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase"><?php echo $showProdutos->nome_produto;?></h6>
                         <h3 class="text-white mb-3">Produto em promoção</h3>
-                        <a href="" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;">Shop Now</a>
+                        <a href="" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;">Comprar agora</a>
                     </div>
                 </div>
             </div>
