@@ -76,7 +76,7 @@
                 <form action="" method="post">
 
                 <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
+                    <img style="width: 700px; height:500px;" class="img-fluid" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase"><?php echo $showProdutos->nome_produto;?></h6>
                         <h3 class="text-white mb-3">Produto em promoção</h3>
@@ -125,71 +125,100 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-2">
+                <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=5585992902871&text= Olá, venho diretamente do site">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-phone-volume  m-0 mr-3" style="color:#DF0805;"></h1>
                     <h5 class="font-weight-semi-bold m-0">Suporte por WhatsApp</h5>
                 </div>
+                </a>
             </div>
         </div>
     </div>
     <!-- Featured End -->
 
-
-    <!-- Promoções Start -->
+    <!-- Produtos Start -->
     <div class="container-fluid py-5">
-  <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Promoções</span></h2>
-  <div class="row px-xl-5">
-    <div class="col">
-      <div class="owl-carousel related-carousel">
-      <?php
-          include_once("../../config/conexao.php");
-          $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 AND promocao_produto > 0  ORDER BY preco_venda_produto ASC";
-            try {
-              $resultSelProdutos = $conect->prepare($selectProdutos);
-              $resultSelProdutos->execute();
-              $contSelProdutos = $resultSelProdutos->rowCount();
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Promoções</span></h2>
+        <div class="row px-xl-5">
+            <div class="col">
 
-              if($contSelProdutos > 0){
-                while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
-                                      $idProduto = $showProdutos->id_produto;
-                                      $showProdutos->tipo_produto;
-                                      $showProdutos->marca_produto;
-                                      $nomeP = $showProdutos->nome_produto;
-                                      $showProdutos->tamanho_produto;
-                                      $showProdutos->descricao_produto;
-                                      $showProdutos->preco_compra_produto;
-                                      $precoVendaP  = $showProdutos->preco_venda_produto;
-                                      $showProdutos->quantidade_produto;
-                                      $showProdutos->foto_produto;
-                                      $promocaoProduto = $showProdutos->promocao_produto;
-                                      $precoPromocao = $showProdutos->preco_promocao_produto;
+                <div class="owl-carousel related-carousel">
+                    <?php
+                        include_once("../../config/conexao.php");
+                        $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY preco_venda_produto ASC";
+                        
+                        try{
+                            $resultSelProdutos = $conect->prepare($selectProdutos);
+                            $resultSelProdutos->execute();
+                            $contSelProdutos = $resultSelProdutos->rowCount();
 
-           ?>
-        <form action="" method="post">
-          <div class="product-item bg-light mb-4">
-            <div class="product-img position-relative overflow-hidden">
-              <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
-              <div class="product-action">
+                            if($contSelProdutos > 0){
+                                while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
 
-                <!-- Botão enviar p/ carrinho-->
-                <a class="btn btn-outline-dark btn-square" href="home.php?pagina=carrinho&add=carrinho&id=<?php echo $idProduto?>" name="btn-carrinho<?php echo $showProdutos->id_produto;?>"><i class="fa fa-shopping-cart"></i></button>
+                                    $idProduto          = $showProdutos->id_produto;
+                                    $tipoProduto        = $showProdutos->tipo_produto;
+                                    $marcaProduto       = $showProdutos->marca_produto;
+                                    $nomeProduto        = $showProdutos->nome_produto;
+                                    $tamanhoProduto     = $showProdutos->tamanho_produto;
+                                    $descricaoProduto   = $showProdutos->descricao_produto;
+                                    $precoVendaP        = $showProdutos->preco_venda_produto;
+                                    $qtdProduto         = $showProdutos->quantidade_produto;
+                                    $fotoProduto        = $showProdutos->foto_produto;
+                                    
+                    ?>
 
-                <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes&idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
-              </div>
+                    <form action="" method="post">
+                        <!-- Primeira linha -->
+                        <div class="product-item bg-light mb-4">
+                                            
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
+                        
+                                <div class="product-action">
+                                    <!-- Botão enviar p/ carrinho e detalhes-->
+                                    <a class="btn btn-outline-dark btn-square" href="home.php?pagina=carrinho&add=carrinho&id=<?php echo $idProduto?>" name="btn-carrinho<?php echo $showProdutos->id_produto;?>"><i class="fa fa-shopping-cart"></i></button>
+                                    <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes&idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
+                                </div>
 
-            </div>
+                            </div>
 
-            <div class="text-center py-4">
-              <a class="h6 text-decoration-none text-truncate" href="home.php?pagina=detalhes&idDetail=<?php echo $showProdutos->id_produto;?>"><?php echo $showProdutos->nome_produto;?></a>
-              <br><small><?php echo $showProdutos->marca_produto;?></small> |
-              <small><?php echo $showProdutos->tamanho_produto;?></small>
-              <div class="d-flex align-items-center justify-content-center mt-2">
-                <h5 style="color: green;"">R$<?php echo str_replace('.' , ',', $precoVendaP);?></h5><h6 class="text-muted ml-2"></h6>
-              </div>
-            </div>
-          </div>
-        </form>
-        <?php
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><?php echo $showProdutos->nome_produto;?></a>
+                                <br><small><?php echo $showProdutos->marca_produto;?></small> |
+                                <small><?php echo $showProdutos->tamanho_produto;?></small>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5 style="color:green">R$<?php echo str_replace('.' , ',', $showProdutos->preco_venda_produto);?></h5><h6 class="text-muted ml-2"></h6>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Segunda linha -->
+                        <div class="product-item bg-light mb-4">
+
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
+                                
+                                <div class="product-action">
+                                    <!-- Botão enviar p/ carrinho e detalhes-->
+                                    <a class="btn btn-outline-dark btn-square" href="home.php?pagina=carrinho&add=carrinho&id=<?php echo $idProduto?>" name="btn-carrinho<?php echo $showProdutos->id_produto;?>"><i class="fa fa-shopping-cart"></i></button>
+                                    <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes&idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><?php echo $showProdutos->nome_produto;?></a>
+                                <br><small><?php echo $showProdutos->marca_produto;?></small> |
+                                <small><?php echo $showProdutos->tamanho_produto;?></small>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5 style="color:green">R$<?php echo str_replace('.' , ',', $showProdutos->preco_venda_produto);?></h5><h6 class="text-muted ml-2"></h6>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                    <?php
                                    
                                 }//Fim while
 
@@ -200,90 +229,18 @@
                             echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
                         }
                     ?>
-    </div>
-  </div>
-</div>
-
-</div>
-    <!-- Promoções End -->
-
-
-    <!-- ProdUTOS Start -->
-    <div class="container-fluid py-5">
-  <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Produtos</span></h2>
-  <div class="row px-xl-5">
-    <div class="col">
-      <div class="owl-carousel related-carousel">
-        <?php
-
-          include_once("../../config/conexao.php");
-
-          $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY preco_venda_produto ASC";
-            try {
-              $resultSelProdutos = $conect->prepare($selectProdutos);
-              $resultSelProdutos->execute();
-              $contSelProdutos = $resultSelProdutos->rowCount();
-
-              if($contSelProdutos > 0){
-                while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
-                    $idProduto = $showProdutos->id_produto;
-                    $showProdutos->tipo_produto;
-                    $showProdutos->marca_produto;
-                    $nomeP = $showProdutos->nome_produto;
-                    $showProdutos->tamanho_produto;
-                    $showProdutos->descricao_produto;
-                    $showProdutos->preco_compra_produto;
-                    $precoVendaP = $showProdutos->preco_venda_produto;
-                    $showProdutos->quantidade_produto;
-                    $showProdutos->foto_produto;
-                    $showProdutos->promocao_produto;
-
-        ?>
-        <form action="" method="post">
-
-            <div class="product-item bg-light mb-4">
-
-            <div class="product-img position-relative overflow-hidden">
-              <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
-             
-                
-                <div class="product-action">
-                    <a class="btn btn-outline-dark btn-square" href="home.php?pagina=carrinho&add=carrinho&id=<?php echo $idProduto?>" name="btn-carrinho<?php echo $idProduto;?>"><i class="fa fa-shopping-cart"></i></a>
-                    <!--<button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $showProdutos->id_produto;?>"><i class="fa fa-shopping-cart"></i></button>-->
-                    <a class="btn btn-outline-dark btn-square" href="home.php?pagina=detalhes&idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
-                </div>
-
-                </div>
-
-                <div class="text-center py-4">
-                    <a class="h6 text-decoration-none text-truncate" href="home.php?pagina=detalhes&idDetail=<?php echo $showProdutos->id_produto;?>"><?php echo $showProdutos->nome_produto;?></a>
-                    <br><small><?php echo $showProdutos->marca_produto;?></small> |
-                    <small><?php echo $showProdutos->tamanho_produto;?></small>
-                    <div class="d-flex align-items-center justify-content-center mt-2">
-                    <h5 style="color: green;">R$<?php echo str_replace('.' , ',', $precoVendaP);?></h5><h6 class="text-muted ml-2"></h6>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <?php
-                                  
-                                }//Fim while
-                            }else{
-                                echo "ERRO!!";
-                            }
-                        } catch (PDOException $erro) {
-                            echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
-                        }
-                    ?>
                 </div>
             </div>
         </div>
+
     </div>
-</div>
-    <!-- Products End -->
+    <!-- Produtos End -->
+    
+
+
     <!-- Categorias Start -->
     <div class="container-fluid pt-5">
-  <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Categorias</span></h2>
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Categorias</span></h2>
   <?php
 
     include_once("../../config/conexao.php");
@@ -387,7 +344,7 @@
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase"><?php echo $showProdutos->nome_produto;?></h6>
                         <h3 class="text-white mb-3">Produto em promoção</h3>
-                        <a href="" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;">Comprar Agora</a>
+                        <a href="home.php?pagina=shop" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;">Comprar Agora</a>
                     </div>
                 </div>
             </div>

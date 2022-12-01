@@ -25,7 +25,7 @@
                 $precoVendaP       = $produtoEmPromocao->preco_venda_produto;
                 $qtdProduto        = $produtoEmPromocao->quantidade_produto;
                 $promocaoProduto   = $produtoEmPromocao->promocao_produto;
-                $idPromocao     = $produtoEmPromocao->promocao_produto;
+                $idPromocao        = $produtoEmPromocao->promocao_produto;
                 $fotoProduto       = $produtoEmPromocao->foto_produto;
                 $valorPromocao     = $produtoEmPromocao->valor_promocao;
                 $nomePromocao     = $produtoEmPromocao->nome_promocao;

@@ -26,6 +26,7 @@
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div></div>
                                 <div class="ml-2">
+
                                     <!-- Filtro tipo do produto
                                         0 -> Todos
                                         1 -> Em pó
@@ -33,7 +34,6 @@
                                         3 -> Pílulas
                                         4 -> Barrinhas
                                     --> 
-
 
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tipo de Produto</button>
@@ -90,18 +90,12 @@
                                         
                                         
                         ?>
-                                    <!--
-                                        <h3><?php //echo $produto['id_produto']?></h3>
-			                            <p><?php //echo $produto['nome_produto']?></p>
-			                            <p><?php //echo $produto['quantidade']?></p>
-			                            <p><?php //echo 'Preço: R$'. number_format($produto['preco_venda_produto'],2, ",", ".")?></p>
-                                    -->
                         
                         <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
                         
                                 <div class="product-item bg-light mb-4">
                                     <div class="product-img position-relative overflow-hidden">
-                                        <img class="img-fluid w-100" src="../../imgs/produtos/<?php echo $produto['foto_produto'];?>" alt="foto-produto">
+                                        <img style="width: 700px; height:500px;"class="img-fluid w-100" src="../../imgs/produtos/<?php echo $produto['foto_produto'];?>" alt="foto-produto">
                                         
                                         <div class="product-action">
                                             <!-- Botão enviar p/ carrinho -->

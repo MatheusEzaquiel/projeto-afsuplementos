@@ -14,16 +14,16 @@
                     <div class="col-md-4 mb-5">
                         <h5 class="text-uppercase mb-4" style="color: #F9F6F6;">Compra rápida</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="index.php?pagina=index" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-secondary mb-2" href="index.php?pagina=shop" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Catálogo</a>
-                            <a class="text-secondary mb-2" href="index.php?pagina=contato" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Contato</a>
+                            <a class="text-secondary mb-2" href="home.php?pagina=index" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-secondary mb-2" href="home.php?pagina=shop" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Catálogo</a>
+                            <a class="text-secondary mb-2" href="home.php?pagina=contato" style="color: #F9F6F6;"><i class="fa fa-angle-right mr-2"></i>Contato</a>
 
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
                         <h5 class="text-secondary text-uppercase mb-4">Minha conta</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="../../login-cliente.php"><i class="fa fa-angle-right mr-2"></i>Login</a>
+                            <a class="text-secondary mb-2" href="home.php?pagina=perfil"><i class="fa fa-angle-right mr-2"></i>Perfil</a>
                             <a class="text-secondary mb-2" href="../../cadastro-cliente.php"><i class="fa fa-angle-right mr-2"></i>Cadastro</a>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                         <h6 class="text-uppercase mt-4 mb-3" style="color: #F9F6F6;">Nossos contatos</h6>
                         <div class="d-flex">
                             <a class="btn btn-square" style="background-color: #DF0805;border: solid 1px #DF0805;color: #F9F6F6;" href="https://www.instagram.com/af_suplementos_/"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-square ml-3" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="https://api.whatsapp.com/send?phone=5585987338264&text=teste%20amigao
+                            <a class="btn btn-square ml-3" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="https://api.whatsapp.com/send?phone=5585987338264&text=Olá!%20venho%20diretamento%20do%20site
                             "><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>

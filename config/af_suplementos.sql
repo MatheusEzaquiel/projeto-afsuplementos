@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Nov-2022 às 02:40
+-- Tempo de geração: 01-Dez-2022 às 02:23
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.0.25
 
@@ -139,7 +139,8 @@ INSERT INTO `tb_produto` (`id_produto`, `tipo_produto`, `marca_produto`, `nome_p
 (6, 0, 'Darkness', 'Glutamina', '320g', ' Glutamina Descrição...', '27.00', '36.00', '0.00', 50, '2022-12-10', '6346c88490cf4.jpeg', 0, NULL, 1),
 (7, 2, 'Linea', 'WheyShake Chocolate', '600ml', 'Uma bebida lotada de cálcio e diversos minerais para fortalecer seu corpo e espírito.', '7.00', '14.00', '9.00', 50, '2023-03-30', '636155c8298ed.jpeg', 1, NULL, 1),
 (8, 3, 'Scientifica', 'Ômega 1000', '180g', 'Contém 35 pílulas na embalagem.', '48.00', '65.00', '9.75', 3, '2024-02-25', '634457d2d574b.jpeg', 0, NULL, 0),
-(66, 0, 'Sync', 'blusa padrão', 'M', 'Blusa preta básica', '6.50', '9.75', '9.75', 12, '2022-11-20', '637d89777b6df.jpg', 0, NULL, 1);
+(66, 0, 'Sync', 'blusa padrão', 'M', 'Blusa preta básica', '6.50', '9.75', '9.75', 12, '2022-11-20', '637d89777b6df.jpg', 0, NULL, 1),
+(67, 2, 'g', 'r', '400g', ' fdsfdsfsd', '55.00', '65.00', '65.00', 1, '2022-11-10', '6388019597f4f.jpg', 0, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -226,7 +227,7 @@ ALTER TABLE `tb_pedido`
 -- AUTO_INCREMENT de tabela `tb_produto`
 --
 ALTER TABLE `tb_produto`
-  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT de tabela `tb_promocao`

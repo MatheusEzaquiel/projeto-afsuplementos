@@ -1,28 +1,4 @@
-
 <!-- Header -->
-
-<?php
-    
-    /*
-    //Caso o cliente não esteja logado, redirecione
-    ob_start();
-    @session_start(); 
-
-    if(!isset($_SESSION['loginUser']) && (!isset($_SESSION['senhaUser']))){
-
-
-        header("Location: ../../home.php?acao=negado");
-            exit;
-
-
-    }
- 
-
-    include_once('sair.php');
-
-   */
-
-?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -99,7 +75,6 @@
                     <div class="nav-item d-block d-lg-none pl-5">
                         <a href="home.php?pagina=carrinho" class="btn px-0 ml-3">
                             <i class="fas fa-shopping-cart" style="color:#DF0805;"></i>
-                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                         </a>
                     </div>
                     <div class="nav-item dropdown text-decoration-none d-block d-lg-none">
@@ -126,7 +101,6 @@
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                             <a href="home.php?pagina=carrinho" class="btn px-0 ml-3">
                                 <i class="fas fa-shopping-cart" style="color:#DF0805;"></i>
-                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
                         </div>
 
@@ -151,6 +125,7 @@
 
 
     <!-- Conteúdo Start-->
+
     <!-- Carousel Start -->
     
     <div class="container-fluid mb-3">
@@ -169,7 +144,7 @@
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Probiótica</h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Somos pioneiros! Desde 1986 a PROBIÓTICA investe em um processo contínuo de pesquisa e inovação em colaboração com nutricionistas, médicos, treinadores e atletas.</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="home.php?pagina=shop">
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.php">
                                       Comprar agora</a>
                                 </div>
                             </div>
@@ -206,7 +181,7 @@
                 
                     include_once("config/conexao.php");
                     
-                    $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 AND promocao_produto > 0 ORDER BY RAND() LIMIT 2";
+                    $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY RAND() LIMIT 2";
                         try {
                         $resultSelProdutos = $conect->prepare($selectProdutos);
                         $resultSelProdutos->execute();
@@ -226,13 +201,14 @@
                                                 $showProdutos->foto_produto;
                                                 $showProdutos->promocao_produto;
                 ?>
+
                 <form action="" method="post">
 
                 <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
+                    <img style="width: 700px; height:500px;" class="img-fluid" src="imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase"><?php echo $showProdutos->nome_produto;?></h6>
-                        <h3 class="text-white mb-3">Produto em promoção</h3>
+                        <h3 class="text-white mb-3"><?php echo $showProdutos->marca_produto;?></h3>
                         <a href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>" class="btn " style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;">Comprar Agora</a>
                     </div>
                 </div>
@@ -283,211 +259,160 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-2">
+                <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=5585992902871&text= Olá, venho diretamente do site">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-phone-volume  m-0 mr-3" style="color:#DF0805;"></h1>
                     <h5 class="font-weight-semi-bold m-0">Suporte por WhatsApp</h5>
                 </div>
+                </a>
             </div>
         </div>
     </div>
     <!-- Cards End -->
 
 
-    <!-- Produtos em Promoções Start -->
-    <div class="container-fluid py-5">
-  <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Promoções</span></h2>
-  <div class="row px-xl-5">
-    <div class="col">
-      <div class="owl-carousel related-carousel">
-      <?php
-      
-          include_once("config/conexao.php");
-          $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 AND promocao_produto > 0  ORDER BY preco_venda_produto ASC";
-            try {
-              $resultSelProdutos = $conect->prepare($selectProdutos);
-              $resultSelProdutos->execute();
-              $contSelProdutos = $resultSelProdutos->rowCount();
-
-              if($contSelProdutos > 0){
-                while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
-                                      $idProduto = $showProdutos->id_produto;
-                                      $showProdutos->tipo_produto;
-                                      $showProdutos->marca_produto;
-                                      $nomeP = $showProdutos->nome_produto;
-                                      $showProdutos->tamanho_produto;
-                                      $showProdutos->descricao_produto;
-                                      $showProdutos->preco_compra_produto;
-                                      $showProdutos->preco_venda_produto;
-                                      $showProdutos->quantidade_produto;
-                                      $showProdutos->foto_produto;
-                                      $showProdutos->promocao_produto;
-        
-           ?>
-
-        <form action="" method="post">
-
-          <div class="product-item bg-light mb-4">
-            <div class="product-img position-relative overflow-hidden">
-              <img class="img-fluid w-100" src="imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
-              <div class="product-action">
-
-                <!-- Botão enviar p/ carrinho-->
-                <a class="btn btn-outline-dark btn-square" href="index-login.php?acao=login1v" ><i class="fa fa-shopping-cart"></i></button></a>
-
-                <!-- Botão enviar p/ ver detalhes-->
-                <a class="btn btn-outline-dark btn-square" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
-
-              </div>
-            </div>
-
-            <div class="text-center py-4">
-              <a style="font-weight: 900;" class="h6 text-decoration-none text-truncate" href="home.php?pagina=detalhes&idDetail=<?php echo $showProdutos->id_produto;?>"><?php echo $showProdutos->nome_produto;?></a>
-              <br><small><?php echo $showProdutos->marca_produto;?></small> |
-              <small><?php echo $showProdutos->tamanho_produto;?></small>
-              <div class="d-flex align-items-center justify-content-center mt-2">
-                <h5 style="color:green">R$<?php echo str_replace('.' , ',', $showProdutos->preco_venda_produto);?></h5><h6 class="text-muted ml-2"></h6>
-              </div>
-            </div>
-          </div>
-
-        </form>
-
-        <?php
-
-
-                                   
-                                }//Fim while
-                            }else{
-                                echo "ERRO!!";
-                            }
-                        } catch (PDOException $erro) {
-                            echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
-                        }
-
-      
-                    ?>
-    </div>
-  </div>
-</div>
-
-</div>
-    <!-- Promoções End -->
-
-
     <!-- Produtos Start -->
     <div class="container-fluid py-5">
-  <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Produtos</span></h2>
-  <div class="row px-xl-5">
-    <div class="col">
-      <div class="owl-carousel related-carousel">
-        <?php
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Produtos</span></h2>
+        <div class="row px-xl-5">
+            <div class="col">
+                <div class="owl-carousel related-carousel">
+                    <?php
 
 
-          $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY preco_venda_produto ASC";
-            try {
-              $resultSelProdutos = $conect->prepare($selectProdutos);
-              $resultSelProdutos->execute();
-              $contSelProdutos = $resultSelProdutos->rowCount();
+                        $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1 ORDER BY preco_venda_produto ASC";
+                            try {
+                            $resultSelProdutos = $conect->prepare($selectProdutos);
+                            $resultSelProdutos->execute();
+                            $contSelProdutos = $resultSelProdutos->rowCount();
 
-              if($contSelProdutos > 0){
-                while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
-                    $idProduto = $showProdutos->id_produto;
-                    $showProdutos->tipo_produto;
-                    $showProdutos->marca_produto;
-                    $nomeP = $showProdutos->nome_produto;
-                    $showProdutos->tamanho_produto;
-                    $showProdutos->descricao_produto;
-                    $showProdutos->preco_compra_produto;
-                    $showProdutos->preco_venda_produto;
-                    $showProdutos->quantidade_produto;
-                    $showProdutos->foto_produto;
-                    $showProdutos->promocao_produto;
+                                if($contSelProdutos > 0){
+                                    while($showProdutos = $resultSelProdutos->FETCH(PDO::FETCH_OBJ)){
 
+                                        $idProduto          = $showProdutos->id_produto;
+                                        $tipoProduto        = $showProdutos->tipo_produto;
+                                        $marcaProduto       = $showProdutos->marca_produto;
+                                        $nomeProduto        = $showProdutos->nome_produto;
+                                        $tamanhoProduto     = $showProdutos->tamanho_produto;
+                                        $descricaoProduto   = $showProdutos->descricao_produto;
+                                        $precoVendaP        = $showProdutos->preco_venda_produto;
+                                        $qtdProduto         = $showProdutos->quantidade_produto;
+                                        $fotoProduto        = $showProdutos->foto_produto;
 
-        ?>
-        <form action="" method="post">
+                    ?>
 
-            <div class="product-item bg-light mb-4">
+                    <form action="" method="post">
+                        <!-- Primeira linha -->
+                        <div class="product-item bg-light mb-4">
+                                            
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
+                        
+                                <div class="product-action">
+                                    <a class="btn btn-outline-dark btn-square" href="index-login.php?acao=login1v" name="btn-carrinho<?php echo $idProduto;?>"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
+                                </div>
 
-            <div class="product-img position-relative overflow-hidden">
-              <img class="img-fluid w-100" src="imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
-             
-                
-                <div class="product-action">
-                    <a class="btn btn-outline-dark btn-square" href="index-login.php?acao=login1v" name="btn-carrinho<?php echo $idProduto;?>"><i class="fa fa-shopping-cart"></i></a>
-                    <!--<button type="submit" class="btn btn-outline-dark btn-square" name="btn-carrinho<?php echo $showProdutos->id_produto;?>"><i class="fa fa-shopping-cart"></i></button>-->
-                    <a class="btn btn-outline-dark btn-square" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
-                </div>
+                            </div>
 
-                </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><?php echo $showProdutos->nome_produto;?></a>
+                                <br><small><?php echo $showProdutos->marca_produto;?></small> |
+                                <small><?php echo $showProdutos->tamanho_produto;?></small>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5 style="color:green">R$<?php echo str_replace('.' , ',', $showProdutos->preco_venda_produto);?></h5><h6 class="text-muted ml-2"></h6>
+                                </div>
+                            </div>
 
-                <div class="text-center py-4">
-                    <a class="h6 text-decoration-none text-truncate" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><?php echo $showProdutos->nome_produto;?></a>
-                    <br><small><?php echo $showProdutos->marca_produto;?></small> |
-                    <small><?php echo $showProdutos->tamanho_produto;?></small>
-                    <div class="d-flex align-items-center justify-content-center mt-2">
-                    <h5 style="color:green">R$<?php echo str_replace('.' , ',', $showProdutos->preco_venda_produto);?></h5><h6 class="text-muted ml-2"></h6>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <?php
-      
+                        </div>
+
+                        <!-- Segunda linha -->
+                        <div class="product-item bg-light mb-4">
+
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
+                                
+                                <div class="product-action">
+                                    <a class="btn btn-outline-dark btn-square" href="index-login.php?acao=login1v" name="btn-carrinho<?php echo $idProduto;?>"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="detalhes.php?idDetail=<?php echo $showProdutos->id_produto;?>"><?php echo $showProdutos->nome_produto;?></a>
+                                <br><small><?php echo $showProdutos->marca_produto;?></small> |
+                                <small><?php echo $showProdutos->tamanho_produto;?></small>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5 style="color:green">R$<?php echo str_replace('.' , ',', $showProdutos->preco_venda_produto);?></h5><h6 class="text-muted ml-2"></h6>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                    <?php
                                   
-                                }//Fim while
-                            }else{
-                                echo "ERRO!!";
+                                    }//Fim while
+                                }else{
+                                    echo "ERRO!!";
+                                }
+                            } catch (PDOException $erro) {
+                                echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
                             }
-                        } catch (PDOException $erro) {
-                            echo "ERRO DE PDO SELECT -> ".$erro->getMessage();
-                        }
-
       
                     ?>
+
                 </div>
             </div>
         </div>
     </div>
-</div>
     <!-- Products End -->
+
+</div>
+
+    
 
 
     <!-- Categorias Start -->
     <div class="container-fluid pt-5">
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Categorias</span></h2>
-  <?php
+    
+    <?php
 
 
     //em pó
-    $selectPo = "SELECT * FROM tb_produto WHERE tipo_produto = 1";
+    $selectPo = "SELECT * FROM tb_produto WHERE tipo_produto = 1 AND disponibilidade_produto = 1";
     $resultPo = $conect->prepare($selectPo);
     $resultPo->execute();
     $po_qtd = $resultPo->rowCount();
 
     //bebidas
-    $selectBebida = "SELECT * FROM tb_produto WHERE tipo_produto = 2";
+    $selectBebida = "SELECT * FROM tb_produto WHERE tipo_produto = 2 AND disponibilidade_produto = 1";
     $resultBebida = $conect->prepare($selectBebida);
     $resultBebida->execute();
     $bebida_qtd = $resultBebida->rowCount();
 
     //pilulas
-    $selectPilula = "SELECT * FROM tb_produto WHERE tipo_produto = 3";
+    $selectPilula = "SELECT * FROM tb_produto WHERE tipo_produto = 3 AND disponibilidade_produto = 1";
     $resultPilula = $conect->prepare($selectPilula);
     $resultPilula->execute();
     $pilula_qtd = $resultPilula->rowCount();
 
     //barrinhas
-    $selectBarrinha = "SELECT * FROM tb_produto WHERE tipo_produto = 4";
+    $selectBarrinha = "SELECT * FROM tb_produto WHERE tipo_produto = 4 AND disponibilidade_produto = 1";
     $resultBarrinha = $conect->prepare($selectBarrinha);
     $resultBarrinha->execute();
     $barrinha_qtd = $resultBarrinha->rowCount();
     
-
+    //roupas
+    $selectRoupas = "SELECT * FROM tb_produto WHERE tipo_produto = 5 AND disponibilidade_produto = 1";
+    $resultRoupas = $conect->prepare($selectBarrinha);
+    $resultRoupas->execute();
+    $roupas_qtd = $resultRoupas->rowCount();
   ?>
 
   <form action="" method="POST">
   <div class="row px-xl-5 pb-3">
-    <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none" href="home.php?pagina=shop&TipoProduto=1">
+    <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none" href="shop.php?TipoProduto=1">
       <div class="cat-item img-zoom d-flex align-items-center mb-4">
         <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid" src="img/po-01.png" alt="website template image"></div>
         <div class="flex-fill pl-3">
@@ -495,7 +420,7 @@
           <small class="text-body"><?php echo $po_qtd;?> Produtos</small></div>
       </div>
       </a></div>
-    <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none" href="home.php?pagina=shop&TipoProduto=2">
+    <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none" href="shop.php?TipoProduto=2">
       <div class="cat-item img-zoom d-flex align-items-center mb-4">
         <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid" src="img/bebida-01.png" alt="website template image"></div>
         <div class="flex-fill pl-3">
@@ -503,7 +428,7 @@
           <small class="text-body"><?php echo $bebida_qtd;?> Produtos</small></div>
       </div>
       </a></div>
-    <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none" href="home.php?pagina=shop&TipoProduto=3">
+    <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none" href="shop.php?TipoProduto=3">
       <div class="cat-item img-zoom d-flex align-items-center mb-4">
         <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid" src="img/pilula-01.png" alt="website template image"></div>
         <div class="flex-fill pl-3">
@@ -511,7 +436,7 @@
           <small class="text-body"><?php echo $pilula_qtd;?> Produtos</small></div>
       </div>
       </a></div>
-      <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none" href="home.php?pagina=shop&TipoProduto=4">
+      <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none" href="shop.php?TipoProduto=4">
       <div class="cat-item img-zoom d-flex align-items-center mb-4">
         <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid" src="img/barra-1.png" alt="website template image"></div>
         <div class="flex-fill pl-3">
@@ -519,6 +444,7 @@
           <small class="text-body"><?php echo $barrinha_qtd;?> Produtos</small></div>
       </div>
       </a></div>
+    
     </form>
   </div>
 </div>
@@ -559,8 +485,8 @@
                     <img class="img-fluid" src="imgs/produtos/<?php echo $showProdutos->foto_produto;?>" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase"><?php echo $showProdutos->nome_produto;?></h6>
-                        <h3 class="text-white mb-3">Produto em promoção</h3>
-                        <a href="" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;">Comprar Agora</a>
+                        <h3 class="text-white mb-3">Descubra mais produtos</h3>
+                        <a href="shop.php" class="btn" style="background-color:#DF0805;border: #DF0805 1px solid;color: #F9F6F6;">Comprar Agora</a>
                     </div>
                 </div>
             </div>
@@ -582,7 +508,7 @@
 </div>
     <!-- Vendor End -->
 
-    <!-- Conteúdo Start-->
+    <!-- Conteúdo End-->
 
     <!-- Footer Start -->
     <div class="container-fluid text-secondary mt-5 pt-5" style="background-color: #000000;">
@@ -608,16 +534,18 @@
                     <div class="col-md-4 mb-5">
                         <h5 class="text-secondary text-uppercase mb-4">Minha conta</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="../../login-cliente.php"><i class="fa fa-angle-right mr-2"></i>Login</a>
-                            <a class="text-secondary mb-2" href="../../cadastro-cliente.php"><i class="fa fa-angle-right mr-2"></i>Cadastro</a>
+                            <a class="text-secondary mb-2" href="index-login.php"><i class="fa fa-angle-right mr-2"></i>Login</a>
+                            <a class="text-secondary mb-2" href="cadastro-cliente.php"><i class="fa fa-angle-right mr-2"></i>Cadastro</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
                         <h6 class="text-uppercase mt-4 mb-3" style="color: #F9F6F6;">Nossos contatos</h6>
                         <div class="d-flex">
                             <a class="btn btn-square" style="background-color: #DF0805;border: solid 1px #DF0805;color: #F9F6F6;" href="https://www.instagram.com/af_suplementos_/"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-square ml-3" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="https://api.whatsapp.com/send?phone=5585987338264&text=teste%20amigao
-                            "><i class="fab fa-whatsapp"></i></a>
+                            <a class="btn btn-square ml-3" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="https://api.whatsapp.com/send?phone=5585987338264&text=Olá!%20venho%20diretamento%20do%20site
+                            ">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

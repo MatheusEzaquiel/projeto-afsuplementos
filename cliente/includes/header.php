@@ -15,7 +15,7 @@
             </script>";
         */
 
-        header("Location: ../../home.php?acao=negado");
+        header("Location: ../../index.php?acao=negado");
             exit;
 
 
@@ -50,6 +50,9 @@
     <!-- Jquery Carrinho -->
     <script type="text/javascript" src="../../js/jquery.js"></script>
 	<script type="text/javascript" src="../../js/functions.js"></script>
+
+    <!-- JS redimensionamento de imagem-->
+    <script type="text/javascript" src="../../js/redimensionar-img.js"></script>
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">

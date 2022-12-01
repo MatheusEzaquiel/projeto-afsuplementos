@@ -1,28 +1,4 @@
-
 <!-- Header -->
-
-<?php
-    
-    /*
-    //Caso o cliente não esteja logado, redirecione
-    ob_start();
-    @session_start(); 
-
-    if(!isset($_SESSION['loginUser']) && (!isset($_SESSION['senhaUser']))){
-
-
-        header("Location: ../../home.php?acao=negado");
-            exit;
-
-
-    }
- 
-
-    include_once('sair.php');
-
-   */
-
-?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -154,9 +130,9 @@
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="home.php?pagina=index">Home</a>
-                    <a class="breadcrumb-item text-dark" href="">Catálogo</a>
-                    <span class="breadcrumb-item active">Lista de produtos</span>
+                    <a class="breadcrumb-item text-dark" href="index.php">Home</a>
+                    <a class="breadcrumb-item text-dark" href="shop.php">Catálogo</a>
+                    <span class="breadcrumb-item active" href="#">Lista de produtos</span>
                 </nav>
             </div>
         </div>
@@ -189,22 +165,23 @@
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tipo de Produto</button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="home.php?pagina=shop&TipoProduto=0">Todos</a>
-                                            <a class="dropdown-item" href="home.php?pagina=shop&TipoProduto=1">Em pó</a>
-                                            <a class="dropdown-item" href="home.php?pagina=shop&TipoProduto=2">Bebidas</a>
-                                            <a class="dropdown-item" href="home.php?pagina=shop&TipoProduto=3">Pílulas</a>
-                                            <a class="dropdown-item" href="home.php?pagina=shop&TipoProduto=4">Barrinhas</a>
+                                            <a class="dropdown-item" href="shop.php?TipoProduto=0">Todos</a>
+                                            <a class="dropdown-item" href="shop.php?TipoProduto=1">Em pó</a>
+                                            <a class="dropdown-item" href="shop.php?TipoProduto=2">Bebidas</a>
+                                            <a class="dropdown-item" href="shop.php?TipoProduto=3">Pílulas</a>
+                                            <a class="dropdown-item" href="shop.php?TipoProduto=4">Barrinhas</a>
+                                            <a class="dropdown-item" href="shop.php?TipoProduto=5">Roupas</a>
                                         </div>
                                     </div>
 
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Preço</button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="home.php?pagina=shop&filtroPreco=0">Qualquer preço</a>
-                                            <a class="dropdown-item" href="home.php?pagina=shop&filtroPreco=1">Menor que $50</a>
-                                            <a class="dropdown-item" href="home.php?pagina=shop&filtroPreco=2">$50 - $100</a>
-                                            <a class="dropdown-item" href="home.php?pagina=shop&filtroPreco=3">$100 - $200</a>
-                                            <a class="dropdown-item" href="home.php?pagina=shop&filtroPreco=4">Maior que $200</a>
+                                            <a class="dropdown-item" href="shop.php?filtroPreco=0">Qualquer preço</a>
+                                            <a class="dropdown-item" href="shop.php?filtroPreco=1">Menor que $50</a>
+                                            <a class="dropdown-item" href="shop.php?filtroPreco=2">$50 - $100</a>
+                                            <a class="dropdown-item" href="shop.php?filtroPreco=3">$100 - $200</a>
+                                            <a class="dropdown-item" href="shop.php?filtroPreco=4">Maior que $200</a>
                                         </div>
                                     </div>
 
@@ -224,7 +201,7 @@
 
                             $selectProdutos = "SELECT * FROM tb_produto WHERE disponibilidade_produto = 1";
 
-                           
+                            //filtro de produtos
                             include("cliente/paginas/conteudo/filtro-shop/filtro.php");
 
                             try {
@@ -252,7 +229,7 @@
                         
                                 <div class="product-item bg-light mb-4">
                                     <div class="product-img position-relative overflow-hidden">
-                                        <img class="img-fluid w-100" src="imgs/produtos/<?php echo $produto['foto_produto'];?>" alt="foto-produto">
+                                        <img  style="width: 700px; height:500px;" class="img-fluid w-100" src="imgs/produtos/<?php echo $produto['foto_produto'];?>" alt="foto-produto">
                                         
                                         <div class="product-action">
                                             <!-- Botão enviar p/ carrinho -->
@@ -291,8 +268,8 @@
                                      echo"<script>
                                         setTimeout(
                                             function() {
-                                            window.location.replace('home.php?pagina=index');
-                                            }, 5000)
+                                            window.location.replace('shop.php');
+                                            }, 2000)
                                         </script>";
                                 }
                             } catch (PDOException $erro) {
@@ -341,16 +318,18 @@
                     <div class="col-md-4 mb-5">
                         <h5 class="text-secondary text-uppercase mb-4">Minha conta</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="../../login-cliente.php"><i class="fa fa-angle-right mr-2"></i>Login</a>
-                            <a class="text-secondary mb-2" href="../../cadastro-cliente.php"><i class="fa fa-angle-right mr-2"></i>Cadastro</a>
+                            <a class="text-secondary mb-2" href="index-login.php"><i class="fa fa-angle-right mr-2"></i>Login</a>
+                            <a class="text-secondary mb-2" href="cadastro-cliente.php"><i class="fa fa-angle-right mr-2"></i>Cadastro</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
                         <h6 class="text-uppercase mt-4 mb-3" style="color: #F9F6F6;">Nossos contatos</h6>
                         <div class="d-flex">
                             <a class="btn btn-square" style="background-color: #DF0805;border: solid 1px #DF0805;color: #F9F6F6;" href="https://www.instagram.com/af_suplementos_/"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-square ml-3" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="https://api.whatsapp.com/send?phone=5585987338264&text=teste%20amigao
-                            "><i class="fab fa-whatsapp"></i></a>
+                            <a class="btn btn-square ml-3" style="background-color: #DF0805;border: solid 1px #DF0805; color: #F9F6F6;" href="https://api.whatsapp.com/send?phone=5585987338264&text=Olá!%20venho%20diretamento%20do%20site
+                            ">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
